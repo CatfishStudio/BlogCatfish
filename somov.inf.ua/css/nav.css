@@ -1,0 +1,43 @@
+﻿/* МЕНЮ */
+nav{
+	height:40px;
+	width:950px;
+	background-image:url("../images/bimage.png");
+	margin: 0 auto;
+	position:relative;
+	top:40px;
+	box-shadow:0 0 5px rgba(0,0,0,2.5);
+	border:1px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+
+nav ul{
+	padding-top:5px;
+	padding-left:130px;
+}
+
+nav li{
+	display:inline-block;
+	list-style:none;
+	padding: 5px;
+	color:#EFEFEF;
+	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+    	text-align: left;
+	border-right: 1px solid #C0C0C0;
+}
+/* ------------------------------- */
+
+/* ЛОГОТИП */
+#logo{
+	height:109px;
+	width:107px;
+	background-image:url("../images/logo.png");
+	position:absolute;
+	left:-5px;
+	top:-20px;
+	z-index:100;
+}
+/* ------------------------------- */

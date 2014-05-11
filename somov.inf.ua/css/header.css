@@ -1,0 +1,28 @@
+﻿/* ШАПКА */
+header{
+	height:200px;
+	width:950px;
+	margin: 0 auto;
+	position:relative;
+	top:20px;
+}
+
+#display{
+	height:160px;
+	width:940px;
+	margin: 0 auto;
+	background-image:url("../images/display.png");
+	z-index:50;
+	position:relative;
+	top:28px;
+}
+
+#titleBlog{
+	position:relative;
+	top:-135px;
+	left:110px;
+	font: 36px "Myriad Pro","Arial Narrow",Helvetica,Arial,Verdana,sans-serif;
+	z-index:0;
+	color:#525252;
+}
+/* ------------------------------- */
