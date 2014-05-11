@@ -14,12 +14,12 @@ section{
 	top:20px;
 }
 
-#panel1 ul{
+.PANEL ul{
 	padding-top:5px;
 	padding-left:5px;
 }
 
-#panel1 li{
+.PANEL li{
 	height:50px;
 	width:300px;
 	display:inline-block;
@@ -33,46 +33,5 @@ section{
 	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
     	text-align: left;
 }
-
-#panel2 ul{
-	padding-top:5px;
-	padding-left:5px;
-}
-
-#panel2 li{
-	height:50px;
-	width:300px;
-	display:inline-block;
-	list-style:none;
-	padding: 10px;
-	color:#000000;
-	background-color:#E4E4E4;
-	background-image:url("../images/color1.png");
-	background-repeat:repeat-x;
-	background-position:bottom;
-	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
-    	text-align: left;
-}
-
-#panel3 ul{
-	padding-top:5px;
-	padding-left:5px;
-}
-
-#panel3 li{
-	height:50px;
-	width:300px;
-	display:inline-block;
-	list-style:none;
-	padding: 10px;
-	color:#000000;
-	background-color:#E4E4E4;
-	background-image:url("../images/color1.png");
-	background-repeat:repeat-x;
-	background-position:bottom;
-	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
-    	text-align: left;
-}
-
 
 /* ------------------------------- */

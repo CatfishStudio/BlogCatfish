@@ -18,8 +18,18 @@ header{
 }
 
 #titleBlog{
+	width:550px;
+	height:45px;
+	background-color:#FFFFFF;
+	box-shadow:0 0 25px rgba(0,0,0,5.5);
+	border:1px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+
 	position:relative;
-	top:-135px;
+	top:-100px;
 	left:110px;
 	font: 36px "Myriad Pro","Arial Narrow",Helvetica,Arial,Verdana,sans-serif;
 	z-index:0;
