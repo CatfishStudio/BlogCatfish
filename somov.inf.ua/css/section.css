@@ -27,9 +27,7 @@ section{
 	padding: 10px;
 	color:#000000;
 	background-color:#E4E4E4;
-	background-image:url("../images/color1.png");
-	background-repeat:repeat-x;
-	background-position:bottom;
+	border-bottom: 2px solid #626262;
 	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
     	text-align: left;
 }
