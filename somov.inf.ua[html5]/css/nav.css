@@ -1,5 +1,5 @@
 ﻿/* МЕНЮ */
-#nav{
+nav{
 	height:40px;
 	width:950px;
 	background-image:url("../images/bimage.png");
@@ -14,11 +14,11 @@
 	border-top-right-radius:5px;
 }
 
-#nav ul{
+nav ul{
 	padding-left:130px;
 }
 
-#nav li{
+nav li{
 	height:40px;
 	display:inline-block;
 	list-style:none;
@@ -31,7 +31,7 @@
 
 }
 
-#nav li a{
+nav li a{
 	text-decoration:none;
 	color:#EFEFEF;
 	padding-bottom:10px;
@@ -42,9 +42,9 @@
 	top:11px;
 }
 
-#nav li a:hover{
+nav li a:hover{
 	color:#666666;
-	padding-bottom:15px;
+	padding-bottom:10px;
 	padding-left:5px;
 	padding-right:5px;
 	padding-top:10px;

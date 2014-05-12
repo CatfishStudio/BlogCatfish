@@ -1,5 +1,5 @@
 ﻿/* БОКОВАЯ ПАНЕЛЬ */
-#aside{
+aside{
 	float:right;
 	height:100%;
 	width:295px;
