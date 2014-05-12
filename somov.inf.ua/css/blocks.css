@@ -1,0 +1,72 @@
+﻿
+.BLOCK1 ul{
+	padding-top:5px;
+	padding-left:5px;
+}
+
+.BLOCK1 li{
+	height:50px;
+	width:300px;
+	display:inline-block;
+	list-style:none;
+	padding: 10px;
+	color:#000000;
+	background-color:#E8E8E8;
+	border-bottom: 2px solid #626262;
+	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+    	text-align: left;
+}
+
+.BLOCK1 li:hover{
+	background-color:#D4D4D4;
+	//border-bottom: 2px solid #FF97CB;
+}
+
+.BLOCK2 ul{
+	padding-top:5px;
+	padding-left:5px;
+}
+
+.BLOCK2 li{
+	height:150px;
+	width:300px;
+	display:inline-block;
+	list-style:none;
+	padding: 10px;
+	color:#000000;
+	background-color:#E8E8E8;
+	border-bottom: 2px solid #626262;
+	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+    	text-align: left;
+}
+
+.BLOCK2 li:hover{
+	background-color:#D4D4D4;
+	//border-bottom: 2px solid #FF97CB;
+}
+
+.BLOCK3{
+	width:350px;
+	height:30px;
+	border-right: 1px solid #626262;
+	border-bottom: 1px solid #626262;
+	position:relative;
+	top:10px;
+	left:298px;
+	font: 18px "Myriad Pro","Arial Narrow",Helvetica,Arial,Verdana,sans-serif;
+	z-index:0;
+	color:#626262;
+}
+
+.BLOCK4{
+	width:200px;
+	height:20px;
+	border-right: 1px solid #626262;
+	border-bottom: 1px solid #626262;
+	position:relative;
+	top:10px;
+	left:90px;
+	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+    	z-index:0;
+	color:#626262;
+}
