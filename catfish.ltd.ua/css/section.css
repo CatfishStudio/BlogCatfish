@@ -1,0 +1,16 @@
+﻿/* КОНТЕНТ */
+#section{
+	height:800px;
+	width:950px;
+	margin: 0 auto;
+	background-color:#FFFFFF;
+	box-shadow:0 0 10px rgba(0,0,0,2.5);
+	border:1px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	position:relative;
+	top:20px;
+}
+/* ------------------------------- */
