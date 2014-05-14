@@ -1,0 +1,12 @@
+﻿/* БОКОВАЯ ПАНЕЛЬ */
+#aside{
+	float:right;
+	height:100%;
+	width:295px;
+	background-color:#FFFFFF;
+	border:1px;
+	border-left: 1px dotted #C0C0C0;
+	border-bottom-right-radius:5px;
+	border-top-right-radius:5px;
+
+}
