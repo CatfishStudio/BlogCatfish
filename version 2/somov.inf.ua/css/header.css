@@ -9,9 +9,10 @@
 
 #display{
 	height:160px;
-	width:940px;
+	width:935px;
 	margin: 0 auto;
 	background-image:url("../images/display.png");
+	z-index:50;
 	position:relative;
 	top:28px;
 }
@@ -19,14 +20,14 @@
 #titleBlog{
 	width:350px;
 	height:30px;
-	border-right: 1px solid #626262;
-	border-bottom: 1px solid #626262;
+	border-right: 1px solid #EFEFEF;
+	border-bottom: 1px solid #EFEFEF;
 	position:relative;
 	top:-10px;
 	left:580px;
 	font: 18px "Myriad Pro","Arial Narrow",Helvetica,Arial,Verdana,sans-serif;
-	color:#626262;
 	z-index:100;
+	color:#EFEFEF;
 }
 
 /* ------------------------------- */
