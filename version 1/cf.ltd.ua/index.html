@@ -1,0 +1,37 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<title></title>
+</head>
+<body>
+	<div id="bgImage"></div>
+	<table id="content">
+		<tbody>
+		<tr id="all_content">
+			<td>
+				<div id="logo"><img src="images/logo.png" alt="Catfish Studio"></div>
+				<div id="button1"><img src="images/button.png" alt=""></div>
+				<div id="button2"><img src="images/button.png" alt=""></div>
+				<div id="button3"><img src="images/button.png" alt=""></div>
+				<div id="button4"><img src="images/button.png" alt=""></div>
+				<div id="slideShow">
+					<object width="930" height="480" data="images/Banner.swf">
+					<param name="wmode" value="transparent"> <!-- необходимо для z-index -->
+					</object> 
+				</div>
+				<div id="leftSideBar">...</div>
+				<div id="rightSideBar">
+					<script type="text/javascript" src="//vk.com/js/api/openapi.js?105"></script>
+					<!-- VK Widget -->
+					<div id="vk_groups"></div>
+					<script type="text/javascript">
+					VK.Widgets.Group("vk_groups", {mode: 2, width: "270", height: "430"}, 62618339);
+					</script>
+				</div>
+				<div id="footer"><h4>Copyright &copy 2014 Catfish Studio. All rights reserved.</h4></div>
+			</td>
+		</tr>
+		</tbody>
+</table>
+</body>
+</html>
