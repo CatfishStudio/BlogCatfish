@@ -81,7 +81,7 @@
 	top:10px;
 	left:90px;
 	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
-    	z-index:0;
+    z-index:0;
 	color:#626262;
 }
 
@@ -92,7 +92,7 @@
 	top:15px;
 	left:10px;
 	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
-    	z-index:0;
+    z-index:0;
 	color:#626262;
 }
 
@@ -123,7 +123,7 @@
 	background-color:#E8E8E8;
 	border-bottom: 2px solid #626262;
 	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
-    	text-align: left;
+    text-align: left;
 }
 
 .BLOCK6 li:hover{
@@ -169,7 +169,7 @@
 	background-color:#E8E8E8;
 	border-bottom: 2px solid #626262;
 	font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
-    	text-align: left;
+    text-align: left;
 }
 
 .BLOCK8 li:hover{
@@ -179,4 +179,10 @@
 .BLOCK8 img{
 	float:left; /* Выравнивание по левому краю */
     margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+}
+
+.BLOCK_SHOW_GAME{
+	padding-left:100px;
+	width:800px;
+	height:600px;
 }
