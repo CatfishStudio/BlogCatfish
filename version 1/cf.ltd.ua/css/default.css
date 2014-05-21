@@ -56,12 +56,13 @@ body {
 	z-index: 100;
 }
 
-#slideShow{
+#display{
 	background-color: #FFFFFF;
-	position:absolute;
-	left: 10px;
-	top: 10px;
-	z-index: 0;
+    height: 480px;
+    left: 10px;
+    position: absolute;
+    top: 10px;
+    width: 930px;
 }
 
 #leftSideBar{
