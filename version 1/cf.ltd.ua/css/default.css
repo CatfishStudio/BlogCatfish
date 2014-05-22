@@ -65,13 +65,23 @@ body {
     width: 930px;
 }
 
+#display img{
+	box-shadow: 0 0 10px rgb(10, 30, 100);
+}
+
+#description{
+	width:630px;
+	text-align:center;
+}
+
 #gamePanel{
-	background-color: #1D3661;
+	background-color: #FFFFFF;
 	height: 480px;
 	width: 300px;
 	position: absolute;
 	left: 630px;
 	top: 0;
+	
 }
 
 #leftSideBar{
@@ -167,7 +177,6 @@ body {
 	visibility:visible;
 	left:-630px;
 	top:0;
-	/*z-index:500;*/
 }
 
 #Block1 div{		/*исходные настройки внутреннего блока*/
