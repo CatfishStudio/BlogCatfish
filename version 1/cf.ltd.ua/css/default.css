@@ -65,6 +65,15 @@ body {
     width: 930px;
 }
 
+#gamePanel{
+	background-color: #1D3661;
+	height: 480px;
+	width: 300px;
+	position: absolute;
+	left: 630px;
+	top: 0;
+}
+
 #leftSideBar{
 	background-color: #FFFFFF;
 	position:absolute;
@@ -127,4 +136,49 @@ body {
 	left: 620px;
 	top: -60px;
 	z-index: 90;
+}
+
+
+/*------------------------------------------------------*/
+#Block1{
+	padding-top:15px;
+	width:300px;
+	height:50px;
+	background-color:#FFFFFF;
+	text-align:right;
+	color:#000000;
+}
+
+#Block1 a{
+	text-decoration:none;
+}
+
+#Block1:hover{	/*при навидении на блок*/
+	cursor:pointer;
+	text-align:center;
+}
+
+#Block1:hover div{	/*при наведении на блок отображается внутренний блок*/
+	position:absolute;
+	height:480px;
+	width:630px;
+	cursor:default;
+	background-color:#FFFFFF;
+	visibility:visible;
+	left:-630px;
+	top:0;
+	/*z-index:500;*/
+}
+
+#Block1 div{		/*исходные настройки внутреннего блока*/
+	height:500px;
+	width:500px;
+	background-color:#FDE6B9;
+	visibility:hidden;
+}
+/*------------------------------------------------------*/
+
+
+.clear {
+    clear: both;
 }
