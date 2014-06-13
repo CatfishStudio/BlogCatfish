@@ -1,0 +1,298 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html leng="ru">
+	<head>
+		<title>Синтаксис языка C#</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/nav.css">
+		<link rel="stylesheet" href="css/header.css">
+		<link rel="stylesheet" href="css/section.css">
+		<link rel="stylesheet" href="css/aside.css">
+		<link rel="stylesheet" href="css/footer.css">
+		<link rel="stylesheet" href="css/font.css">
+		<link rel="stylesheet" href="css/blocks.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="nav">
+				<div id="logo"></div>
+				<div>
+					<ul>
+						<li><a href="http://somov.inf.ua">Блог разработчика</a></li>
+						<li><a href="http://catfish.ltd.ua">Программное обеспечение</a></li>
+						<li><a href="http://cf.ltd.ua">Студия игр</a></li>
+					</ul>
+				</div>
+		
+			</div>
+
+			<div id="header">
+				<div id="display"></div>
+				<dir id="titleBlog">DEVELOPER: SOMOV EVGENIY</dir>
+			</div>
+
+			<div id="section">
+
+				<div id="aside">
+					<div class="BLOCK4">Справочники:</div>
+					<div class="BLOCK5"><a href="cpp.html" target="_self">Язык программирования С++</a></div>
+					<div class="BLOCK5"><a href="cs.html" target="_self">Язык программирования С#</a></div>
+					<div class="BLOCK5"><a href="as3.html" target="_self">Язык программирования AS3</a></div>
+					<div class="BLOCK5"><a href="php.html" target="_self">Язык программирования PHP</a></div>
+					<div class="BLOCK5"><a href="js.html" target="_self">Язык программирования JS</a></div>
+					<div class="BLOCK5"><a href="j.html" target="_self">Язык программирования Java</a></div>
+					<div class="BLOCK5"><a href="asm.html" target="_self">Язык программирования ASM</a></div>
+					<br>
+					<div class="BLOCK4">Программный код:</div>
+					<div class="BLOCK5"><a href="flash.html" target="_self">Flash разработка</a></div>
+					<div class="BLOCK5"><a href="unity3d.html" target="_self">Unity3D разработка</a></div>
+					<div class="BLOCK5"><a href="net.html" target="_self">Net.Framework разработка</a></div>
+					<br>
+					<div class="BLOCK4">Средства разработки:</div>
+					<div class="BLOCK5"><a href="http://www.flashdevelop.org/" target="_blank">Flash Develop</a></div>
+					<div class="BLOCK5"><a href="http://www.icsharpcode.net/opensource/sd/" target="_blank">Sharp Develop</a></div>
+					<br>
+					<div class="BLOCK4">Графические движки:</div>
+					<div class="BLOCK5"><a href="http://unity3d.com/ru" target="_blank">Графический движок Unity3D</a></div>
+					<div class="BLOCK5"><a href="http://www.pixijs.com/" target="_blank">Графический движок Pixi.js</a></div>
+					<div class="BLOCK5"><a href="http://www.greensock.com/tweenlite/" target="_blank">Графический движок TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gamua.com/starling/" target="_blank">Графический движок Starling</a></div>
+					<br>
+					<div class="BLOCK4">Сторонние публикации:</div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/47411/" target="_blank">Работа с классом TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gcmob.ru/load/engine/online/6" target="_blank">Движки на HTML5 и Flash</a></div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/174603/" target="_blank">Pixi.js — 2D движок с прозрачной поддержкой WebGL</a></div>
+					<br>
+				</div>
+
+				<div class="BLOCK3">Синтаксис языка C#: Типы данных</div>
+				<div class="BLOCK3_2">- Объявление переменных: sbyte, byte, short, ushort, int, uint, long, ulong
+					<br>int i = 10;
+					<br>long l = -1234;
+					<br>ulong ul = 9;
+					<br>int i16 = 0xf;
+					<br>
+					<br>- Объявление переменных: float, double, decimal
+					<br>float f = 1.2f;
+					<br>double d = 3.6e+5;
+					<br>decimal dec = 34356.234567m;
+					<br>
+					<br>- Объявление переменных: char
+					<br>char c = 'a';
+					<br>таблица управляющих символов
+					<br>\' -одинарная кавычка
+					<br>\" -двойная кавычка
+					<br>\\ -обратная косая
+					<br>\0 -символ null
+					<br>\b -возврат (backspace)
+					<br>\f -перевод страницы
+					<br>\a -звонок
+					<br>\n -новая строка
+					<br>\r -возврат корретки
+					<br>\t -горизонтальная табуляция
+					<br>\v -вертикальная табуляция
+					<br>
+					<br>- Объявление переменных: bool, Bool, Boolean
+					<br>bool bt = true;
+					<br>bool bf = false;
+					<br>
+					<br>- Приведение типов
+					<br>short s = 1;
+					<br>int i = 10;
+					<br>s = (short)i;
+					<br>Convert.ToInt32(str);
+					<br>
+					<br>- Значение null
+					<br>str = null;
+				</div>
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Оператор checked</div>
+			<div class="BLOCK3_2">- Оператор приводит к генерации исключения при присвоении значения за пределы допустимые типом
+				<br>try {
+				<br>checked
+				<br>{
+				<br>s = (short)(i * 2);
+				<br>}
+				<br>} catch {
+				<br>Messagebox.show("error");
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Константы</div>
+			<div class="BLOCK3_2">
+				<br>const int LENGTH = 3;
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Строки</div>
+			<div class="BLOCK3_2">
+				<br>string str = "hello";
+				<br>system.Console.WriteLine(str);
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Перечисление</div>
+			<div class="BLOCK3_2">
+				<br>enum Planet : long {
+				<br>Venus = 255;
+				<br>Mars = 687;
+				<br>}
+				<br>Обращение к перечислению
+				<br>system.Console.WriteLine("Марс: " + (long)Planet.Mars);
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Операторы</div>
+			<div class="BLOCK3_2">- Арифметические: +, -, *, /, %
+				<br>- Сравнение: ==, !=, >, >=, <, <=
+				<br>- Логические: && (И), || (ИЛИ), ! (НЕ)
+				<br>- Тернарный: int res = 10 > 1 ? 20: 10;
+				<br>- Побитовые: & (и), | (или), ^ (исключающее или), ~ (не), << (сдвиг), >> (сдвиг)
+				<br>- Сокращение: += (сложение), -= (вычитание), *= (умножение), /= (деление)
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Операторы IS</div>
+			<div class="BLOCK3_2">- Определяет пренадлежность к константе. Проверка переменной является ли она соответствующим типом.
+				<br>int num = 0;
+				<br>bool compatible = num is int;
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Условие</div>
+			<div class="BLOCK3_2">- Спецсимволы условий:
+				<br>== (равно); != (не равно); 
+				<br>< (меньше); <= (меньше или равно); 
+				<br>> (больше); >= (больше или равно); 
+				<br>&& (логическое И); || (логическое ИЛИ); ! (логическое НЕ);
+				<br>
+				<br>int num = 5;
+				<br>if (num > 0 && num < 10 && num != 3){
+				<br>//...
+				<br>} else {
+				<br>//...
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Оператор выбора</div>
+			<div class="BLOCK3_2">- Если текстовое значение:
+				<br>string planet = "Mars";
+				<br>switch (planet) {
+				<br>case "Mars":
+				<br>//...
+				<br>break;
+				<br>case "Venus":
+				<br>//...
+				<br>break;
+				<br>default:
+				<br>//...
+				<br>}
+				<br>
+				<br>int planet = 4;
+				<br>switch (planet) {
+				<br>case 1:
+				<br>//...
+				<br>break;
+				<br>case 2:
+				<br>//...
+				<br>break;
+				<br>default:
+				<br>//...
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Циклы</div>
+			<div class="BLOCK3_2">- Цикл с предусловием
+				<br>int w = 1;
+				<br>while (w <= 5) {
+				<br>w++;
+				<br>}
+				<br>
+				<br>- Цикл с постусловием
+				<br>int d = 10;
+				<br>do {
+				<br>d--;
+				<br>} while (d > 1);
+				<br>
+				<br>- Цикл счётчик
+				<br>for (int i = 0; i <= 10; i++) {
+				<br>//...
+				<br>}
+				<br>
+				<br>- Цикл типа foreach выполняет обход набора элементов
+				<br>int[] value = {2,4,3,5,1};
+				<br>foreach (int count in value){
+				<br>MessageBox.Show("Значение: " + value[count].ToString());
+				<br>}
+				<br>
+				<br>- Дополнительные операторы циклов
+				<br>break; // завершение цикла
+				<br>continue; //переход к выполнению следующей интерации
+				<br>goto label; // переход к метке
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Классы</div>
+			<div class="BLOCK3_2">- Определение классов.
+				<br>class MyClass:BigClass // класс наследуется от другого класса BigClass
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;public MyClass() // конструктор
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_property = "";
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;public string GetProprty() // метод
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return _property;
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;public string Property // свойство
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get {return _property;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set {_property = value;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;private string _property; // поле
+				<br>}
+				<br>
+				<br>- Работа с классом
+				<br>MyClass myClass1 = new MyClass();
+				<br>myClass1.Property = "значение";
+				<br>string str = myClass1.GetProprty();
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Операторы this</div>
+			<div class="BLOCK3_2">- Ссылка на текущий объект.
+				<br>public class Car {
+				<br>&nbsp;&nbsp;&nbsp;public int year;
+				<br>&nbsp;&nbsp;&nbsp;public void SetY(int _year){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.year = _year;
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C#: Структура</div>
+			<div class="BLOCK3_2">- Подобие класса но более облегченный вариант.
+				<br>public struct Rectangle
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;public int Width;
+				<br>&nbsp;&nbsp;&nbsp;public int Height;
+				<br>&nbsp;&nbsp;&nbsp;// конструктор
+				<br>&nbsp;&nbsp;&nbsp;public Rectangle(int _w, int _h)
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.Width = _w;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.Height = _h;
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;// метод
+				<br>&nbsp;&nbsp;&nbsp;public int Area()
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return Width * Height;
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>}
+				<br>
+				<br>- Работа со структурой
+				<br>Rectangle rect = new Rectangle(2, 3);
+				<br>rect.Width = 10;
+				<br>rect.Area();
+				<br>
+			</div>
+			
+			<div id="footer">
+				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

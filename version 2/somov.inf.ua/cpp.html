@@ -1,0 +1,212 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html leng="ru">
+	<head>
+		<title>Синтаксис языка C++</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/nav.css">
+		<link rel="stylesheet" href="css/header.css">
+		<link rel="stylesheet" href="css/section.css">
+		<link rel="stylesheet" href="css/aside.css">
+		<link rel="stylesheet" href="css/footer.css">
+		<link rel="stylesheet" href="css/font.css">
+		<link rel="stylesheet" href="css/blocks.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="nav">
+				<div id="logo"></div>
+				<div>
+					<ul>
+						<li><a href="http://somov.inf.ua">Блог разработчика</a></li>
+						<li><a href="http://catfish.ltd.ua">Программное обеспечение</a></li>
+						<li><a href="http://cf.ltd.ua">Студия игр</a></li>
+					</ul>
+				</div>
+		
+			</div>
+
+			<div id="header">
+				<div id="display"></div>
+				<dir id="titleBlog">DEVELOPER: SOMOV EVGENIY</dir>
+			</div>
+
+			<div id="section">
+
+				<div id="aside">
+					<div class="BLOCK4">Справочники:</div>
+					<div class="BLOCK5"><a href="cpp.html" target="_self">Язык программирования С++</a></div>
+					<div class="BLOCK5"><a href="cs.html" target="_self">Язык программирования С#</a></div>
+					<div class="BLOCK5"><a href="as3.html" target="_self">Язык программирования AS3</a></div>
+					<div class="BLOCK5"><a href="php.html" target="_self">Язык программирования PHP</a></div>
+					<div class="BLOCK5"><a href="js.html" target="_self">Язык программирования JS</a></div>
+					<div class="BLOCK5"><a href="j.html" target="_self">Язык программирования Java</a></div>
+					<div class="BLOCK5"><a href="asm.html" target="_self">Язык программирования ASM</a></div>
+					<br>
+					<div class="BLOCK4">Программный код:</div>
+					<div class="BLOCK5"><a href="flash.html" target="_self">Flash разработка</a></div>
+					<div class="BLOCK5"><a href="unity3d.html" target="_self">Unity3D разработка</a></div>
+					<div class="BLOCK5"><a href="net.html" target="_self">Net.Framework разработка</a></div>
+					<br>
+					<div class="BLOCK4">Средства разработки:</div>
+					<div class="BLOCK5"><a href="http://www.flashdevelop.org/" target="_blank">Flash Develop</a></div>
+					<div class="BLOCK5"><a href="http://www.icsharpcode.net/opensource/sd/" target="_blank">Sharp Develop</a></div>
+					<br>
+					<div class="BLOCK4">Графические движки:</div>
+					<div class="BLOCK5"><a href="http://unity3d.com/ru" target="_blank">Графический движок Unity3D</a></div>
+					<div class="BLOCK5"><a href="http://www.pixijs.com/" target="_blank">Графический движок Pixi.js</a></div>
+					<div class="BLOCK5"><a href="http://www.greensock.com/tweenlite/" target="_blank">Графический движок TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gamua.com/starling/" target="_blank">Графический движок Starling</a></div>
+					<br>
+					<div class="BLOCK4">Сторонние публикации:</div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/47411/" target="_blank">Работа с классом TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gcmob.ru/load/engine/online/6" target="_blank">Движки на HTML5 и Flash</a></div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/174603/" target="_blank">Pixi.js — 2D движок с прозрачной поддержкой WebGL</a></div>
+					<br>
+				</div>
+
+				<div class="BLOCK3">Синтаксис языка C++: Типы данных</div>
+				<div class="BLOCK3_2">int, long, short, unsigned, char, float, double, bool
+				<br><br>- Объявление переменных:
+					<br>int num = 10;
+					<br>float fnum = 12.5f;
+					<br>double dnum = 14.2;
+					<br>char c = 'c';
+					<br>char *text; char* text;
+					<br>char str[] = "строка текста";
+					<br>char *cstr = "строка текста \n";
+					<br>bool b = true;
+					<br>
+					<br>- Тип данных строка String
+					<br>#include <string>
+					<br>string *str; string* str;
+					<br>
+					<br>- Одномерные массивы
+					<br>int A[10];
+					<br>int a[] = {1,2,3};
+					<br>char str[6] = {'h','e','l','l','o','\0'};
+					<br>char *msg[] = {"hello"};
+					<br>string *str = new string[100];
+					<br>
+					<br>- Многомерный массив
+					<br>int m[5][10];
+					<br>
+					<br>- Переименование типа
+					<br>typedef int arr[10];
+					<br>arr myArr;
+				</div>
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: Структура</div>
+			<div class="BLOCK3_2">- Структура с объявленной переменной
+				<br>struct addr {
+				<br>char name[50];
+				<br>unsingned long int zip;
+				<br>addr_info
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: Объединения</div>
+			<div class="BLOCK3_2">
+				union myUnion {
+				<br>int year;
+				<br>string *str;
+				<br>};
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: Перечисления</div>
+			<div class="BLOCK3_2">
+				enum MyEnum {
+				<br>Jan = 1, feb = 2, dec = 12
+				<br>};
+				<br>MyNum mNum;
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: Процедуры</div>
+			<div class="BLOCK3_2">
+				void summa (void) { }
+				<br>void summa (int arg1, int arg2) { }
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: Функции</div>
+			<div class="BLOCK3_2">
+				int summa (void) {
+				<br>return 100;
+				<br>}
+				<br>
+				<br>int summa (int arg1, int arg2) { 
+				<br>return arg1 + arg2;
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: Условия</div>
+			<div class="BLOCK3_2">- Спецсимволы условий: 
+				<br>== (равно); != (не равно); 
+				<br>< (меньше); <= (меньше или равно); 
+				<br>> (больше); >= (больше или равно); 
+				<br>&& (логическое И); || (логическое ИЛИ); ! (логическое НЕ);
+				<br>
+				<br>bool value = true;
+				<br>if(value) {
+				<br>//...
+				<br>} else {
+				<br>//...
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: Циклы</div>
+			<div class="BLOCK3_2">- Цикл с предусловием
+				<br>int w = 1;
+				<br>while (w < 10) {
+				<br>w++;
+				<br>}
+				<br>
+				<br>- Цикл с постусловием
+				<br>int d = 10;
+				<br>do {
+				<br>d--;
+				<br>} while (d > 1);
+				<br>
+				<br>- Цикл счётчик
+				<br>for (int i = 0; i < 10; i++) {
+				<br>//...
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: оператор выбора</div>
+			<div class="BLOCK3_2">
+				char c;
+				<br>c = getche();
+				<br>switch (c) {
+				<br>case '1':
+				<br>//... 
+				<br>break;
+				<br>case '2':
+				<br>//... 
+				<br>break;
+				<br>default:
+				<br>//...
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка C++: Классы</div>
+			<div class="BLOCK3_2">
+				class MyClass {
+				<br>public:
+				<br>int memi;
+				<br>message() { };
+				<br>protected:
+				<br>private:
+				<br>}
+				<br>
+				<br>MyClass mclass;
+				<br>mclass.memi = 100;
+				<br>mclass->memi = 100;
+			</div>
+			
+			<div id="footer">
+				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
