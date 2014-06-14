@@ -65,18 +65,349 @@
 					<br>
 				</div>
 
-				<div class="BLOCK3">Unity3D: </div>
-				<div class="BLOCK3_2">
-				<br><br>
+				<div class="BLOCK3">Unity3D: Новый скрипт</div>
+				<div class="BLOCK3_2">- Новый скрипт на языке C# (имя файла: ScriptCS1.cs)
+					<br>using UnityEngine;
+					<br>using System.Collections;
+					<br>public class ScriptCS1 : MonoBehaviour {
+					<br>&nbsp;&nbsp;&nbsp;void Start () { }
+					<br>&nbsp;&nbsp;&nbsp;void Update () { }
+					<br>} 
 					<br>
+					<br>- Новый скрипт на языке JavaScript (имя файла ScriptJS1.js)
+					<br>#pragma strict
+					<br>function Start () { }
+					<br>function Update () { } 
 				</div>
 			</div>
 			<br>
-			<div class="BLOCK3">Unity3D: </div>
-			<div class="BLOCK3_2">
+			<div class="BLOCK3">Unity3D: GUI.Отображение 2D текстуры.</div>
+			<div class="BLOCK3_2">- пример на языке C# 
+				<br>public Texture2D textureLogo;
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(new Rect(Screen.width - 110,Screen.height - 110,100,100), textureLogo);
+				<br>} 
 				<br>
-				
+				<br>- пример на языке JavaScript 
+				<br>public var textureLogo: Texture2D;
+				<br>function OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(Rect(Screen.width-100, Screen.height-100, 100, 100), textureLogo);
+				<br>} 
 			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: GUI.Отображение текста.</div>
+			<div class="BLOCK3_2">- пример на языке C# 
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;var TextStyle = new GUIStyle();
+				<br>&nbsp;&nbsp;&nbsp;TextStyle.normal.textColor = Color.black;
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(new Rect(Screen.width - 150,Screen.height-15,200, 50),"Текст сообщения.",TextStyle);
+				<br>} 
+				<br>
+				<br>- пример на языке JavaScript 
+				<br>function OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;var TextStyle: GUIStyle = new GUIStyle();
+				<br>&nbsp;&nbsp;&nbsp;TextStyle.normal.textColor = Color.black;
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(Rect(10, 10, 100, 100), "Текст сообщения", TextStyle);
+				<br>} 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: GUI. Кнопка и её событие.</div>
+			<div class="BLOCK3_2">- пример на языке C# 
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;if(GUI.Button (new Rect(Screen.width / 2 - 100,Screen.height / 2 - 50,200,40),"New game")){ /*событие*/ }
+				<br>} 
+				<br>
+				<br>- пример на языке JavaScript
+				<br>function OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;if(GUI.Button(Rect(10,10, 100, 25), "New game")){ /*событие*/ }
+				<br>} 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: GUI. Панель.</div>
+			<div class="BLOCK3_2">- пример на языке C# 
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;GUI.Box(new Rect(10,10,50,Screen.height - 20),"");
+				<br>} 
+				<br>
+				<br>- пример на языке JavaScript
+				<br>function OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;GUI.Box(Rect(10,10,50,Screen.height - 20),"");
+				<br>} 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Debug. Лог в окно консоли.</div>
+			<div class="BLOCK3_2">
+				<br>Debug.Log("Play OK!!!"); 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Закрыть приложение.</div>
+			<div class="BLOCK3_2">
+				<br>Application.Quit(); 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Отключение/включение скрипта.</div>
+			<div class="BLOCK3_2">пример на языке C# (MenuOptions - это класс описаный в файле MenuOptions.cs)
+				<br>MenuOptions mo = (MenuOptions)GetComponent("MenuOptions");
+				<br>mo.enabled = true;   //включаем скрипк
+				<br>this.enabled = false;   //отключаем текущий скрипт 
+				<br>
+				<br>пример на языке JavaScript (ScriptJS2- это класс описаный в файле ScriptJS2.js)
+				<br>var SJS2: ScriptJS2;
+				<br>SJS2 = GetComponent("ScriptJS2");
+				<br>SJS2.enabled = true;   //включаем скрипк
+				<br>this.enabled = false;   //отключаем текущий скрипт
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Найти этемент по его тегу.</div>
+			<div class="BLOCK3_2">FindGameObjectWithTag() Найти этемент по его тегу.
+				<br>- пример на языке C# (поиск объекта Camera по его тегу "GameCamera") 
+				<br>GameObject go = GameObject.FindGameObjectWithTag("GameCamera");
+				<br>go.camera.enabled = true;   //включаем камеру
+				<br>this.camera.enabled = false;   //отключаем текущую камеру 
+				<br>
+				<br>пример на языке JavaScript (поиск объекта Camera по его тегу "MainCamera") 
+				<br>var MCamera : GameObject;
+				<br>MCamera = GameObject.FindGameObjectWithTag("MainCamera");
+				<br>MCamera.camera.enabled = true;   //включаем камеру
+				<br>this.camera.enabled = false;   //отключаем текущую камеру
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Смена сцены.</div>
+			<div class="BLOCK3_2">LoadLevel. Смена сцены. Загрузка уровня. (C# и JavaScript)
+				<br>Для того чтобы загружать уровни их нужно добавить в список уровне в окне Build Settings в меню File -> Build Settings... нажатием кнопки Add Current мы добавляем активную сцену в список. 
+				<br> 
+				<br>Application.LoadLevel("Scene2"); 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Координаты мыши</div>
+			<div class="BLOCK3_2">Input.mousePosition Координаты мыши (C# и JavaScript)
+				<br>Input.mousePosition
+				<br>Input.mousePosition.x
+				<br>Input.mousePosition.y
+				<br>Input.mousePosition.z 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Динамическое создание объекта</div>
+			<div class="BLOCK3_2">public Object MyObject;
+				<br>void Start () {
+				<br>&nbsp;&nbsp;&nbsp;GameObject newObject = Instantiate(MyObject) as GameObject;
+				<br>&nbsp;&nbsp;&nbsp;newObject.transform.position = new Vector3(100.0f, 10.0f, 50.0f);
+				<br>} 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: this объект.</div>
+			<div class="BLOCK3_2">GameObject MySelf;
+				<br>MySelf = this.gameObject;
+				<br>
+				<br>можно записать коротко
+				<br>this.gameObject.renderer.enabled = false; 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Подсветка объекта.</div>
+			<div class="BLOCK3_2"> Color BackColor; //цвет поумолчанию.
+				<br>void Start () {
+				<br>&nbsp;&nbsp;&nbsp;BackColor = this.gameObject.renderer.material.color; //цвет по умолчанию.
+				<br>}
+				<br>
+				<br>void OnMouseEnter () {
+				<br>&nbsp;&nbsp;&nbsp;this.gameObject.renderer.material.color = new Color(0.0f,0.0f,50.0f,10.0f);
+				<br>}
+				<br>void OnMouseExit () {
+				<br>&nbsp;&nbsp;&nbsp;this.gameObject.renderer.material.color = BackColor;
+				<br>} 
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Передача данных между скриптами.</div>
+			<div class="BLOCK3_2">Создаем модуль в котором описываем переменные и функции с параметром public, затем включаем его в сцену и свободно можем манипулировать данными.
+				<br>using UnityEngine;
+				<br>using System.Collections;
+				<br>public class Globals : MonoBehaviour {
+				<br>&nbsp;&nbsp;&nbsp;public int ship = 10;
+				<br>}
+				<br>/* Обращаемся к глобальному модулю из любого скрипта */
+				<br>Globals glM;
+				<br>glM = GameObject.FindObjectOfType(typeof(Globals)) as Globals;
+				<br>glM.ship = 100; // записать данные
+				<br>int num = glM.ship; // получить данные 
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Динамическое удаление объектов.</div>
+			<div class="BLOCK3_2">for (int iShip = 1; iShip < 6; iShip++){
+				<br>&nbsp;&nbsp;&nbsp;Destroy(GameObject.FindGameObjectWithTag("BattleShip" + iShip));
+				<br>&nbsp;&nbsp;&nbsp;//или использовать вторую конструкцию.
+				<br>&nbsp;&nbsp;&nbsp;//Destroy(GameObject.Find("warship(Clone)"));
+				<br>} 
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Динамическое восстановление скрытых объектов.</div>
+			<div class="BLOCK3_2">for (int iCell = 1; iCell < 6; iCell++){
+				<br>&nbsp;&nbsp;&nbsp;for (int jCell = 1; jCell < 6; jCell++)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject.FindGameObjectWithTag("cell" + iCell + "" +jCell).gameObject.renderer.enabled = true;
+				<br>} 
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Перемещение камеры при нажатии кнопки мыши.</div>
+			<div class="BLOCK3_2">GetMouseButton Перемещение камеры при нажатии кнопки мыши.
+				<br>Данный скрипт размещается на камере. 
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;if (Input.GetMouseButton(0)){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject gCamera = GameObject.FindGameObjectWithTag("GameCamera");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gCamera.transform.position = new Vector3(Input.mousePosition.x, gCamera.transform.position.y, gCamera.transform.position.z);
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>} 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Генератор случайных чисел.</div>
+			<div class="BLOCK3_2">Ramdom Генератор случайных чисел.
+				<br>System.Random rnd = new System.Random();
+				<br>for(int i = 0; i < 5; i++){
+				<br>&nbsp;&nbsp;&nbsp;int iCellPC = 0;
+				<br>&nbsp;&nbsp;&nbsp;iCellPC = rnd.Next(1, 5);
+				<br>   
+				<br>&nbsp;&nbsp;&nbsp;//...
+				<br>{ 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Динамическая анимация</div>
+			<div class="BLOCK3_2">Динамическая анимация (Стрелка.png)
+				<br>bool helpUp = true;
+				<br>float timer = 0.0f;
+				<br>int y1 = 35;
+				<br>int y2 = 70;
+				<br>public Texture2D textureArrow;
+				<br>void Update(){
+				<br>&nbsp;&nbsp;&nbsp;timer += Time.deltaTime;
+				<br>&nbsp;&nbsp;&nbsp;if (timer > 0.4f){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer = 0.0f;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (y1 == 35){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y1 = 45;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y2 = 80;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y1 = 35;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y2 = 70;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>} 
+				<br>
+				<br>void OnGUI(){
+				<br>if (helpUp == true)
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(new Rect(25, y1, 75, y2), textureArrow);
+				<br>} 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Перемещение объекта к назначенной целе.</div>
+			<div class="BLOCK3_2">transform. Перемещение объекта к назначенной целе. 
+				<br>public Transform target;
+   <br>public int moveSpeed;
+   <br>public int rotationSpeed;
+   <br>private Transform _myTransform;
+   <br>
+   <br>void Awake(){
+   <br>&nbsp;&nbsp;&nbsp;_myTransform = transform;
+   <br>}
+   <br>
+   <br>void Update(){
+   <br>&nbsp;&nbsp;&nbsp;//рисуем дебажную линию к цели
+   <br>&nbsp;&nbsp;&nbsp;Debug.DrawLine(target.position, _myTransform.position, Color.yellow);
+   <br>&nbsp;&nbsp;&nbsp;//поворот в сторону цели
+   <br>&nbsp;&nbsp;&nbsp;_myTransform.rotation = Quaternion.Slerp(_myTransform.rotation, Quaternion.lookRotation(target.position - _myTransform.position), rotationSpeed * Time.deltaTime);
+   <br>&nbsp;&nbsp;&nbsp;//движение к цели
+   <br>&nbsp;&nbsp;&nbsp;_myTransform.position += _myTransform.forward * moveSpeed * Time.deltaTime;
+   <br>&nbsp;&nbsp;&nbsp;//Определение дистанции и локальная замена цели
+   <br>&nbsp;&nbsp;&nbsp;if(Vector3.Distance(target.position, _myTransform.position) < 2.0f){
+   <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject go = GameObject.FindGameObjectWithTag("Player1");
+   <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target = go.transform;
+   <br>&nbsp;&nbsp;&nbsp;}
+   <br>}
+   <br>
+   <br>/* Глобальная замена цели */
+   <br>void OnMouseDown(){
+   <br>&nbsp;&nbsp;&nbsp;GameObject go = GameObject.FindGameObjectWithTag("Player2");
+   <br>&nbsp;&nbsp;&nbsp;TargetScript TS = GameObject.FindObjectOfType(typeof(TargetScript)) as TargetScript;
+   <br>&nbsp;&nbsp;&nbsp;TS.target = go.transform;
+   <br>} 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Обращение к скрепту объекта. </div>
+			<div class="BLOCK3_2">GameObject mCamera = GameObject.FindGameObjectWithTag("MenuCamera");
+   <br>PanelScript gPanel = (PanelScript)mCamera.GetComponent("PanelScript");
+   <br>gPanel.enable = false; 
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Отмена удаления объекта при смене сцены.</div>
+			<div class="BLOCK3_2">DontDestroyOnLoad. Отмена удаления объекта при смене сцены.
+				<br>void Start(){
+				<br>&nbsp;&nbsp;&nbsp;DontDestroyOnLoad(this);
+				<br>} 
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: audio. Воспроизведение звука.</div>
+			<div class="BLOCK3_2">Меню Component -> Audio -> Audio Listener (объект который слышит звук)
+<br>Меню Component -> Audio -> Audio Source (объект источник звука)
+<br>
+   <br>//включить звук
+   <br>this.audio.Play();
+   <br>//отключить звук
+   <br>this.audio.Stop();
+   <br>
+   <br>
+   <br>/* Отключить звук обратившись к камере из вне */
+   <br>GameObject goMenuCamera = GameObject.FindGameObjectWithTag("MenuCamera");
+   <br>goMenuCamera.audio.Stop();
+   <br>
+   <br>
+   <br>/* Отдельное воспроизведение звуков */
+   <br>public class Level2_GamePanel : MonoBehavior {
+    <br>&nbsp;&nbsp;&nbsp;public AudioClip soundFire;
+    <br>&nbsp;&nbsp;&nbsp;public AudioClip soundBoom;
+    <br>  
+    <br>&nbsp;&nbsp;&nbsp;public void Fire(){
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio.PlayOneShot(soundFire);
+    <br>&nbsp;&nbsp;&nbsp;}
+    <br>  
+    <br>&nbsp;&nbsp;&nbsp;public void Boom(){
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio.PlayOneShot(soundBoom);
+    <br>&nbsp;&nbsp;&nbsp;}
+   <br>}
+   <br>//вызов процедур данного класса из другого класса.
+   <br>GameObject mCamera = GameObject.FindGameObjectWithTag("MainCamera");
+   <br>Level2_GamePanel L2gp = (Level2_GamePanel)mCamera.GetComponent("Level2_GamePanel");
+   <br>L2gp.Fire();
+   <br>L2gp.Boom(); 
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Unity3D: Объектный пул. Object pool.</div>
+			<div class="BLOCK3_2">List<> Объектный пул. Object pool.
+				<br>static public List poolCellsUser;
+   <br>static public Transform selectedObjectPool;
+	<br>
+   <br>//Запись объектов в лист
+   <br>public GameObject objectCellUser;
+   <br>void AddCellsUserInObjectPool(){
+   <br>&nbsp;&nbsp;&nbsp;GameObject newObj = Instantiate(objectCellUser) as GameObject;
+   <br>&nbsp;&nbsp;&nbsp;newObj.transform.position = _vPosCell;
+   <br>&nbsp;&nbsp;&nbsp;newObj.name = objectCellUser.name;
+   <br>&nbsp;&nbsp;&nbsp;newObj.tag = "CellUser" + i + "" + n;
+   <br>
+   <br>&nbsp;&nbsp;&nbsp;//Записать элемент в пул
+   <br>&nbsp;&nbsp;&nbsp;poolCellsUser.Add(newObj.transform);
+   <br>&nbsp;&nbsp;&nbsp;}
+   <br>    }
+   <br>    Destroy(objectCellUser); //удаляем шаблоны
+   <br>}
+<br>
+   <br>//Обращение к листу
+   <br>selectedObjectPool = poolCellsUser[1].gameObject.transform;
+   <br>poolCellsUser[1].gameObject.transform.position = new Vector3(x, y, z);
+   <br>Destroy(poolCellsUser[1]); 
+			</div>
+			
 			
 			<div id="footer">
 				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
