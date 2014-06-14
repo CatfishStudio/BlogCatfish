@@ -1,0 +1,545 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html leng="ru">
+	<head>
+		<title>Синтаксис языка PHP</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/nav.css">
+		<link rel="stylesheet" href="css/header.css">
+		<link rel="stylesheet" href="css/section.css">
+		<link rel="stylesheet" href="css/aside.css">
+		<link rel="stylesheet" href="css/footer.css">
+		<link rel="stylesheet" href="css/font.css">
+		<link rel="stylesheet" href="css/blocks.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="nav">
+				<div id="logo"></div>
+				<div>
+					<ul>
+						<li><a href="http://somov.inf.ua">Блог разработчика</a></li>
+						<li><a href="http://catfish.ltd.ua">Программное обеспечение</a></li>
+						<li><a href="http://cf.ltd.ua">Студия игр</a></li>
+					</ul>
+				</div>
+		
+			</div>
+
+			<div id="header">
+				<div id="display"></div>
+				<dir id="titleBlog">DEVELOPER: SOMOV EVGENIY</dir>
+			</div>
+
+			<div id="section">
+
+				<div id="aside">
+					<div class="BLOCK4">Справочники:</div>
+					<div class="BLOCK5"><a href="cpp.html" target="_self">Язык программирования С++</a></div>
+					<div class="BLOCK5"><a href="cs.html" target="_self">Язык программирования С#</a></div>
+					<div class="BLOCK5"><a href="as3.html" target="_self">Язык программирования AS3</a></div>
+					<div class="BLOCK5"><a href="php.html" target="_self">Язык программирования PHP</a></div>
+					<div class="BLOCK5"><a href="js.html" target="_self">Язык программирования JS</a></div>
+					<div class="BLOCK5"><a href="j.html" target="_self">Язык программирования Java</a></div>
+					<div class="BLOCK5"><a href="asm.html" target="_self">Язык программирования ASM</a></div>
+					<br>
+					<div class="BLOCK4">Программный код:</div>
+					<div class="BLOCK5"><a href="flash.html" target="_self">Flash разработка</a></div>
+					<div class="BLOCK5"><a href="unity3d.html" target="_self">Unity3D разработка</a></div>
+					<div class="BLOCK5"><a href="net.html" target="_self">Net.Framework разработка</a></div>
+					<br>
+					<div class="BLOCK4">Средства разработки:</div>
+					<div class="BLOCK5"><a href="http://www.flashdevelop.org/" target="_blank">Flash Develop</a></div>
+					<div class="BLOCK5"><a href="http://www.icsharpcode.net/opensource/sd/" target="_blank">Sharp Develop</a></div>
+					<br>
+					<div class="BLOCK4">Графические движки:</div>
+					<div class="BLOCK5"><a href="http://unity3d.com/ru" target="_blank">Графический движок Unity3D</a></div>
+					<div class="BLOCK5"><a href="http://www.pixijs.com/" target="_blank">Графический движок Pixi.js</a></div>
+					<div class="BLOCK5"><a href="http://www.greensock.com/tweenlite/" target="_blank">Графический движок TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gamua.com/starling/" target="_blank">Графический движок Starling</a></div>
+					<br>
+					<div class="BLOCK4">Сторонние публикации:</div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/47411/" target="_blank">Работа с классом TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gcmob.ru/load/engine/online/6" target="_blank">Движки на HTML5 и Flash</a></div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/174603/" target="_blank">Pixi.js — 2D движок с прозрачной поддержкой WebGL</a></div>
+					<br>
+				</div>
+
+				<div class="BLOCK3">Синтаксис PHP: Переменные</div>
+				<div class="BLOCK3_2">- Переменные $. Объявление переменных.
+				<br>ЧИСЛОВЫЕ ПЕРЕМЕННЫЕ
+				<br>Целые числа:      5, 591, 52 и т.д.
+				<br>Восьмеричные числа (серия цифр от 0 до 7):    0422,  0534, и т.д.
+				<br>Шестнадцатеричные целые числа (префикс 0х или 0Х серия цифр от 0 до 9 и букв от а(А) до f(F)):  0x3FF,  0x22abc, и т.д.
+				<br>Числа с плавающей точкой:
+				<br>Стандартная запись (денежные велечины)  12.54,   98.6                
+				<br>Научная запись 3e8,   5.97336e24  (через точку)
+				<br>
+				<br>СТРОЧНЫЕ ПЕРЕМЕННЫЕ
+				<br>Строки делятся на две категории в зависимости от типа организации: " "  и  ' '
+				<br>$food = "meatloaf";
+				<br>$food = 'meatloaf';
+				<br>строки заключенных в кавычки, заменяются соответствующими значениями, а строки в апострофах интерпретируются буквально, даже если в них присутствуют имена переменных
+				<br>$sentence = "My favorite food is $food";  //в результате My favorite food is meatloaf
+				<br>$sentence2 = 'My favorite food is $food';  //в результате My favorite food is $food
+				<br>
+				<br>Таблица: Служебных символов в строках.
+				<br>Символ: Значение:
+				<br>\n Новая строка.
+				<br>\r Возврат курсора.
+				<br>\t Горизонтальная табуляция.
+				<br>\\ Обратная косая черта.
+				<br>\$ Знак доллара.
+				<br>\” Кавычки.
+				<br>\[0-7]{1,3} Восьмеричная запись числа.
+				<br>\x[0-9A-Fa-f]{1,2} Шестнадцатеричная запись числа
+				<br>
+				<br>В строках, заключенных в кавычки, распознаются все существующие служебные символы, а в строках, заключенных в апострофы, - только служебные символы «\\» и «\».
+				<br>$double_list = "item1\nitem2\nitem2"; //в результате учитывается \n и переносится на новую строку
+				<br>$single_list = 'item1\nitem2\nitem2';    //в результате получаем строку item1\nitem2\nitem2
+				<br>Обращение к отделным символам строк.
+				<br>$sequence_number = "Hello world!"; // строка
+				<br>$letter = Ssequence_number[4];        // получаем 4-й символ из массива символов
+				</div>
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Одномерные массивы</div>
+			<div class="BLOCK3_2">- Одномерные массивы создаются следующим образом:
+				<br>$meat[0] = "chicken";
+				<br>$meat[l] = "steak";
+				<br>$meat[2] = "turkey";
+				<br>Вывод при выполнении следующей команды:
+				<br>print $meat[1];
+				<br>
+				<br>При создании массивов можно воспользоваться функцией array()
+				<br>$meat = аrrау("chicken", "steak", "turkey");
+				<br>Вывод при выполнении следующей команды:
+				<br>print $meat[1];
+				<br>
+				<br>Чтобы включить новый элемент в конец массива, можно просто присвоить значение переменной массива без указания индекса. Следовательно, массив $meat можно создать еще одним способом:
+				<br>$meat[] = "chicken";
+				<br>$meat[] = "steak";
+				<br>$meat[] = "turkey";
+				<br>Вывод при выполнении следующей команды:
+				<br>print $meat[1];
+				<br>
+				<br>
+				<br>- Одномерные ассоциативные массивы
+				<br>Ассоциативные массивы особенно удобны в ситуациях, когда элементы массива удобнее связывать со словами, а не с числами.
+				<br>$pairings["zinfandel"] = "Broiled Veal Chops";
+				<br>$pairings["merlot"] = "Baked Ham";
+				<br>$pairings["sauvignon"] = "Prime Rib";
+				<br>$pairings["sauternes"] = "Roasted Salmon";
+				<br>Вывод при выполнении следующей команды:
+				<br>print $pairings["merlot"]; 
+				<br>
+				<br>Ассоциативные массивы можно создавать функцией РНР аггау():
+				<br>$pairings = аrrау(
+				<br>zinfandel => "Broiled Veal Chops",
+				<br>merlot => "Baked Ham",
+				<br>sauvignon => "Prime Rib",
+				<br>sauternes => "Roasted Salmon");
+				<br>Вывод при выполнении следующей команды:
+				<br>print $pairings["merlot"];
+				<br>
+				<br>ПРИМЕРЫ:
+				<br>/* Первый способ создания массива  */
+				<br>$name[0] = "Саша";
+				<br>$name[1] = "Маша";
+				<br>echo $name[1];
+				<br>
+				<br>/* Второй способ создания массива  */
+				<br>$name = array(0 => "Саша", 1 => "Маша");
+				<br>$name = array("Саша","Маша");
+				<br>
+				<br>/* Ассоциативный массив */
+				<br>$capital ["Russia"] = "Москва";
+				<br>$capital ["USA"] = "Вашингтон";
+				<br>$capital ["France"] = "Париж";
+				<br>$capital ["Ukraine"] = "Киев";
+				<br>$capital ["Itali"] = "Рим";
+				<br>echo $capital["Ukraine"];
+				<br>
+				<br>$naselenie = array("Russia" => "150", "USA" => "250");
+				<br>echo "Столица Украины ".$capital["Ukraine"]." население ".$naselenie["Ukraine"]." миллионов. ";
+				<br>echo "Столица Украины $capital[Ukraine]";
+				<br>
+				<br>$auto["bmw"] = array("color"=>"Белый", "year"=>"2005", "pr"=>"2000");
+				<br>$auto["audi"] = array("color"=>"Черный", "year"=>"2003", "pr"=>"2200");
+				<br>echo "Год AUDI - ".$auto["audi"]["year"];
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Многомерныемассивы</div>
+			<div class="BLOCK3_2">- Многомерные индексируемые массивы
+				<br>Пример ссылки на элемент двухмерного индексируемого массива:
+				<br>$position = $chess_board[5][4];
+				<br>
+				<br>Многомерные ассоциативные массивы
+				<br>$pairings["Martinelli"]["zinfandel"] = "Broiled Veal Chops";
+				<br>$pairings["Beringer"]["merlot"] = "Baked Ham";
+				<br>$pairings["Jarvis"]["sauvignon"] = "Prime Rib";
+				<br>$pairings["Climens"]["sauternes"] = "Roasted Salmon";
+				<br>Смешанное индексирование
+				<br>$Buckeyes["quarterback"] [1] = "Bellisari";
+				<br>$Buckeyes["quarterback"] [2] = "Moherman":
+				<br>$Buckeyes["quarterback"] [3] = "Wiley";
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Объекты</div>
+			<div class="BLOCK3_2">- Объект представляет собой переменную, экземпляр которой создается по специальному шаблону, называемому классом. Концепции объектов и классов являются неотъемлемой частью парадигмы объектно-ориентированного программирования (ООП). Объекты должны объявляться явно.
+				<br>Пример объявления класса и последующего создания объектов на его основе:
+				<br>class appliance { 
+				<br>&nbsp;&nbsp;&nbsp;var power: 
+				<br>&nbsp;&nbsp;&nbsp;function set_power($on_off) {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->power = $on_off; 
+				<br>&nbsp;&nbsp;&nbsp;} 
+				<br>}
+				<br>...
+				<br>$blender = new appliance;
+				<br>$blender->set_power("on");  //задаем мощность
+				<br>
+				
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Оператор условия IF</div>
+			<div class="BLOCK3_2">- Знаки и другие дополнения
+				<br>and (и)
+				<br>or (или)
+				<br>xor   
+				<br>== (равно)
+				<br>!= (не равно)
+				<br>< (меньше)
+				<br>> (больше)
+				<br><> (не равно)
+				<br><= (меньше или равно)
+				<br>=> (больше или равно)
+				<br>
+				<br>- Синтаксис условий
+				<br>$a = 10;
+				<br>if ( $a == 10) {
+                <br>&nbsp;&nbsp;&nbsp;echo "значение =  10";
+				<br>} else {
+                <br>&nbsp;&nbsp;&nbsp;echo "значение не равно  10 а равно $a";
+				<br>}
+				<br>
+				<br>$b = " грн.";
+				<br>if ($a == 10 and $b = ' грн.') {
+                <br>&nbsp;&nbsp;&nbsp;echo "сумма   $a $b";
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Циклы</div>
+			<div class="BLOCK3_2">- Оператор цикла while (цикл, с предусловием)
+				<br>$a = 10;
+				<br>$b = 0;
+				<br>while ($b < $a){
+                <br>&nbsp;&nbsp;&nbsp;echo " $b";
+                <br>&nbsp;&nbsp;&nbsp;$b++;
+				<br>}
+				<br>
+				<br>- Оператор цикла do (цикл, с постусловием)
+				<br>$a = 10;
+				<br>$b = 0;
+				<br>do{
+                <br>&nbsp;&nbsp;&nbsp;echo " $b";
+                <br>&nbsp;&nbsp;&nbsp;$b++;
+				<br>} while ($b < $a);
+				<br>
+				<br>- Оператор цикла for (цикл со счетчиком)
+				<br>for ($a=10, $b=0 ; $b < $a ; $b++){
+                <br>&nbsp;&nbsp;&nbsp;echo " $b";
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Оператор выбора</div>
+			<div class="BLOCK3_2">- Оператор выбора switch
+				<br>$sposob = "Почта";
+				<br>switch ($sposob)
+				<br>{
+				<br>case "Банк":
+				<br>&nbsp;&nbsp;&nbsp;echo "Оплата чарез Банк...";
+				<br>&nbsp;&nbsp;&nbsp;break;
+				<br>case "Почта":
+				<br>&nbsp;&nbsp;&nbsp;echo "Оплата чарез Почту..";
+				<br>&nbsp;&nbsp;&nbsp;break;
+				<br>default: 
+				<br>&nbsp;&nbsp;&nbsp;echo "Вы не выбрали способ оплаты";
+				<br>&nbsp;&nbsp;&nbsp;break;
+				<br>}
+				
+				
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Работа с почтой</div>
+			<div class="BLOCK3_2">- Одной строкой можно отправить сообщение по почте:
+				<br>$m = mail("admin@luganskprog.com", "Тема сообщения", "Само сообщение");
+				<br>
+				<br>Если используется сервер для тестирования то это письмо отправится и будет хранится по адресу:
+				<br>C:\WebServer\tmp\!Sendmail\
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Функции</div>
+			<div class="BLOCK3_2">Синтаксис функции:
+				<br>function <имя>(<описание атрибутов>)
+				<br>{
+				<br>// тело функции.
+				<br>}
+				<br>
+				<br>function square($a)
+				<br>{
+				<br>$result = $a * $a;
+				<br>echo $result;
+				<br>}
+				<br>
+				<br>$new = 80;
+				<br>echo “Квадрат 7 равен – “;
+				<br>square(7);
+				<br>echo “Квадрат $new – “;
+				<br>square($new);
+				<br>
+				<br>function link($link, $title)
+				<br>{
+				<br>echo "$title";
+				<br>}
+				<br>link('http:/','Проверка сервера php.');
+				<br>
+				
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Функция List</div>
+			<div class="BLOCK3_2">- Ппроизводит выборку данных из массива и помещает их в переменную
+				<br>$box = array("Персик","Огурец");
+				<br>list ($fruit, $vegetable) = $box;
+				<br>echo " $fruit $vegetable ";
+				<br>
+				
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Функция Date</div>
+			<div class="BLOCK3_2">- Выводит дату
+				<br>$d = date("d-m-Y");
+				<br>echo "Сегодня: $d";
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Функции ISSET, UNSET</div>
+			<div class="BLOCK3_2">isset – проверяет существование переменной
+				<br>unset – удаляет переменную
+				<br>$c = 123;
+				<br>If (isset($c))
+				<br>{
+                <br>&nbsp;&nbsp;&nbsp;echo“Переменная существует её значение: $c”;
+                <br>&nbsp;&nbsp;&nbsp;unset($c);
+                <br>&nbsp;&nbsp;&nbsp;echo“Переменная уничтожена.”;
+				<br>} else {
+                <br>&nbsp;&nbsp;&nbsp;echo“Переменная не существует.”;
+                <br>}
+				<br>
+				
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Передача $_GET</div>
+			<div class="BLOCK3_2">Чтобы передать значение нужно в адресной страке указать<br> их значения: http://localhost/php/test.php&a=77&b=10
+				<br>Эти передаваемые данные заносятся в массив GET чтоб из него вытащить нужно:  echo  $_GET[‘a’];
+				<br>$a = $_GET[‘a’];
+				<br>$b = $_GET[‘b’];
+				<br>echo $a;
+				<br>ссылка с передачей значений
+				<br>echo "a href= 'test1.php?sum=$sum&a=$a'>передать значение./a>";
+				<br>
+				<br>//это файл test1.php
+				<br>if (isset($_GET['sum']) and isset($_GET['a'])){
+				<br>&nbsp;&nbsp;&nbsp;$sum = $_GET['sum'];
+				<br>&nbsp;&nbsp;&nbsp;$a = $_GET['a'];
+				<br>&nbsp;&nbsp;&nbsp;echo "значение : $sum $a";
+				<br>}else{
+	            <br>&nbsp;&nbsp;&nbsp;echo "переменная не существует.";
+	            <br>&nbsp;&nbsp;&nbsp;$sum = 100;
+	            <br>&nbsp;&nbsp;&nbsp;$a = "грн.";
+                <br>&nbsp;&nbsp;&nbsp;echo "a href= 'test1.php?sum=$sum&a=$a'>передать значение./a>";
+				<br>}
+				<br>
+				
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Передача $_POST</div>
+			<div class="BLOCK3_2">- Передача значений из одного файла в другой.
+				<br>Первый файл test1.php передает данные
+				<br>form> action=”test2.php” method=”post” name=”Form1” target=”_blank”>
+				<br>p> Имя: input name=”Name” type=”text” size=20”> /p>
+				<br>p> Фамилия: input name=”Fam” type=”text” size=20”> /p>
+				<br>p> input name=”submit” type=”submit” value=”Отправить”> /p>
+				<br>/form>
+				<br>
+				<br>Второй файл test2.php получает данные
+				<br>$Name = $_POST[‘Name’];
+				<br>$Fam = $_POST[‘Fam’];
+				<br>echo “Ваше имя: $Name”;
+				<br>echo “Ваша фамилия: $Fam”;
+				<br>
+				
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Массив $_SERVER</div>
+			<div class="BLOCK3_2">СУПЕР ГЛОБАЛЬНЫЙ МАССИВ   $_SERVER
+				<br>Узнать IP адрес посетителя
+				<br>echo "Ваш IP адрес : ".$_SERVER['REMOTE_ADDR'];
+				<br>echo "Вы пришли с адреса: ".$_SERVER['HTTP_REFERER'] ;
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Инструкция INCLUDE</div>
+			<div class="BLOCK3_2">- Подключение внешнего файла (скрипта)
+				1) Файл скрипт setting.php (Содержит всегда только тег <?php ... ?>
+				<br>?php
+				<br>$a = 10;
+				<br>$b = 15;
+				<br>?>
+				<br>
+				<br>2) Страница test.php
+				<br>?php
+				<br>include "settings.php";  /* подключаем файл скрипта*/
+				<br>$c = $a + $b;
+				<br>echo "Сумма = $c";
+				<br>?>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Базы данных</div>
+			<div class="BLOCK3_2">- Основы работы с базами данных.
+				<br>1) Администратор PHP по адресу http://localhost/phpmyadmin/
+				<br>2)Базы данных хранятся по адресу C:\WebServers\usr\local\mysql\data
+				<br>3) Работа с БД
+                <br>  //Соединение
+                <br>  // mysql_connect(«Сервер», «Пользователь», «Пароль»)
+                <br>  $db = mysql_connect("localhost", "user", "pass123");
+                <br>            
+                <br>  //Выбрать базу данных
+                <br>  // mysql_select_db(«Имя базы», «Идентификатор»)
+                <br>  mysql_select_db("Base1", $db);
+				<br>
+                <br> //Запрос к таблице данных
+                <br>  // mysql_query(Запрос», «Идентификатор»
+                <br>  $result = mysql_query("SELECT * FROM table1", $db);
+				<br>
+                <br>  //Получаем первую запись
+                <br>  // mysql_fetch_array(«Идентификатор запроса»)
+                <br>  $myrow = mysql_fetch_array($result);
+                <br>  echo $myrow["name"];
+				<br>
+                <br>   //Отключение
+                <br>  // mysql_close(«Идентификатор»)
+                <br>   mysql_close($db);
+				<br><br>
+				<br>4) просмотр всех полученных записей из таблицы.
+                <br>&nbsp;&nbsp;&nbsp;$myrow = mysql_fetch_array($result)
+                <br>&nbsp;&nbsp;&nbsp;do {
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "Имя  ".$myrow['name'];
+                <br>&nbsp;&nbsp;&nbsp;} while ($myrow = mysql_fetch_array($result));
+				<br>
+				<br>вывод с помощью цикла и printf
+                <br>&nbsp;&nbsp;&nbsp;do {
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(“Имя”? $myrow[‘name’]);
+                <br>&nbsp;&nbsp;&nbsp;} while ($myrow = mysql_fetch_array($result));
+				<br><br>
+				<br>5) Выполнение запроса УДАЛЕНИЕ / DELETE
+				<br> $ID = 1;
+				<br>$db = mysql_connect("localhost", "user", "pass123");
+				<br>mysql_select_db("Base1", $db);
+				<br>$result = mysql_query("DELETE FROM table1 WHERE id = '$ID'");
+				<br>if ($result == 'true'){
+				<br>echo "Запись id: $ID успешно удалена.";
+				<br>} else {
+				<br>echo "ОШИБКА: Запись id: $ID НЕ удалена.";
+                <br>}
+				<br>mysql_close($db);
+				<br><br>
+				<br>6) Выполнить зпрос на ВСТАВКУ НОВОЙ СТРОКИ / INSERT
+				<br>$db = mysql_connect("localhost", "user", "pass123");
+				<br>mysql_select_db("Base1", $db);
+				<br>$result = mysql_query("INSERT INTO table1 (name,date) VALUES ('$name','$date')");
+				<br>mysql_close($db);					
+                <br>            
+				<br>if ($result == 'true'){
+				<br>&nbsp;&nbsp;&nbsp;echo "Запись успешно создана.";
+				<br>} else {
+				<br>&nbsp;&nbsp;&nbsp;echo "ОШИБКА: Запись НЕ создана.";
+				<br>}
+				<br><br>
+				<br>7) Выполнить запрос на ОБНОВЛЕНИЕ / UPDATE
+				<br>$db = mysql_connect("localhost", "user", "pass123");
+				<br>mysql_select_db("Base1", $db);
+				<br>$result = mysql_query("UPDATE table1 SET date='$date', name='$name'  WHERE id='$ID'");
+				<br>mysql_close($db);
+				<br>
+				<br>if ($result == 'true'){
+				<br>&nbsp;&nbsp;&nbsp;echo "Запись успешно сохранена.";
+				<br>} else {
+				<br>&nbsp;&nbsp;&nbsp;echo "ОШИБКА: Запись НЕ сохранена.";
+                <br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис PHP: Файловый ввод / вывод.</div>
+			<div class="BLOCK3_2">1)Проверка существования файла.
+				<br>$filename = “File1.txt”;
+				<br>if (!file_exists($filename)){
+				<br>&nbsp;&nbsp;&nbsp;echo “Файл $filename  не существует!”;
+				<br>}
+				<br>
+				<br>2)Проверка существования файла и его поддержки чтения/записи.
+				<br>if (is_file($filename)){
+				<br>&nbsp;&nbsp;&nbsp;echo “Файл $filename  существует и поддерживает чтение/запись!”;
+				<br>}
+				<br>
+				<br>3)Размер файла в байтах.
+				<br>$fileS = filesize(“ClientReg.rgn”);
+				<br>echo “Размер файла $fileS в байтах”;
+				<br>
+				<br>4)Открытие файла
+				<br>Режим: Описание:
+				<br>r &nbsp;&nbsp;&nbsp;Только чтение (в начало файла)
+				<br>r+&nbsp;&nbsp;&nbsp;Чтение и запись (в начало файла)
+				<br>w &nbsp;&nbsp;&nbsp;Только запись, создание файла (в начало файла, всё содержимое удаляется)
+				<br>w+&nbsp;&nbsp;&nbsp;Запись и чтение, создание файла (в начало файла, всё содержимое удаляется)
+				<br>d &nbsp;&nbsp;&nbsp;Только запись, создание файла (в конец файла)
+				<br>a+&nbsp;&nbsp;&nbsp;Чтение и запись, создание файла (в конец файла)
+				<br>
+				<br>$fo = fopen($filename), “r”) or die(“Произошла ошибка!”);
+				<br>
+				<br>5)Закрыть файл (возвращает true или false)
+				<br>fclose($fo);
+				<br>
+				<br>6)Запись в файл
+				<br>-Функция проверяет разрешение операции запись
+				<br>is_writeable($FileName);
+				<br>
+				<br>-Запись строковой переменной в файл fwrite()
+				<br>if (is_writeable($FileName) {
+				<br>&nbsp;&nbsp;&nbsp;$fo = fopen($FileName, “a+”);
+				<br>&nbsp;&nbsp;&nbsp;$add = fwrite($fo, $Text);
+				<br>&nbsp;&nbsp;&nbsp;fclose($FileName);
+				<br>} else {
+				<br>&nbsp;&nbsp;&nbsp;echo “ОШИБКА: в файл нельзя записать информацию”;
+				<br>}
+				<br>
+				<br>-Подобная функция fputs()
+				<br>$add = fputs($fo, $Text);
+				<br>
+				<br>7)Чтение из файла.
+				<br>-Функция проверяет разрешение на чтение.
+				<br>is_readable($FileName);
+				<br>
+				<br>-Чтение непосредственно из файла fread()
+				<br>$fo = fopen($FileName);
+				<br>$fileR = fread($fo, filesize($FileName));
+				<br>print  $fileR;
+				<br>fclose($fo);
+			</div>
+						
+			<div id="footer">
+				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

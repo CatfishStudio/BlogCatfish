@@ -1,0 +1,377 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html leng="ru">
+	<head>
+		<title>Синтаксис языка ActionScript 3</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/nav.css">
+		<link rel="stylesheet" href="css/header.css">
+		<link rel="stylesheet" href="css/section.css">
+		<link rel="stylesheet" href="css/aside.css">
+		<link rel="stylesheet" href="css/footer.css">
+		<link rel="stylesheet" href="css/font.css">
+		<link rel="stylesheet" href="css/blocks.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="nav">
+				<div id="logo"></div>
+				<div>
+					<ul>
+						<li><a href="http://somov.inf.ua">Блог разработчика</a></li>
+						<li><a href="http://catfish.ltd.ua">Программное обеспечение</a></li>
+						<li><a href="http://cf.ltd.ua">Студия игр</a></li>
+					</ul>
+				</div>
+		
+			</div>
+
+			<div id="header">
+				<div id="display"></div>
+				<dir id="titleBlog">DEVELOPER: SOMOV EVGENIY</dir>
+			</div>
+
+			<div id="section">
+
+				<div id="aside">
+					<div class="BLOCK4">Справочники:</div>
+					<div class="BLOCK5"><a href="cpp.html" target="_self">Язык программирования С++</a></div>
+					<div class="BLOCK5"><a href="cs.html" target="_self">Язык программирования С#</a></div>
+					<div class="BLOCK5"><a href="as3.html" target="_self">Язык программирования AS3</a></div>
+					<div class="BLOCK5"><a href="php.html" target="_self">Язык программирования PHP</a></div>
+					<div class="BLOCK5"><a href="js.html" target="_self">Язык программирования JS</a></div>
+					<div class="BLOCK5"><a href="j.html" target="_self">Язык программирования Java</a></div>
+					<div class="BLOCK5"><a href="asm.html" target="_self">Язык программирования ASM</a></div>
+					<br>
+					<div class="BLOCK4">Программный код:</div>
+					<div class="BLOCK5"><a href="flash.html" target="_self">Flash разработка</a></div>
+					<div class="BLOCK5"><a href="unity3d.html" target="_self">Unity3D разработка</a></div>
+					<div class="BLOCK5"><a href="net.html" target="_self">Net.Framework разработка</a></div>
+					<br>
+					<div class="BLOCK4">Средства разработки:</div>
+					<div class="BLOCK5"><a href="http://www.flashdevelop.org/" target="_blank">Flash Develop</a></div>
+					<div class="BLOCK5"><a href="http://www.icsharpcode.net/opensource/sd/" target="_blank">Sharp Develop</a></div>
+					<br>
+					<div class="BLOCK4">Графические движки:</div>
+					<div class="BLOCK5"><a href="http://unity3d.com/ru" target="_blank">Графический движок Unity3D</a></div>
+					<div class="BLOCK5"><a href="http://www.pixijs.com/" target="_blank">Графический движок Pixi.js</a></div>
+					<div class="BLOCK5"><a href="http://www.greensock.com/tweenlite/" target="_blank">Графический движок TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gamua.com/starling/" target="_blank">Графический движок Starling</a></div>
+					<br>
+					<div class="BLOCK4">Сторонние публикации:</div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/47411/" target="_blank">Работа с классом TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gcmob.ru/load/engine/online/6" target="_blank">Движки на HTML5 и Flash</a></div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/174603/" target="_blank">Pixi.js — 2D движок с прозрачной поддержкой WebGL</a></div>
+					<br>
+				</div>
+				
+				<div class="BLOCK3">Синтаксис языка AS3: Базовые пакеты</div>
+				<div class="BLOCK3_2">- Краткое описание базовых пакетов Flash
+				<br><b>flash.accessibility</b> - поддержка спец. возможностей
+				<br><b>flash.data</b> - работа с локальными базами данных SQL
+				<br><b>flash.desktop</b> - позволяющие осуществлять операции копирования, вставки и перетаскивания, а также класс Icon (AIR)
+				<br><b>flash.display</b> - основные классы визуального отображения.
+				<br><b>flash.display3D</b> - основные классы предоставления контекста высокопроизводительной визуализации.
+				<br><b>flash.errors</b> - набор наиболее используемых классов ошибок.
+				<br><b>flash.events</b> - поддерживает новую модель событий DOM и включает в себя базовый класс EventDispatcher.
+				<br><b>flash.external</b> - содержится класс ExternalInterface, который можно использовать для обмена данными с контейнером Flash Player.
+				<br><b>flash.filesystem</b> - обеспечивает доступ к файловой системе(AIR)
+				<br><b>flash.filters</b> - для эффектов с использованием растровых фильтров. 
+				<br><b>flash.geom</b> - содержатся классы геометрии, например точки, прямоугольники и матрицы преобразования, необходимые для поддержки функции кэширования растровых изображений и класса BitmapData.
+				<br><b>flash.globalization</b> - обеспечивают характерные для языка, региона или страны функции
+				<br><b>flash.html</b> - включения содержимого HTML в приложение AIR
+				<br><b>flash.media</b> - для работы с мультимедийным содержимым, например с аудио и видео.
+				<br><b>flash.net</b> - для отправки и приема сетевых данных.
+				<br><b>flash.net.dns</b> - для работы с ресурсами системы DNS в том числе с IP-адресами.
+				<br><b>flash.net.drm</b> - для работы с содержимым, защищенным с помощью DRM.(AIR)
+				<br><b>flash.printing</b> - для распечатки содержимого на основе Flash.
+				<br><b>flash.profiler</b> - функции для отладки и профилирования кода ActionScript.
+				<br><b>flash.sampler</b> -  для отслеживания вызовов процедур, которые можно использовать для профилирования.
+				<br><b>flash.security</b> - для проверки подлинности подписей XML.(AIR)
+				<br><b>flash.sensors</b> -  для работающих мобильных устройств, которые поддерживают GPS и реагируют на движение. 
+				<br><b>flash.system</b> - для получения доступа к функциональности на уровне системы.
+				<br><b>flash.text</b> - для работы с текстовыми полями, форматированием текста, метриками текста, таблицами стилей и макетом. 
+				<br><b>flash.text.engine</b> - FTE обеспечивает низкоуровневую поддержку управления метриками текста.
+				<br><b>flash.text.ime</b> - предоставляет поддержку для встроенного редактирования текста.
+				<br><b>flash.ui</b> - классы пользовательских интерфейсов, для взаимодействия с мышью и клавиатурой.
+				<br><b>flash.utils</b> - классы дополнительных функций, например структуры данных типа ByteArray.
+				<br><b>flash.xml</b> - поддержка прежних версий XML
+				<br>
+				<br>- Краткое описание базовых пакетов fl
+				<br><b>fl.accessibility</b> - поддержка спец. возможностей
+				<br><b>fl.containers</b> - для загрузки содержимого или других компонентов.
+				<br><b>fl.controls</b> - компоненты верхнего уровня, например List, Button и ProgressBar. 
+				<br><b>fl.controls.dataGridClasses</b> - классы, используемые компонентом DataGrid для сохранения и отображения информации. 
+				<br><b>fl.controls.listClasses</b> - компоненты, используемые для сохранения и отображения информации. 
+				<br><b>fl.controls.progressBarClasses</b> - классы, имеющие отношение к компоненту ProgressBar.
+				<br><b>fl.core</b> - классы для всех компонентов.
+				<br><b>fl.data</b> - классы, которые обрабатывают данные, связанные с компонентом.
+				<br><b>fl.display</b> - классы отображения для компонентов.
+				<br><b>fl.events</b> - классы событий для всех компонентов.
+				<br><b>fl.ik</b> - классы и методы, взаимодействующие с каркасами с обратной кинематикой, которые были созданы в Flash CS4 или более поздних версий.
+				<br><b>fl.lang</b> - класс Locale, обеспечивающий поддержку многоязыкового текста.
+				<br><b>fl.livepreview</b> - классы, имеющие отношение к поведению компонента при его немедленном отображении.
+				<br><b>fl.managers</b> - классы, осуществляющие управление отношениями между компонентом и пользователем. 
+				<br><b>fl.motion</b> - для определения анимации движения.
+				<br><b>fl.motion.easing</b> - могут использоваться совместно с классами fl.motion для создания эффектов замедления. 
+				<br><b>fl.rsl</b> - классы, участвующие в загрузке библиотек RSL
+				<br><b>fl.text</b> - для использования Text Layout Framework (TLF) в программе Flash Professional.
+				<br><b>fl.transitions</b> - классы, позволяющие использовать ActionScript для создания эффектов анимации.
+				<br><b>fl.transitions.easing</b> - использоваться совместно с классами fl.transitions для создания эффектов замедления. 
+				<br><b>fl.video</b> - для работы с компонентами FLVPlayback и FLVPlaybackCaptioning.
+				<br><b></b>
+				</div>
+				<br>
+				<div class="BLOCK3">Синтаксис языка AS3: Типы данных</div>
+				<div class="BLOCK3_2">- Переменные
+					<br>String - строка текста
+					<br>Boolean - логическое состояние
+					<br>Number - дробное число
+					<br>int - целое число
+					<br>Uint - только положительное целое число
+					<br>Array - массив
+					<br>Vector - массив
+					<br>Error - ошибка в программе
+					<br>Date - дата и время
+					<br>Math - математические операции
+					<br>RagExp - поиск и замена текста
+					<br>Function - функции
+					<br>Object - базовые возможности объектов
+					<br>Class - класс
+					<br>
+					<br>- Объявление переменных
+					<br>var i:Int = 10;
+					<br>private var str:String = "строка";
+					<br>public static var b:Boolean = true;
+					<br>
+					<br>- Преобразование
+					<br>Строка в число
+					<br>var str:String = "23.7";
+					<br>var num1:Number = parseInt(str); // вернёт значение 23
+					<br>var num1:Number = parseFloat(str); // вернёт значение 23.7
+					<br>Число в строку
+					<br>var str2:String = "" + num1;
+					<br>var str2:String = "" + num2.toString();
+				</div>
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Пакеты</div>
+			<div class="BLOCK3_2">package Name {
+				<br>&nbsp;&nbsp;&nbsp;//описание класснов и т.п.
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Классы</div>
+			<div class="BLOCK3_2">- Описание класса наследуемого от Спрайта
+				<br>public class Level extends Sprite 
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;// переменные
+				<br>&nbsp;&nbsp;&nbsp;public var i:Int = 0;
+				<br>&nbsp;&nbsp;&nbsp;public const COLUMNS:int = 10;
+				<br>&nbsp;&nbsp;&nbsp;// конструктор
+				<br>&nbsp;&nbsp;&nbsp;public function Level(_x:int, _y:int):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// описание...
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>}
+				<br>
+				<br>- Объявление переменной типом класса и добавление его на спрайт
+				<br>var m:Level = new Level(50, 100);
+				<br>this.addChild(Level);
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Условия</div>
+			<div class="BLOCK3_2">Таблица спецсимволов:
+				<br> == (равно)
+				<br> != (не равно)
+				<br> >, >= (больше, больше или равно)
+				<br> <, <= (меньше, меньше или равно)
+				<br> && (логическое И)
+				<br> || (логическое ИЛИ)
+				<br>
+				<br>var value:Boolean = true;
+				<br>if (value){
+				<br>&nbsp;&nbsp;&nbsp;// ...
+				<br>} else {
+				<br>&nbsp;&nbsp;&nbsp;// ...
+				<br>}
+				<br>
+				<br>- Альтернатива конструктору условия
+				<br>if (a > b) c = 100; else c = 0;
+				<br>var c:int = a > b ? 100 : 0;
+				<br>var c:int = a > b ? 100 : ( a == b ? 200 : 0);
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Циклы</div>
+			<div class="BLOCK3_2">- Цикл с предусловием 
+				<br>var w:int = 0;
+				<br>while (w < 10) }
+				<br>&nbsp;&nbsp;&nbsp;trace(w.toString());
+				<br>&nbsp;&nbsp;&nbsp;w++;
+				<br>}
+				<br>
+				<br>- Цикл с постусловием 
+				<br>var d:int = 10;
+				<br>do {
+				<br>&nbsp;&nbsp;&nbsp;trace(d.toString());
+				<br>&nbsp;&nbsp;&nbsp;d--;
+				<br>} while (d > 0);
+				<br>
+				<br>- Цикл счётчик 
+				<br>for (var i:int = 0; i < 10; i++) {
+				<br>&nbsp;&nbsp;&nbsp;// ...
+				<br>}
+				<br>
+				<br>var user:Object = {};
+				<br>user['name'] = 'Sam';
+				<br>for (var key:String in user){
+				<br>&nbsp;&nbsp;&nbsp;trace("Ключ: " + user[key]);
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Оператор выбора</div>
+			<div class="BLOCK3_2">var num:int = 1;
+				<br>switch(num){
+				<br>&nbsp;&nbsp;&nbsp;case 0:
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace("0");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+				<br>&nbsp;&nbsp;&nbsp;case 1:
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace("1");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+				<br>&nbsp;&nbsp;&nbsp;default:
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace("2");
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Массив Array</div>
+			<div class="BLOCK3_2">- Создание экземпляра Array
+				<br>var names:Array = [];
+				<br>var names:Array = new Array();
+				<br>var names:Array = new Array(10); // количество 10
+				<br>var names:Array = new Array("John", "Jane", "David"); 
+				<br>var names:Array = ["John", "Jane", "David"];
+				<br>
+				<br>- Обращение к массиву по индексу
+				<br>names[1] = "John";
+				<br>trace(names[2].toString());
+				<br>
+				<br>- Вставка элементов массива
+				<br>push(), unshift() и splice() — позволяют вставлять элементы в индексный массив.
+				<br>Метод push() добавляет один или несколько элементов в конец массива.
+				<br>Метод unshift() вставляет один или более элементов в начало массива/
+				<br>Метод splice() вставляет любое число элементов по заданному индексу в массиве.
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var planets:Array = new Array(); 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;planets.push("Mars"); 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;planets.unshift("Mercury");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;planets.splice(1, 0, "Venus", "Earth"); 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace(planets); // результат: Mercury,Venus,Earth,Mars
+				<br>
+				<br>- Удаление элементов массива
+				<br>pop(), shift() и splice() — позволяют удалять элементы.
+				<br>Метод pop() удаляет элемент из конца массива.
+				<br>Метод shift() удаляет элемент из начала массива.
+				<br>Метод splice(), который также может использоваться для вставки элементов, удаляет произвольное число элементов, начиная с индекса, заданного первым из передаваемых методу аргументов.
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var oceans:Array = ["Victoria", "Pacific", "Aral", "Superior", "Indian", "Huron"]; 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oceans.splice(2, 2, "Arctic", "Atlantic");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oceans.pop();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oceans.shift();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace(oceans);// результат: Pacific,Arctic,Atlantic,Indian
+				<br>
+				<br>- Сортировка массива
+				<br>reverse(), sort() и sortOn(), — позволяющих изменить порядок элементов в индексном массиве путем сортировки или задания обратного порядка.
+				<br>reverse() Изменяет порядок элементов таким образом, что последний элемент становится первым, предпоследний — вторым и так далее.
+				<br>sort() Позволяет сортировать элементы объекта Array разными предварительно определенными способами, например в алфавитном порядке или по номерам.
+				<br>sortOn() Позволяет сортировать объекты, которые имеют одно или несколько общих свойств.
+				<br>
+				<br>- Запросы в массив
+				<br>concat(), join(), slice(), toString() — отправляют запросы в массив, но не изменяют его.
+				<br>Методы concat() и slice() возвращают новые массивы
+				<br>Методы join() и toString() возвращают строки
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Массив Vector</div>
+			<div class="BLOCK3_2">- Создание экземпляра Vector
+				<br>var v:Vector.<String>;
+				<br>v = new Vector.<String>();
+				<br>var names:Vector.<String> = new Vector.<String>(); 
+				<br>var ages:Vector.<uint> = new Vector.<uint>(7); // количество 7 (0,0,0,0,0,0,0,0)
+				<br>var v:Vector.<int> = new <int>[0,1,2,];
+				<br>var friends:Vector.<String> = Vector.<String>(["Bob", "Larry", "Sarah"]);
+				<br>
+				<br>- Обращение к массиву по индексу
+				<br>friends[1] = "John";
+				<br>trace(friends[2].toString());
+				<br>
+				<br>- Вставка элементов массива
+				<br>push(), unshift() и splice() — позволяют вставлять элементы в индексный массив.
+				<br>
+				<br>- Удаление элементов массива
+				<br>pop(), shift() и splice() — позволяют удалять элементы.
+				<br>
+				<br>- Сортировка массива
+				<br>reverse(), sort() — позволяющих изменить порядок элементов в индексном массиве путем сортировки или задания обратного порядка.
+				<br>
+				<br>- Запросы в массив
+				<br>concat(), join(), slice(), toString() — отправляют запросы в массив, но не изменяют его.
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Тип данных Object</div>
+			<div class="BLOCK3_2">-Служит для хранения составного объекта.
+				<br>Объекты создаются конструкторами с помощью синтаксиса оператора new.
+				<br>var myAssocArray:Object = {fname:"John", lname:"Public"};
+				<br>trace(myAssocArray.fname);     // John
+				<br>trace(myAssocArray["lname"]);  // Public
+				<br>myAssocArray.initial = "Q";
+				<br>trace(myAssocArray.initial);   // Q
+			</div>
+			<br>
+			<div class="BLOCK3">Синтаксис языка AS3: Класс Timer</div>
+			<div class="BLOCK3_2">Класс Timer является интерфейсом для таймеров озволяющих выполнять код в заданные интервалы времени.
+				<br>- Общедоступные свойства
+				<br>currentCount : int -[только чтение] Общее число срабатываний таймера с момента его запуска с нуля.
+				<br>delay : Number - Задержка в миллисекундах между событиями таймера.
+				<br>repeatCount : int - Общее число запусков, на которое настроен таймер.
+				<br>running : Boolean - [только чтение] Текущее состояние таймера: если таймер выполняется, то true, в противном случае - false.
+				<br>
+				<br>- Общедоступные методы 
+				<br>Timer(delay:Number, repeatCount:int = 0) - Создает новый объект Timer.
+				<br>reset():void - Останавливает таймер, и заново присваивает свойству currentCount значение 0.
+				<br>start():void - Запускает таймер, если он еще не выполняется.
+				<br>stop():void - Останавливает таймер.
+				<br>
+				<br>- События
+				<br>timer - Передается каждый раз при достижении объектом Timer интервала, указанного в свойстве Timer.delay.
+				<br>timerComplete -	Передается каждый раз при выполнении количества запросов, указанного свойством Timer.repeatCount.
+				<br>
+				<br>import flash.utils.Timer;
+				<br>import flash.events.TimerEvent;
+				<br>public class Stars extends Sprite
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;private var delay:uint = 50;
+				<br>&nbsp;&nbsp;&nbsp;private var repeat:uint = 5;
+				<br>&nbsp;&nbsp;&nbsp;private var timer:Timer = new Timer(delay, repeat);
+				<br>&nbsp;&nbsp;&nbsp;public function Stars() 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer.addEventListener(TimerEvent.TIMER, timerHandler);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer.start();
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;private function timerHandler(e:TimerEvent):void
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repeat--; // уменьшение повторов
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;private function completeHandler(e:TimerEvent):void
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// таймер остановлен
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>}
+			</div>
+			
+			
+			<div id="footer">
+				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
