@@ -45,8 +45,12 @@
 					<div class="BLOCK5"><a href="#block8">Рисовать на спрайте</a></div>
 					<div class="BLOCK5"><a href="#block9">Полная очистка спрайта</a></div>
 					<div class="BLOCK5"><a href="#block10">Маска (применение в окне)</a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block11">Создать 2D массив Array</a></div>
+					<div class="BLOCK5"><a href="#block12">Обратиться к дочерним объектам спрайта</a></div>
+					<div class="BLOCK5"><a href="#block13">Создание и удаление события</a></div>
+					<div class="BLOCK5"><a href="#block14">Получить спрайт по имени</a></div>
+					<div class="BLOCK5"><a href="#block15">Загрузка внешних файлов Loader</a></div>
+					<div class="BLOCK5"><a href="#block16">Анимация картинки Timer</a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
@@ -83,7 +87,7 @@
 					<br>
 					<div class="BLOCK4">Личные данные:</div>
 					<div class="BLOCK5"><a href="development.html" target="_self">Мои разработки.</a></div>
-					<div class="BLOCK5"><a href="gamedev.html" target="_self">Практика GameDev.</a></div>
+					<div class="BLOCK5"><a href="gamedev.html" target="_self">Game Develop.</a></div>
 					<div class="BLOCK5"><a href="somov.html" target="_self">О себе.</a></div>
 					<br>
 				</div>
@@ -300,29 +304,148 @@
 				<br>}
 			</div>
 			<br>
-			<div class="BLOCK3" id="block2">Flash: </div>
-			<div class="BLOCK3_2"><b></b>
+			<div class="BLOCK3" id="block11">Flash: Создание 2D массив Array</div>
+			<div class="BLOCK3_2"><b>- Создание Array 2D массива типом спрайт.</b>
+				<br>public static function CreateArrayUnits2D():Array
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// i - столбец; j - строка
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var newArray:Array = [];
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var i:int = 0; i < Resource.COLUMNS; i++) {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var newRow:Array = [];
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var j:int = 0; j < Resource.ROWS; j++) {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var unitAdd:Unit = new Unit(); // спрайт
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unitAdd.IndexI = i; unitAdd.IndexJ = j;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newRow.push(unitAdd);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newArray.push(newRow);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return newArray;
+				<br>}
+				<br>
+				<br><b>- Заполнение матрицы.</b>
+				<br>public static var ArrayField:Array = [];
+				<br>ArrayField = CreateArrayUnits2D();
+				<br>
+				<br><b>- Обращение к объектам в матрице.</b>
+				<br>ArrayField[0][1].visible = true;
+				<br>(ArrayField[1][1] as Unit).visible = true;
+			</div>
+			<br>
+			<div class="BLOCK3" id="block12">Flash: Дочерние объекты спрайта</div>
+			<div class="BLOCK3_2"><b>Обратиться к дочерним объектам спрайта м помошью getChildAt</b>
+				<br>var window:Sprite = new Sprite();
+				<br>var image1:Bitmap = new Bitmap();
+				<br>var image1:Bitmap = new Bitmap();
+				<br>window.addChild(image1);
+				<br>window.addChild(image1);
+				<br>/...
+				<br>window.getChildAt(0).visible = false;
+				<br>window.getChildAt(1).visible = true;
+			</div>
+			<br>
+			<div class="BLOCK3" id="block13">Flash: Создание и удаление события</div>
+			<div class="BLOCK3_2"><b>- Создание события</b>
+				<br>import flash.events.Event;
+				<br>/...
+				<br>this.addEventListener(Event.ENTER_FRAME, onLoop);
+				<br>
+				<br><b>- Удаление события</b>
+				<br>private function onLoop(e:Event):void
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.removeEventListener(Event.ENTER_FRAME, onLoop);
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block14">Flash: Получить спрайт по имени</div>
+			<div class="BLOCK3_2"><b>Получить дочерний спрайт по его имени с помошью getChildByName</b>
+				<br>var panel:Sprite = new Sprite();
+				<br>var level:Sprite = new Sprite();
+				<br>panel.name = "Panel1";
+				<br>level.addChild(panel);
+				<br>
+				<br>if(level.getChildByName("Panel1") != null)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level.removeChild(level.getChildByName("Panel1"));
+			</div>
+			<br>
+			<div class="BLOCK3" id="block15">Flash: Загрузка внешних файлов</div>
+			<div class="BLOCK3_2"><b>Загрузка выполняется пакетом Loader</b>
+				<br>import flash.events.Event; 
+				<br>import flash.display.Loader;
+				<br>import flash.net.URLRequest;
+				<br>/..
+				<br>var loadImage:Loader = new Loader();
+				<br>loadImage.Load(new URLRequest("http://www.[yourDomain].com/image1.png")
+				<br>loadImage.contentLoaderInfo.addEventListener(Event.COMPLITEMPLITE, LoadComplite);
+				<br>loadImage.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, LoadError);
+				<br>this.addChild(loadImage);
 				<br>
 			</div>
 			<br>
-			<div class="BLOCK3" id="block2">Flash: </div>
-			<div class="BLOCK3_2"><b></b>
+			<div class="BLOCK3" id="block16">Flash: Анимация картинки Timer</div>
+			<div class="BLOCK3_2"><b>Анимация png картинки размером 250 на 50 (из 5-ти кадров, горизонтально расположенных, размером 50 на 50)</b>
+				<br>import flash.display.Sprite;
+				<br>import flash.display.BitmapData;
+				<br>import flash.display.Bitmap;
+				<br>import flash.utils.Timer;
+				<br>import flash.events.TimerEvent;
+				<br>import flash.events.Event;
+				<br>import flash.geom.Point;
+				<br>import flash.geom.Rectangle;
+				<br>/...
+				<br>public class Stars extends Sprite
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// полная картинка
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var imageBD:BitmapData = new BitmapData(250, 50, true, 0x000000000000); 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// размер выбраной картинки
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var canvasBD:BitmapData = new BitmapData(50, 50, true, 0x000000000000); 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var image:Bitmap;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var starImage:Bitmap;
 				<br>
-			</div>
-			<br>
-			<div class="BLOCK3" id="block2">Flash: </div>
-			<div class="BLOCK3_2"><b></b>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var rect:Rectangle = new Rectangle(0, 0, 250, 50); //исходный размер
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var pt:Point = new Point(0, 0); // начальная точка
 				<br>
-			</div>
-			<br>
-			<div class="BLOCK3" id="block2">Flash: </div>
-			<div class="BLOCK3_2"><b></b>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Таймер --------------------------------------------------*/
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var delay:uint = 50;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var repeat:uint = 5;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var timer:Timer = new Timer(delay, repeat);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* -------------------------------------------------------- */
 				<br>
-			</div>
-			<br>
-			<div class="BLOCK3" id="block2">Flash: </div>
-			<div class="BLOCK3_2"><b></b>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var fParent:Sprite;
 				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Embed(source = '../../../images/stars.png')]
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static var StarsImage:Class;
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function Stars(xPos:int, yPos:int, fieldParent:Sprite)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fParent = fieldParent;
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image = new StarsImage();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;imageBD.draw(image); // загружаем картинку
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rect.x = 0;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvasBD.copyPixels(imageBD, rect, pt);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;starImage = new Bitmap(canvasBD);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.x = xPos; this.y = yPos;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(starImage);
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer.addEventListener(TimerEvent.TIMER, timerHandler);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer.addEventListener(TimerEvent.TIMER_COMPLETE, completeHandler);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer.start();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function timerHandler(e:TimerEvent):void
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repeat--; // уменьшение повторов
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rect.x += 50;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvasBD.copyPixels(imageBD, rect, pt);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;starImage = new Bitmap(canvasBD);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function completeHandler(e:TimerEvent):void
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// таймер остановлен
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fParent.removeChild(this);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>}
 			</div>
 			<br>
 			<div class="BLOCK3" id="block2">Flash: </div>
