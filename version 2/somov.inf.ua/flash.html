@@ -34,6 +34,24 @@
 			<div id="section">
 
 				<div id="aside">
+					<div class="BLOCK4">Оглавление:</div>
+					<div class="BLOCK5"><a href="#block1">Добавление файлов</a></div>
+					<div class="BLOCK5"><a href="#block2">Воспроизведение звука</a></div>
+					<div class="BLOCK5"><a href="#block3">Добавить или удалить спрайт</a></div>
+					<div class="BLOCK5"><a href="#block4">Dispatch возврат события</a></div>
+					<div class="BLOCK5"><a href="#block5">События мыши</a></div>
+					<div class="BLOCK5"><a href="#block6">Генератор случайных чисел</a></div>
+					<div class="BLOCK5"><a href="#block7">Програчность и невидимость</a></div>
+					<div class="BLOCK5"><a href="#block8">Рисовать на спрайте</a></div>
+					<div class="BLOCK5"><a href="#block9">Полная очистка спрайта</a></div>
+					<div class="BLOCK5"><a href="#block10">Маска (применение в окне)</a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<br>
+					<br>
 					<div class="BLOCK4">Справочники:</div>
 					<div class="BLOCK5"><a href="cpp.html" target="_self">Язык программирования С++</a></div>
 					<div class="BLOCK5"><a href="cs.html" target="_self">Язык программирования С#</a></div>
@@ -70,18 +88,257 @@
 					<br>
 				</div>
 
-				<div class="BLOCK3">Flash: </div>
-				<div class="BLOCK3_2">
+				<div class="BLOCK3" id="block1">Flash: Добавление файлов</div>
+				<div class="BLOCK3_2"><b>- Добавление картинки к проекту</b>
+					<br>import flash.display.Sprite;
+					<br>import flash.display.Bitmap;
+					<br>public class Resource
+					<br>{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Embed(source = '../../../images/menu.png')]
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static var MImage:Class;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static var MenuImage:Bitmap = new MImage();
+					<br>}
 					<br>
+					<br><b>- Добавление звука к проекту</b>
+					<br>import flash.media.Sound;
+					<br>import flash.media.SoundChannel;
+					<br>public class Resource
+					<br>{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Embed(source = '../../../sounds/move.mp3')]
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static var SoundMove:Class;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static var sMove:Sound = new SoundMove() as Sound;
+					<br>}
+					<br>
+					<br><b>- Поместить картинку на спрайт</b>
+					<br>import [ИмяПроекта].Resource.Resource;
+					<br>/...
+					<br>this.addChild(Resource.MenuImage);
 				</div>
 			</div>
 			
 			<br>
-			<div class="BLOCK3">Flash: </div>
-			<div class="BLOCK3_2">
+			<div class="BLOCK3" id="block2">Flash: Воспроизведение звука</div>
+			<div class="BLOCK3_2"><b>- Запускаем востроизведение зкука который был добавлен к проекту</b>
+				<br>import flash.media.Sound;
+				<br>import flash.media.SoundChannel;
+				<br>import [ИмяПроекта].Resource.Resource;
+				<br>/...
+				<br>public static var SChannel:SoundChannel;
+				<br>SChannel = sMove.play();
+			</div>
+			<br>
+			<div class="BLOCK3" id="block3">Flash: Добавить или удалить спрайт</div>
+			<div class="BLOCK3_2"><b>- Добавить дочерний спрайт</b>
+				<br>import [ИмяПроекта].Buttons.ButtonExit;
+				<br>private var _button:ButtonExit = new ButtonExit();
+				<br>this.addChild(_button);
+				<br>
+				<br><b>- Удалить дочерний спрайт</b>
+				<br>this.removeChild(_button);
+			</div>
+			<br>
+			<div class="BLOCK3" id="block4">Flash: Dispatch возврат события</div>
+			<div class="BLOCK3_2"><b>- Возврат события с помошью dispatchEvent</b>
+				<br>---------- Класс принимающий возвращаемое событие ----------
+				<br>import [ИмяПроекта].Menu.StartMenu;
+				<br>/...
+				<br>private var sMenu:StartMenu;
+				<br>/...
+				<br>sMenu = new StartMenu();
+				<br>sMenu.addEventListener(Event.CHANGE, onChangeStart);
+				<br>this.addChild(sMenu);
+				<br>/...
+				<br>private function onChangeStart(e:Event):void
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.removeChild(sMenu); // удаляем спрайт
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(new level()); // добавляем спрайт
+				<br>}
+				<br>
+				<br>
+				<br>---------- Класс возвращающий событие ----------
+				<br>private var bStart:ButtonStart;
+				<br>/...
+				<br>bStart = new ButtonStart();
+				<br>bStart.addEventListener(Event.CHANGE, onChangeStart);
+				<br>this.addChild(bStart);
+				<br>/...
+				<br>private function onChangeStart(e:Event):void
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dispatchEvent(new Event(Event.CHANGE));
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block5">Flash: События мыши</div>
+			<div class="BLOCK3_2"><b>Описание событий мыши</b>
+				<br>import flash.events.Event;
+				<br>import flash.events.MouseEvent;
+				<br>import flash.ui.Mouse;
+				<br>import flash.ui.MouseCursor;
+				<br>/...
+				<br>this.addEventListener(MouseEvent.CLICK, onMouseClick);
+				<br>this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+				<br>this.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+				<br>this.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+				<br>this.addEventListener(MouseEvent.MOUSE_OUT, onMouseOut);
+				<br>this.addEventListener(MouseEvent.MOUSE_OVER, onMouseOver);
+				<br>/...
+				<br>private function onMouseClick(e:MouseEvent):void { }
+				<br>
+				<br>private function onMouseDown(e:MouseEvent):void { }
+				<br>
+				<br>private function onMouseUp(e:MouseEvent):void { }
+				<br>
+				<br>private function onMouseMove(e:MouseEvent):void
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (e.localX > 35 && e.localY < 35) { } /* Смещение по горизонтале вправо */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (e.localX < 5 && e.localY > 5) { } /* Смещение по горизонтале влево */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (e.localY < 5 && e.localX > 5) { } /* Смещение по вертикале вверх */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (e.localY > 35 && e.localX < 35) { } /* Смещение по вертикале вниз */
+				<br>}
+				<br>
+				<br>private function onMouseOut(e:MouseEvent):void
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mouse.cursor = MouseCursor.AUTO;
+				<br>}
+				<br>
+				<br>private function onMouseOver(e:MouseEvent):void
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mouse.cursor = MouseCursor.BUTTON;
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block6">Flash: Генератор случайных чисел</div>
+			<div class="BLOCK3_2"><b></b>Функция генерирует случайное значение и возвращает определённый результат
+				<br>public static function RandomIndex():int
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var indexRandom:Number = Math.random() * 10;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var index:int = Math.round(indexRandom);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (index > 0 && index <= 2) return 1;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (index > 2 && index <= 4) return 2;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (index > 4 && index <= 6) return 3;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (index > 6 && index <= 8) return 4;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (index > 8 && index <= 10) return 5;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1;
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block7">Flash: Програчность и невидимость</div>
+			<div class="BLOCK3_2"><b>- Прозрачность Alpha</b>
+				<br>bImage.alpha = 0.5; // значение от 0 до 1
+				<br>
+				<br><b>- Невидимость Visible</b>
+				<br>bImage.alpha = false;
+			</div>
+			<br>
+			<div class="BLOCK3" id="block8">Flash: Рисовать на спрайте</div>
+			<div class="BLOCK3_2"><b>- Нарисовать линию</b>
+				<br>import flash.display.Graphics;
+				<br>var _line:Sprite = new Sprite();
+				<br>_line.graphics.LineStyle(10, 0x3415E1, .75);
+				<br>_line.graphics.moveTo(x1, y1);
+				<br>_line.graphics.lineTo(x2, y2);
+				<br>this.addChild(_line);
+				<br>
+				<br><b>- Нарисовать круг</b>
+				<br>this.graphics.beginFill(0xFFFFFF, 0.8);
+				<br>this.graphics.drawCircle(450, 245, 60);
+				<br>this.graphics.endFill();
+				<br>
+				<br><b>- Нарисовать квадрат</b>
+				<br>this.graphics.beginFill(0xFFFFFF, 1);
+				<br>this.graphics.drawRect(0, 0, 600, 300);
+				<br>this.graphics.endFill();
+				<br>
+				<br><b>- Нарисовать сетку 10 на 10</b>
+				<br>public function Grid()
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.x = 150; this.y = 75;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var i:int = 1; i < Resource.COLUMNS; i++) {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var j:int = 1; j < Resource.ROWS; j++) {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.graphics.lineStyle(1, 0xcccccc, 1);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.graphics.beginFill(0xcccccc, 1);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.graphics.moveTo(i * 50, 0);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.graphics.lineTo(i * 50, 495);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.graphics.moveTo(0, j * 50);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.graphics.lineTo(495, j * 50);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.graphics.endFill();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block9">Flash: Полная очистка спрайта</div>
+			<div class="BLOCK3_2"><b>- Цикл полной очистки спрайта</b>
+				<br>while (this.numChildren) this.removeChildAt(0);
+			</div>
+			<br>
+			<div class="BLOCK3" id="block10">Flash: Маска</div>
+			<div class="BLOCK3_2"><b>Приминение маски в окне</b>
+				<br>import flash.display.Sprite;
+				<br>/...
+				<br>public class PlayingField extends Sprite
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Маска */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var spriteMask:Sprite = new Sprite();
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function PlayingField()
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resource.FieldGame = new Field();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Поле под маской */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(Resource.FieldGame);
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Маска */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spriteMask.graphics.beginFill(0x333333, 1);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spriteMask.graphics.drawRect(0, 0, 500, 500);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spriteMask.graphics.endFill();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spriteMask.x = 150; spriteMask.y = 75;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addChild(spriteMask);
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Применяем Маску */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Resource.FieldGame as Field).mask = spriteMask;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
 				<br>
 			</div>
 			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
 			
 			
 			<div id="footer">

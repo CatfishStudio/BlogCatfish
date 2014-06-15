@@ -34,6 +34,20 @@
 			<div id="section">
 
 				<div id="aside">
+					<div class="BLOCK4">Оглавление:</div>
+					<div class="BLOCK5"><a href="#block1">Базовые пакеты</a></div>
+					<div class="BLOCK5"><a href="#block2">Типы данных</a></div>
+					<div class="BLOCK5"><a href="#block3">Создание пакетов</a></div>
+					<div class="BLOCK5"><a href="#block4">Создание классов</a></div>
+					<div class="BLOCK5"><a href="#block5">Условия</a></div>
+					<div class="BLOCK5"><a href="#block6">Циклы</a></div>
+					<div class="BLOCK5"><a href="#block7">Оператор выбора</a></div>
+					<div class="BLOCK5"><a href="#block8">Массив Array</a></div>
+					<div class="BLOCK5"><a href="#block9">Массив Vector</a></div>
+					<div class="BLOCK5"><a href="#block10">Тип данных Object</a></div>
+					<div class="BLOCK5"><a href="#block11">Класс Timer</a></div>
+					<br>
+					<br>
 					<div class="BLOCK4">Справочники:</div>
 					<div class="BLOCK5"><a href="cpp.html" target="_self">Язык программирования С++</a></div>
 					<div class="BLOCK5"><a href="cs.html" target="_self">Язык программирования С#</a></div>
@@ -68,9 +82,10 @@
 					<div class="BLOCK5"><a href="gamedev.html" target="_self">Практика GameDev.</a></div>
 					<div class="BLOCK5"><a href="somov.html" target="_self">О себе.</a></div>
 					<br>
+					
 				</div>
 				
-				<div class="BLOCK3">Синтаксис языка AS3: Базовые пакеты</div>
+				<div class="BLOCK3" id="block1">Синтаксис языка AS3: Базовые пакеты</div>
 				<div class="BLOCK3_2">- Краткое описание базовых пакетов Flash
 				<br><b>flash.accessibility</b> - поддержка спец. возможностей
 				<br><b>flash.data</b> - работа с локальными базами данных SQL
@@ -127,7 +142,7 @@
 				<br><b></b>
 				</div>
 				<br>
-				<div class="BLOCK3">Синтаксис языка AS3: Типы данных</div>
+				<div class="BLOCK3" id="block2">Синтаксис языка AS3: Типы данных</div>
 				<div class="BLOCK3_2">- Переменные
 					<br>String - строка текста
 					<br>Boolean - логическое состояние
@@ -160,13 +175,13 @@
 				</div>
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Пакеты</div>
+			<div class="BLOCK3" id="block3">Синтаксис языка AS3: Пакеты</div>
 			<div class="BLOCK3_2">package Name {
 				<br>&nbsp;&nbsp;&nbsp;//описание класснов и т.п.
 				<br>}
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Классы</div>
+			<div class="BLOCK3" id="block4">Синтаксис языка AS3: Классы</div>
 			<div class="BLOCK3_2">- Описание класса наследуемого от Спрайта
 				<br>public class Level extends Sprite 
 				<br>{
@@ -185,7 +200,7 @@
 				<br>this.addChild(Level);
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Условия</div>
+			<div class="BLOCK3" id="block5">Синтаксис языка AS3: Условия</div>
 			<div class="BLOCK3_2">Таблица спецсимволов:
 				<br> == (равно)
 				<br> != (не равно)
@@ -207,7 +222,7 @@
 				<br>var c:int = a > b ? 100 : ( a == b ? 200 : 0);
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Циклы</div>
+			<div class="BLOCK3" id="block6">Синтаксис языка AS3: Циклы</div>
 			<div class="BLOCK3_2">- Цикл с предусловием 
 				<br>var w:int = 0;
 				<br>while (w < 10) }
@@ -234,7 +249,7 @@
 				<br>}
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Оператор выбора</div>
+			<div class="BLOCK3" id="block7">Синтаксис языка AS3: Оператор выбора</div>
 			<div class="BLOCK3_2">var num:int = 1;
 				<br>switch(num){
 				<br>&nbsp;&nbsp;&nbsp;case 0:
@@ -248,7 +263,7 @@
 				<br>}
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Массив Array</div>
+			<div class="BLOCK3" id="block8">Синтаксис языка AS3: Массив Array</div>
 			<div class="BLOCK3_2">- Создание экземпляра Array
 				<br>var names:Array = [];
 				<br>var names:Array = new Array();
@@ -294,7 +309,7 @@
 				<br>Методы join() и toString() возвращают строки
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Массив Vector</div>
+			<div class="BLOCK3" id="block9">Синтаксис языка AS3: Массив Vector</div>
 			<div class="BLOCK3_2">- Создание экземпляра Vector
 				<br>var v:Vector.<String>;
 				<br>v = new Vector.<String>();
@@ -320,7 +335,7 @@
 				<br>concat(), join(), slice(), toString() — отправляют запросы в массив, но не изменяют его.
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Тип данных Object</div>
+			<div class="BLOCK3" id="block10">Синтаксис языка AS3: Тип данных Object</div>
 			<div class="BLOCK3_2">-Служит для хранения составного объекта.
 				<br>Объекты создаются конструкторами с помощью синтаксиса оператора new.
 				<br>var myAssocArray:Object = {fname:"John", lname:"Public"};
@@ -330,7 +345,7 @@
 				<br>trace(myAssocArray.initial);   // Q
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка AS3: Класс Timer</div>
+			<div class="BLOCK3" id="block11">Синтаксис языка AS3: Класс Timer</div>
 			<div class="BLOCK3_2">Класс Timer является интерфейсом для таймеров озволяющих выполнять код в заданные интервалы времени.
 				<br>- Общедоступные свойства
 				<br>currentCount : int -[только чтение] Общее число срабатываний таймера с момента его запуска с нуля.
