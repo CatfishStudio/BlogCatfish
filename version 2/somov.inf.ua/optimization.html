@@ -1,0 +1,236 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html leng="ru">
+	<head>
+		<title>Оптимизация кода AS3.</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/nav.css">
+		<link rel="stylesheet" href="css/header.css">
+		<link rel="stylesheet" href="css/section.css">
+		<link rel="stylesheet" href="css/aside.css">
+		<link rel="stylesheet" href="css/footer.css">
+		<link rel="stylesheet" href="css/font.css">
+		<link rel="stylesheet" href="css/blocks.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="nav">
+				<div id="logo"></div>
+				<div>
+					<ul>
+						<li><a href="http://somov.inf.ua">Блог разработчика</a></li>
+						<li><a href="http://catfish.ltd.ua">Программное обеспечение</a></li>
+						<li><a href="http://cf.ltd.ua">Студия игр</a></li>
+					</ul>
+				</div>
+		
+			</div>
+
+			<div id="header">
+				<div id="display"></div>
+				<dir id="titleBlog">DEVELOPER: SOMOV EVGENIY</dir>
+			</div>
+
+			<div id="section">
+
+				<div id="aside">
+					<div class="BLOCK4">Оглавление:</div>
+					<div class="BLOCK5"><a href="#block1">Экономия памяти</a></div>
+					<div class="BLOCK5"><a href="#block1_0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Экранные объекты</a></div>
+					<div class="BLOCK5"><a href="#block1_1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Примитивные типы</a></div>
+					<div class="BLOCK5"><a href="#block1_2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Повторное использование объектов</a></div>
+					<div class="BLOCK5"><a href="#block1_3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Создание пула объектов</a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<br>
+					<br>
+					<div class="BLOCK4">Справочники:</div>
+					<div class="BLOCK5"><a href="cpp.html" target="_self">Язык программирования С++</a></div>
+					<div class="BLOCK5"><a href="cs.html" target="_self">Язык программирования С#</a></div>
+					<div class="BLOCK5"><a href="as3.html" target="_self">Язык программирования AS3</a></div>
+					<div class="BLOCK5"><a href="php.html" target="_self">Язык программирования PHP</a></div>
+					<div class="BLOCK5"><a href="js.html" target="_self">Язык программирования JS</a></div>
+					<div class="BLOCK5"><a href="j.html" target="_self">Язык программирования Java</a></div>
+					<div class="BLOCK5"><a href="asm.html" target="_self">Язык программирования ASM</a></div>
+					<br>
+					<div class="BLOCK4">Программный код:</div>
+					<div class="BLOCK5"><a href="flash.html" target="_self">Flash разработка</a></div>
+					<div class="BLOCK5"><a href="unity3d.html" target="_self">Unity3D разработка</a></div>
+					<div class="BLOCK5"><a href="net.html" target="_self">Net.Framework разработка</a></div>
+					<br>
+					<div class="BLOCK4">Средства разработки:</div>
+					<div class="BLOCK5"><a href="http://www.flashdevelop.org/" target="_blank">Flash Develop</a></div>
+					<div class="BLOCK5"><a href="http://www.icsharpcode.net/opensource/sd/" target="_blank">Sharp Develop</a></div>
+					<br>
+					<div class="BLOCK4">Графические движки:</div>
+					<div class="BLOCK5"><a href="http://unity3d.com/ru" target="_blank">Графический движок Unity3D</a></div>
+					<div class="BLOCK5"><a href="http://www.pixijs.com/" target="_blank">Графический движок Pixi.js</a></div>
+					<div class="BLOCK5"><a href="http://www.greensock.com/tweenlite/" target="_blank">Графический движок TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gamua.com/starling/" target="_blank">Графический движок Starling</a></div>
+					<br>
+					<div class="BLOCK4">Сторонние публикации:</div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/47411/" target="_blank">Работа с классом TweenLite</a></div>
+					<div class="BLOCK5"><a href="http://gcmob.ru/load/engine/online/6" target="_blank">Движки на HTML5 и Flash</a></div>
+					<div class="BLOCK5"><a href="http://habrahabr.ru/post/174603/" target="_blank">Pixi.js — 2D движок с поддержкой WebGL</a></div>
+					<div class="BLOCK5"><a href="http://automated-testing.info/t/avtomatizacziya-testirovaniya-vo-flash-igrax/3027" target="_blank">Автоматизация тестирования во flash-играх</a></div>
+					<br>
+					<div class="BLOCK4">Личные данные:</div>
+					<div class="BLOCK5"><a href="development.html" target="_self">Мои разработки.</a></div>
+					<div class="BLOCK5"><a href="gamedev.html" target="_self">Game Develop.</a></div>
+					<div class="BLOCK5"><a href="somov.html" target="_self">О себе.</a></div>
+					<br>
+				</div>
+
+				<div class="BLOCK3" id="block1">AS3: Экономия памяти</div>
+				<div class="BLOCK3_2"><b id="block1_0">Экранные объекты</b>
+					<br>Для простых неинтерактивных фигур используйте объекты <u>Shape</u>. 
+					<br>Для интерактивных объектов, для которых не требуется временная шкала, используйте объекты <u>Sprite</u>. 
+					<br>Для анимации с применением временной шкалы используйте объекты <u>MovieClip</u>.
+					<br>
+					<br>Метод getSize() показывает объем памяти, используемой объектом, в байтах.
+					<br>import flash.sampler.getSize;
+					<br>trace(getSize(new Shape())); // output: 236 
+					<br>trace(getSize(new Sprite())); // output: 420 
+					<br>trace(getSize(new MovieClip())); // output: 440 
+					<br>
+					<br><b id="block1_1">Примитивные типы</b>
+					<br>Все примитивные типы (Number, int, uint, Boolean), за исключением типа String, используют от 4 до 8 байт памяти.
+					<br>String Объем выделенной для хранения памяти зависит от длины строки.
+					<br>var name:String;
+					<br>trace(getSize(name)); // output: 4
+					<br>name = "";
+					<br>trace(getSize(name)); // output: 24
+					<br>
+					<br><b id="block1_2">Повторное использование объектов</b>
+					<br>По возможности используйте объекты повторно вместо их повторного создания.
+					<br>Например в циклах старайтесь не использовать создание объектов
+					<br>
+					<br>Вот так не правильно:
+					<br>var area:Rectangle;
+					<br>for (var:int = 0; i < MAX_NUM; i++){
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;area = new Rectangle(i,0,1,10);
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myBitmapData.fillRect(area,COLOR);
+					<br>}
+					<br>
+					<br>Вот так правильно:
+					<br>var area:Rectangle = new Rectangle(0,0,1,10);
+					<br>for (var:int = 0; i < MAX_NUM; i++){
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;area.x = i;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myBitmapData.fillRect(area,COLOR);
+					<br>}
+					<br>
+					<br><b id="block1_3">Создание пула объектов</b>
+					<br>При инициализации приложения создается заданное число объектов, которые сохраняются в пуле, таких как Array или Vector.
+					<br>Класс SpritePool создает пул новых объектов при инициализации приложения. 
+					<br>Метод getSprite()возвращает экземпляры этих объектов, а метод disposeSprite() освобождает их.
+					<br>
+					<br>package
+					<br>{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.display.Sprite;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public final class SpritePool
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static var MAX_VALUE:uint;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static var GROWTH_VALUE:uint;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static var counter:uint;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static var pool:Vector.<Sprite>;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static var currentSprite:Sprite;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static function initialize( maxPoolSize:uint, growthValue:uint ):void
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAX_VALUE = maxPoolSize;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GROWTH_VALUE = growthValue;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter = maxPoolSize;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var i:uint = maxPoolSize;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pool = new Vector.<Sprite>(MAX_VALUE);
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while( --i > -1 )
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pool[i] = new Sprite();
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static function getSprite():Sprite
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ( counter > 0 )
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return currentSprite = pool[--counter];
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var i:uint = GROWTH_VALUE;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while( --i > -1 )
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pool.unshift ( new Sprite() );
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter = GROWTH_VALUE;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return getSprite();
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static function disposeSprite(disposedSprite:Sprite):void
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pool[counter++] = disposedSprite;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+					<br>}
+					<br>
+					<br>В следующем примере кода класс SpritePool используется для извлечения новых экземпляров.
+					<br>const MAX_SPRITES:uint = 100;
+					<br>const GROWTH_VALUE:uint = MAX_SPRITES >> 1;
+					<br>const MAX_NUM:uint = 10;
+					<br>SpritePool.initialize ( MAX_SPRITES, GROWTH_VALUE );
+					<br>var currentSprite:Sprite;
+					<br>var container:Sprite = SpritePool.getSprite();
+					<br>addChild ( container );
+					<br>for ( var i:int = 0; i< MAX_NUM; i++ )
+					<br>{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ( var j:int = 0; j< MAX_NUM; j++ )
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentSprite = SpritePool.getSprite();
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentSprite.graphics.beginFill ( 0x990000 );
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentSprite.graphics.drawCircle ( 10, 10, 10 );
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentSprite.x = j * (currentSprite.width + 5);
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentSprite.y = i * (currentSprite.width + 5);
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container.addChild ( currentSprite );
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+					<br>}
+					<br>В следующем примере кода все экранные объекты удаляются из списка отображения при щелчке мышью, а затем повторно используются для выполнения другой задачи.
+					<br>stage.addEventListener ( MouseEvent.CLICK, removeDots );
+					<br>function removeDots ( e:MouseEvent ):void
+					<br>{
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (container.numChildren > 0 )
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpritePool.disposeSprite (container.removeChildAt(0) as Sprite );
+					<br>}
+					<br>Примечание. Вектор пула всегда ссылается на объекты Sprite. Если необходимо полностью удалить объект из памяти, воспользуйтесь методом dispose() класса SpritePool, который удаляет все остальные ссылки.
+				</div>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">AS3: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">AS3: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">AS3: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">AS3: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">AS3: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">AS3: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">AS3: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			
+			<div id="footer">
+				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
