@@ -46,6 +46,9 @@
 					<div class="BLOCK5"><a href="#block9">Массив Vector</a></div>
 					<div class="BLOCK5"><a href="#block10">Тип данных Object</a></div>
 					<div class="BLOCK5"><a href="#block11">Класс Timer</a></div>
+					<div class="BLOCK5"><a href="#block12">Класс Shape</a></div>
+					<div class="BLOCK5"><a href="#block13">Класс Sprite</a></div>
+					<div class="BLOCK5"><a href="#block14">Класс MovieClip</a></div>
 					<br>
 					<br>
 					<div class="BLOCK4">Справочники:</div>
@@ -85,6 +88,11 @@
 					<br>
 				</div>
 				
+				<div class="BLOCK3" id="block1">Синтаксис языка AS3: Книга</div>
+				<div class="BLOCK3_2"><b>Книга: ActionScript3 Game Programmin</b> 
+					<br><a href="doc/Rosenzweig_G_-_ActionScript_3_0_Game_Programmin.pdf" target="_blank">Rosenzweig_G_-_ActionScript_3_0_Game_Programmin.pdf</a>
+				</div>
+				<br>
 				<div class="BLOCK3" id="block1">Синтаксис языка AS3: Базовые пакеты</div>
 				<div class="BLOCK3_2">- Краткое описание базовых пакетов Flash
 				<br><b>flash.accessibility</b> - поддержка спец. возможностей
@@ -346,22 +354,22 @@
 			</div>
 			<br>
 			<div class="BLOCK3" id="block11">Синтаксис языка AS3: Класс Timer</div>
-			<div class="BLOCK3_2">Класс Timer является интерфейсом для таймеров озволяющих выполнять код в заданные интервалы времени.
+			<div class="BLOCK3_2"><b>Класс Timer является интерфейсом для таймеров озволяющих выполнять код в заданные интервалы времени.</b>
 				<br>- Общедоступные свойства
-				<br>currentCount : int -[только чтение] Общее число срабатываний таймера с момента его запуска с нуля.
-				<br>delay : Number - Задержка в миллисекундах между событиями таймера.
-				<br>repeatCount : int - Общее число запусков, на которое настроен таймер.
-				<br>running : Boolean - [только чтение] Текущее состояние таймера: если таймер выполняется, то true, в противном случае - false.
+				<br><u>currentCount : int</u> -[только чтение] Общее число срабатываний таймера с момента его запуска с нуля.
+				<br><u>delay : Number</u> - Задержка в миллисекундах между событиями таймера.
+				<br><u>repeatCount : int</u> - Общее число запусков, на которое настроен таймер.
+				<br><u>running : Boolean</u> - [только чтение] Текущее состояние таймера: если таймер выполняется, то true, в противном случае - false.
 				<br>
 				<br>- Общедоступные методы 
-				<br>Timer(delay:Number, repeatCount:int = 0) - Создает новый объект Timer.
-				<br>reset():void - Останавливает таймер, и заново присваивает свойству currentCount значение 0.
-				<br>start():void - Запускает таймер, если он еще не выполняется.
-				<br>stop():void - Останавливает таймер.
+				<br><u>Timer(delay:Number, repeatCount:int = 0)</u> - Создает новый объект Timer.
+				<br><u>reset():void</u> - Останавливает таймер, и заново присваивает свойству currentCount значение 0.
+				<br><u>start():void</u> - Запускает таймер, если он еще не выполняется.
+				<br><u>stop():void</u>- Останавливает таймер.
 				<br>
 				<br>- События
-				<br>timer - Передается каждый раз при достижении объектом Timer интервала, указанного в свойстве Timer.delay.
-				<br>timerComplete -	Передается каждый раз при выполнении количества запросов, указанного свойством Timer.repeatCount.
+				<br><u>timer</u> - Передается каждый раз при достижении объектом Timer интервала, указанного в свойстве Timer.delay.
+				<br><u>timerComplete</u> -	Передается каждый раз при выполнении количества запросов, указанного свойством Timer.repeatCount.
 				<br>
 				<br>import flash.utils.Timer;
 				<br>import flash.events.TimerEvent;
@@ -386,7 +394,113 @@
 				<br>&nbsp;&nbsp;&nbsp;}
 				<br>}
 			</div>
-			
+			<br>
+			<div class="BLOCK3" id="block12">Синтаксис языка AS3: Класс Shape</div>
+			<div class="BLOCK3_2"><b>Используется для простых неинтерактивных фигур.</b>
+				<br>Класс Shape включает свойство graphics, обеспечивающее доступ к методам класса Graphics.
+				<br>Объект Shape не является (и не может содержать дочерних экранных объектов).
+				<br>
+				<br>Свойства:
+				<br><u>accessibilityProperties : AccessibilityProperties</u> Текущие параметры специальных возможностей.
+				<br><u>alpha : Number</u> Указывает значение альфа-прозрачности заданного объекта.
+				<br><u>blendMode : String</u>  режим наложения
+				<br><u>blendShader : Shader</u> Задает затенение, используемое при наложении переднего плана на фон.
+				<br><u>cacheAsBitmap : Boolean</u> При значении true кэширует внутреннее растровое представление.
+				<br><u>constructor : Object</u> Ссылка на объект класса или функцию конструктора для данного объекта.
+				<br><u>filters : Array</u> Индексированный массив, который содержит все объекты связанные с объектом.
+				<br><u>graphics : Graphics</u> Можно выполнять команды векторного рисования.
+				<br><u>height : Number</u> Высота экранного объекта в пикселах.
+				<br><u>	loaderInfo : LoaderInfo</u> Содержащий сведения о загрузке файла. 
+				<br><u>mask : DisplayObject</u> Экранный объект маскируется заданным объектом mask.
+				<br><u>mouseX : Number</u> Координата x положения курсора мыши (в пикселах).
+				<br><u>mouseY : Number</u> Координату y положения курсора мыши (в пикселах).
+				<br><u>name : String</u> Указывает имя экземпляра DisplayObject.
+				<br><u>opaqueBackground : Object</u> Определяет, является ли экранный объект непрозрачным.
+				<br><u>parent : DisplayObjectContainer</u> объект DisplayObjectContainer, содержащий данный экранный объект.
+				<br><u>prototype : Object</u> Ссылка на модель объекта класса или функции.
+				<br><u>root : DisplayObject</u> В случае с экранным объектом в загруженном SWF-файле свойством root является самый верхний экранный объект в части структуры дерева списка отображения, представленной этим SWF-файлом.
+				<br><u>rotation : Number</u> Поворот экземпляра.
+				<br><u>rotationX : Number</u> поворот в градусах по оси x
+				<br><u>rotationY : Number</u> поворот в градусах по оси у
+				<br><u>rotationZ : Number</u> поворот в градусах по оси z
+				<br><u>scale9Grid : Rectangle</u> Текущая активная сетка масштабирования.
+				<br><u>scaleX : Number</u> Горизонтальное масштабирование объекта
+				<br><u>scaleY : Number</u> Вертикальное масштабирование объекта
+				<br><u>scaleZ : Number</u> Масштабирование глубины объекта
+				<br><u>scrollRect : Rectangle</u> Прямоугольная область прокрутки экранного объекта.
+				<br><u>stage : Stage</u> Класс Stage экранного объекта.
+				<br><u>transform : Transform</u> Объект со свойствами, относящимися к матрице, преобразованию цвета и пиксельным границам экранного объекта.
+				<br><u>visible : Boolean</u> Определяет видимость экранного объекта.
+				<br><u>width : Number</u> Указывает ширину экранного объекта в пикселах.
+				<br><u>x : Number</u> Указывает координату x
+				<br><u>y : Number</u> Указывает координату y
+				<br><u>z : Number</u> Указывает положение по оси z
+				<br>
+				<br>Методы:
+				<br><u>Shape</u> Создает новый объект Shape.
+				<br><u>addEventListener</u> Регистрирует объект прослушивателя события
+				<br><u>dispatchEvent</u> Передает событие в поток событий.
+				<br><u>getBounds</u> Возвращает прямоугольник, определяющий область экранного объекта.
+				<br><u>getRect</u> Возвращает прямоугольник, определяющий границу экранного объекта.
+				<br><u>globalToLocal</u> Преобразует объект Point из координат рабочей области (глобальных) в координаты экранного объекта (локальные).
+				<br><u>globalToLocal3D</u> Преобразует двумерный объект Point из координат рабочей области (глобальных) в координаты экранного трехмерного объекта (локальные).
+				<br><u>hasEventListener</u> Проверяет наличие у объекта EventDispatcher прослушивателей событий, которые зарегистрированы для получения уведомлений о событиях определенного типа.
+				<br><u>hasOwnProperty</u> Показывает, определено ли заданное свойство для объекта.
+				<br><u>hitTestObject</u> Оценивает экранный объект, чтобы определить, перекрывает ли он экранный объект obj или пересекается с ним.
+				<br><u>hitTestPoint</u> Вычисляет экранный объект, чтобы определить, перекрывает ли он точку, заданную координатами x и y, или пересекает ее.
+				<br><u>isPrototypeOf</u> Показывает, есть ли экземпляр класса Object в цепи прототипов объекта
+				<br><u>local3DToGlobal</u> Преобразует трехмерный объект point из координат трехмерного экранного объекта (локальных) в двухмерный объект point с координатами рабочей области (глобальными).
+				<br><u>localToGlobal</u> Преобразует объект point из координат экранного объекта (локальных) в координаты рабочей области (глобальные).
+				<br><u>propertyIsEnumerable</u> Показывает наличие заданного свойства и его перечисляемость.
+				<br><u>removeEventListener</u> Удаляет прослушиватель из объекта EventDispatcher.
+				<br><u>setPropertyIsEnumerable</u> Задает доступность динамического свойства для операций цикла.
+				<br><u>toString</u> Возвращает строковое представление заданного объекта.
+				<br><u>valueOf</u> Возвращает элементарное значение заданного объекта.
+				<br><u>willTrigger</u> Проверяет, зарегистрирован ли прослушиватель событий в объекте EventDispatcher или в любом из его предков для получения уведомлений о событиях определенного типа.
+				<br>
+				<br>События:
+				<br><u>activate</u> когда Flash перемещается в фокус операционной системы и становится активным.
+				<br><u>added</u> когда экранный объект добавляется в список отображения.
+				<br><u>addedToStage</u> когда экранный объект добавляется к списку отображения в рабочей области, либо непосредственно, либо путем добавления поддерева, содержащего экранный объект.
+				<br><u>deactivate</u> когда проигрыватель Flash покидает фокус операционной системы и становится неактивным.
+				<br><u>enterFrame</u> когда точка воспроизведения переходит в новый кадр.
+				<br><u>exitFrame</u> когда точка воспроизведения покидает текущий кадр.
+				<br><u>frameConstructed</u> после завершения работы конструкторов экранных объектов кадра до выполнения сценариев кадра.
+				<br><u>removed</u> перед удалением экранного объекта из списка отображения.
+				<br><u>removedFromStage</u> Отправляется перед удалением экранного объекта из списка отображения, либо непосредственно, либо путем удаления поддерева, содержащего экранный объект.
+				<br><u>render</u> Отправляется перед обновлением и визуализацией списка отображения.
+				<br>
+				<br>Пример:
+				<br> private function doDrawCircle():void {
+				<br>&nbsp;&nbsp;&nbsp;var child:Shape = new Shape();
+				<br>&nbsp;&nbsp;&nbsp;var halfSize:uint = Math.round(size/2);
+				<br>&nbsp;&nbsp;&nbsp;child.graphics.beginFill(bgColor);
+				<br>&nbsp;&nbsp;&nbsp;child.graphics.lineStyle(borderSize, borderColor);
+				<br>&nbsp;&nbsp;&nbsp;child.graphics.drawCircle(halfSize, halfSize, halfSize);
+				<br>&nbsp;&nbsp;&nbsp;child.graphics.endFill();
+				<br>&nbsp;&nbsp;&nbsp;addChild(child);
+				<br>}
+		<br>
+        <br>private function doDrawRoundRect():void {
+        <br>&nbsp;&nbsp;&nbsp;var child:Shape = new Shape();
+        <br>&nbsp;&nbsp;&nbsp;child.graphics.beginFill(bgColor);
+        <br>&nbsp;&nbsp;&nbsp;child.graphics.lineStyle(borderSize, borderColor);
+        <br>&nbsp;&nbsp;&nbsp;child.graphics.drawRoundRect(0, 0, size, size, cornerRadius);
+        <br>&nbsp;&nbsp;&nbsp;child.graphics.endFill();
+        <br>&nbsp;&nbsp;&nbsp;addChild(child);
+        <br>}
+		<br>
+        <br>private function doDrawRect():void {
+        <br>&nbsp;&nbsp;&nbsp;var child:Shape = new Shape();
+        <br>&nbsp;&nbsp;&nbsp;child.graphics.beginFill(bgColor);
+        <br>&nbsp;&nbsp;&nbsp;child.graphics.lineStyle(borderSize, borderColor);
+        <br>&nbsp;&nbsp;&nbsp;child.graphics.drawRect(0, 0, size, size);
+        <br>&nbsp;&nbsp;&nbsp;child.graphics.endFill();
+        <br>&nbsp;&nbsp;&nbsp;addChild(child);
+        <br>}
+				<br>
+				<br>
+			</div>
 			
 			<div id="footer">
 				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
