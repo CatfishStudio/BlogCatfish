@@ -35,8 +35,9 @@
 
 				<div id="aside">
 					<div class="BLOCK4">Оглавление:</div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1">Пакеты и классы Starling</a></div>
+					<div class="BLOCK5"><a href="#block2">Подключение Starling к FlashDevelop</a></div>
+					<div class="BLOCK5"><a href="#block3">Первый проект. Проверка Srarling</a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
@@ -81,22 +82,179 @@
 					<br>
 				</div>
 
-				<div class="BLOCK3" id="block1">Starling: Книга</div>
+				<div class="BLOCK3" id="block0">Starling: Книга</div>
 				<div class="BLOCK3_2"><b>Книга: Introducing starling</b>
 					<br><a href="doc/introducing_starling.pdf" target="_blank">introducing_starling.pdf</a>
 					<br>
 					<br><b>Книга: Starling Game Development Essentials</b>
 					<br><a href="doc/Juwal Bose - Starling Game Development Essentials - 2013.pdf" target="_blank">Juwal Bose - Starling Game Development Essentials - 2013.pdf</a>
+					<br>
+					<br><b>Книга: Пакеты и классы Starling</b>
+					<br><a href="http://doc.starling-framework.org/core/" target="_blank">http://doc.starling-framework.org/core/</a>
 				</div>
 				<br>
-				<div class="BLOCK3" id="block1">Starling: Книга</div>
-				<div class="BLOCK3_2">
-					
+				<div class="BLOCK3" id="block1">Starling: Пакеты и классы</div>
+				<div class="BLOCK3_2">Пакеты:
+					<br><b>starling.animation</b> - компоненты анимации.
+					<br><b>starling.core</b> - содержит основные классы ядра и службы визуализации.
+					<br><b>starling.display</b> - основные классы из которых отображается всё на экране.
+					<br><b>starling.errors</b> - набор наиболее используемых классов ошибок.
+					<br><b>starling.events</b> - упрощенная версия модели Флэша DOM событий, в том числе альтернативной EventDispatcher базового класса.
+					<br><b>starling.filters</b> - процесс обработки фильтров для спецэффектов.
+					<br><b>starling.text</b> - классы для работы с текстовыми полями и растровыми шрифтами.
+					<br><b>starling.textures</b> - классы для создания и работы с данными текстур GPU.
+					<br><b>starling.utils</b> - утилиты, вспомогательные классы.
+					<br>
+					<br>Классы: пакета <u>starling.animation</u>
+					<br><b>DelayedCall</b> - позволяет выполнить метод после того как прошло определенное время
+					<br><b>Juggler</b> - принимает объекты реализованные IAnimatable (как Tweens) и выполняет их.
+					<br><b>Transitions</b> - класс содержит статические матоды замедления.
+					<br><b>Tween</b> - анимирует объекты.
+					<br>
+					<br>Классы: пакета <u>starling.core</u>
+					<br><b>RenderSupport</b> - содержит методы урощающие Stage3D визуализацию.
+					<br><b>Starling</b> - представляет ядро старлинга.
+					<br>
+					<br>Классы: пакета <u>starling.display</u>
+					<br><b>BlendMode</b> - содержит значение констант визуальных эффектов.
+					<br><b>Button</b> - простоя кнопка, состоит из изображения и текста.
+					<br><b>DisplayObject</b> - базовый класс для всех объектов которые отображаются на экране.
+					<br><b>DisplayObjectContainer</b> - представляет коллекцию экранных объектов.
+					<br><b>Image</b> - это quad изображение с текстурой на нем.
+					<br><b>MovieClip</b> - простой способ отображения анимации, изображение представлено в виде списка текстур.
+					<br><b>Quad</b> - представляет собой прямоугольник, однородного цыета или цветового градиента.
+					<br><b>QuadBatch</b> - оптимизация ряда quad с идентичными state 
+					<br><b>Sprite</b> - наиболее легкий не абстрактный класс контейнера.
+					<br><b>Stage</b> - представляет корень дерева display
+					<br>
+					<br>Классы: пакета <u>starling.errors</u>
+					<br><b>AbstractClassError</b> - происходит при попытке создать экземпляр абстрактного класса.
+					<br><b>AbstractMethodError</b> - происходит при попытке вызвать абстрактный метод.
+					<br><b>MissingContextError</b> - происходит когда обхект Context3D запрашивается, но он недоступен.
+					<br>
+					<br>Классы: пакета <u>starling.events</u>
+					<br><b>EnterFrameEvent</b> - срабатывает один раз за кадр ко всем объектам дерева на display. 
+					<br><b>Event</b> - события.
+					<br><b>EventDispatcher</b> - базовый класс для всех классов передающих события.
+					<br><b>KeyboardEvent</b> - событие, ввод с клавиатуры.
+					<br><b>ResizeEvent</b> - событие при изменении размера флесш контейнера.
+					<br><b>Touch</b> - Сенсорный объект содержит информацию о наличии или движением пальца или мыши на экране.
+					<br><b>TouchEvent</b> - событие мыши либо нажатие пальцем.
+					<br><b>TouchPhase</b> - содержит значения констант для фаз сенсорного объекта.
+					<br><b>TouchProcessor</b> - используется для преобразования событий мыши или сенсора обычной стадии Flash для Starling TouchEvents
+					<br>
+					<br>Классы: пакета <u>starling.filters</u>
+					<br><b>BlurFilter</b> - применяет фильтр Гаусс к объекту.
+					<br><b>ColorMatrixFilter</b> - позволяет применить матричное преобразование 4х5 от цвета RGBA и альфа-канала каждого пиксела в исходном изображении для получения результата с новым набором цвета RGBA и альфа-канала. 
+					<br><b>DisplacementMapFilter</b> - использует значения пикселов из указанного текстуры (так называемого смещения) для искривления замещения объекта.
+					<br><b>FragmentFilter</b> - является базовым классом для всех фильтров эффектов.
+					<br><b>FragmentFilterMode</b> - содержит значения констант режимов фильтрации.
+					<br>
+					<br>Классы: пакета <u>starling.text</u>
+					<br><b>BitmapChar</b> - информация об одном символе растрового шрифта.
+					<br><b>BitmapFont</b> - анализирует файлы растровых шрифтов и организует символы текста.
+					<br><b>TextField</b> - оттображает текст.
+					<br><b>TextFieldAutoSize</b> - перечисление значений констант,  с помощью которых задается свойство AutoSize.
+					<br>
+					<br>Классы: пакета <u>starling.textures</u>
+					<br><b>AtfData</b> - анализатор ATF формата.
+					<br><b>ConcreteTexture</b> - обеспечивает текстурой Stage3D объект, и хранение свойств текстуры.
+					<br><b>RenderTexture</b> - динамическая текстура, на которой можно нарисовать любой экранный объект.
+					<br><b>SubTexture</b> - представляет собой сечение другой текстурой.
+					<br><b>Texture</b> - текстура представляющая собой изображение.
+					<br><b>TextureAtlas</b> - атлас представляет собой сборник нескольких небольших текстур в одном большом изображении.
+					<br><b>TextureOptions</b> - определяет параметры для загрузки текстуры методом Texture.fromData
+					<br><b>TextureSmoothing</b> - содержит значения констант для возможных алгоритмов сглаживания текстуры.
+					<br>
+					<br>Функции: пакета <u>starling.utils</u>
+					<br><b>deg2rad</b> - преобразует угол от градусов в радианах.
+					<br><b>execute</b> - выполняет функцию с указанными аргументами.
+					<br><b>formatString</b> - формат String в стиле .Net-style, с фигурными скобками ("{0}").
+					<br><b>getNextPowerOfTwo</b> - Возвращает следующий степень двойки, которая равна или больше, чем указанное число.
+					<br><b>rad2deg</b> - Преобразует угол от радианах в градусах.
+					<br><b>transformCoords</b> - Использует матрицу для преобразования 2D координат в другом пространстве.
+					<br>
+					<br>Классы: пакета <u>starling.utils</u>
+					<br><b>AssetManager</b> - обрабатывает загрузку и доступ различных типов активов.
+					<br><b>Color</b> - содержащий предопределенные цвета и методы конвертирования между различными цветовыми представлений.
+					<br><b>HAlign</b> - содержит значения констант для горизонтального выравнивания объектов.
+					<br><b>MatrixUtil</b> - содержащий методы, связанные с классом Matrix.
+					<br><b>RectangleUtil</b> - содержащий методы, связанные с классом Rectangle.
+					<br><b>ScaleMode</b> - который содержит значения констант для метода «RectangleUtil.fit".
+					<br><b>SystemUtil</b> - Утилита класс с методами, связанных с текущей платформы и выполнения.
+					<br><b>VAlign</b> - содержит значения констант для вертикального выравнивания объектов.
+					<br><b>VertexData</b> - управляет сырой перечень информации вершины, позволяя прямой загрузки на Stage3D буферов вершин.
+				</div>
+				<br>
+				<div class="BLOCK3" id="block2">Starling: Подключение к FlashDevelop</div>
+				<div class="BLOCK3_2"><b>Инструкция:</b>
+					<br>1. Скачать Starling архив Gamua-Starling-Framework-v1.5.1-0-gdef24cc.zip
+					<br>2. Создать в Flash Develop новый проект AS3 Project
+					<br>3. Скопировать файл <u>starling.swc</u> из архива старлинга ..\Gamua-Starling-Framework-def24cc\starling\bin в папку проекта ..\lib\
+					<br>добавить этот файл к проекту Add To Library
+					<br>4. Скопировать папки <u>com</u> и <u>starling</u> из архива старлинга ..\starling\src\ 
+					<br>в папку проекта ..\src\имяПроекта\
+					<br><u>Примичание</u>: при компиляции может возниктунь ошибка 1014 про Stage3D в этом случае нужно выбрать новую версию Flash Player для компиляции, для этого:
+					<br>в меню Project -> Properties... на закладке Output выбрать более новую версию.
 				</div>
 			</div>
+
 			<br>
-			<div class="BLOCK3" id="block1">Starling: </div>
-			<div class="BLOCK3_2"><b></b>
+			<div class="BLOCK3" id="block3">Starling: Первый проект.</div>
+			<div class="BLOCK3_2"><b>Первый простой пример работы Старлинга проект FirstSteps.</b>&nbsp;&nbsp;&nbsp;<a href="starling/FirstSteps.zip">скачать</a>
+				<br>Папки проекта должны иметь следующий вид:
+				<br>&nbsp;&nbsp;&nbsp;[bin]
+				<br>&nbsp;&nbsp;&nbsp;[lib]
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;starling.swc (файл из архива Старлинга ..\Gamua-Starling-Framework-def24cc\starling\bin\ )
+				<br>&nbsp;&nbsp;&nbsp;[src]
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[FirstSteps]
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[com] (папка из архива Старлинга ..\Gamua-Starling-Framework-def24cc\starling\src\ )
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[starling] (папка из архива Старлинга ..\Gamua-Starling-Framework-def24cc\starling\src\ )
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Game.as
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main.as
+				<br>
+				<br><b>Исходный код файла Game.as</b>
+				<br>&nbsp;&nbsp;&nbsp;package FirstSteps 
+				<br>&nbsp;&nbsp;&nbsp;{	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.display.Sprite;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.text.TextField;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public class Game extends Sprite // это спрайт Старлинга
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function Game() 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var textField:TextField = new TextField(400, 300, "Welcom to Starling!");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(textField);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br><b>Исходный код файла Main.as</b>
+				<br>&nbsp;&nbsp;&nbsp;package FirstSteps
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.display.Sprite;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.events.Event;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.core.Starling;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SWF(width="400", height="300", frameRate="60", backgroundColor="#ffffff")]
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public class Main extends Sprite // это спрайт Флеша
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var _starling:Starling;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function Main():void 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (stage) init();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else addEventListener(Event.ADDED_TO_STAGE, init);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initStarling();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function init(e:Event = null):void 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;removeEventListener(Event.ADDED_TO_STAGE, init);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function initStarling():void
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling = new Starling(Game, stage);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling.start();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
 				<br>
 			</div>
 			<br>
