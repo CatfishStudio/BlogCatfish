@@ -38,8 +38,8 @@
 					<div class="BLOCK5"><a href="#block1">Пакеты и классы Starling</a></div>
 					<div class="BLOCK5"><a href="#block2">Подключение Starling к FlashDevelop</a></div>
 					<div class="BLOCK5"><a href="#block3">Первый проект. Проверка Srarling</a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block4">Использование текстур</a></div>
+					<div class="BLOCK5"><a href="#block5">Кнопка с текстурой</a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
@@ -262,14 +262,64 @@
 				<br>
 			</div>
 			<br>
-			<div class="BLOCK3" id="block1">Starling: </div>
-			<div class="BLOCK3_2"><b></b>
+			<div class="BLOCK3" id="block4">Starling: Использование текстур</div>
+			<div class="BLOCK3_2"><b>Загрузка текстур</b>
+				<br>public class Resource 
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;[Embed(source = '../../../images/menu.png')]
+				<br>&nbsp;&nbsp;&nbsp;public static const <u>StartMenuImage</u>:Class;
+				<br>&nbsp;&nbsp;&nbsp;[Embed(source = '../../../images/buttonStart.png')]
+				<br>&nbsp;&nbsp;&nbsp;public static const StartButtonImage:Class;
+				<br>&nbsp;&nbsp;&nbsp;[Embed(source = '../../../images/buttonExit.png')]
+				<br>&nbsp;&nbsp;&nbsp;public static const ExitButtonImage:Class;
 				<br>
+				<br>/* Динамический сборник свойств */
+				<br>&nbsp;&nbsp;&nbsp;private static var gameTextures:Dictionary = new Dictionary();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// flash.utils.Dictionary
+				<br>&nbsp;&nbsp;&nbsp;public static function getTexture(_name:String):Texture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// starling.textures.Texture
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (gameTextures[_name] == undefined)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var bitmap:Bitmap = new Resource[_name]();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gameTextures[_name] = Texture.fromBitmap(bitmap);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return gameTextures[_name];
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>}
+				<br>
+				<br><b>Наложение текстур</b>
+				<br>&nbsp;&nbsp;&nbsp;private var bg:Image;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// starling.display.Image
+				<br>&nbsp;&nbsp;&nbsp;bg = new Image(Resource.getTexture(<u>"StartMenuImage"</u>));
+				<br>&nbsp;&nbsp;&nbsp;this.addChild(bg);
 			</div>
 			<br>
-			<div class="BLOCK3" id="block1">Starling: </div>
-			<div class="BLOCK3_2"><b></b>
-				<br>
+			<div class="BLOCK3" id="block5">Starling: Кнопка с текстурой</div>
+			<div class="BLOCK3_2"><b>Наложение текстуры на кнопку и создание событий для неё.</b>
+				<br>&nbsp;&nbsp;&nbsp;private var btn:Button;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// starling.display.Button
+				<br>//...
+				<br>&nbsp;&nbsp;&nbsp;btn = new Button(Resource.getTexture("StartButtonImage"));
+				<br>&nbsp;&nbsp;&nbsp;btn.x = 40; btn.y = 350;
+				<br>&nbsp;&nbsp;&nbsp;btn.addEventListener(TouchEvent.TOUCH, onButtonStartTouch); // событие
+				<br>&nbsp;&nbsp;&nbsp;this.addChild(btn);
+				<br>//...
+				<br>&nbsp;&nbsp;&nbsp;private function onButtonStartTouch(e:TouchEvent):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var touch:Touch = e.getTouch(stage);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (touch)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (touch.phase == TouchPhase.BEGAN)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//...	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (touch.phase == TouchPhase.ENDED)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Очистка */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.removeChild(btn);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.removeChild(bg);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Загрузка Карты */
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//...
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
 			</div>
 			<br>
 			<div class="BLOCK3" id="block1">Starling: </div>
