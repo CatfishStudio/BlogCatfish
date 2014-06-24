@@ -39,8 +39,8 @@
 					<div class="BLOCK5"><a href="#block2">Подключение Starling к FlashDevelop</a></div>
 					<div class="BLOCK5"><a href="#block3">Первый проект. Проверка Srarling</a></div>
 					<div class="BLOCK5"><a href="#block4">Использование текстур</a></div>
-					<div class="BLOCK5"><a href="#block5">Кнопка с текстурой</a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block5">Кнопка с текстурой и текстом</a></div>
+					<div class="BLOCK5"><a href="#block6">Атлас - использование текстур</a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<br>
@@ -208,6 +208,7 @@
 				<br>
 				<br>Папки проекта должны иметь следующий вид:
 				<br>&nbsp;&nbsp;&nbsp;[bin]
+				<br>&nbsp;&nbsp;&nbsp;[images]
 				<br>&nbsp;&nbsp;&nbsp;[lib]
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;starling.swc (файл из архива Старлинга ..\Gamua-Starling-Framework-def24cc\starling\bin\ )
 				<br>&nbsp;&nbsp;&nbsp;[src]
@@ -264,6 +265,8 @@
 			<br>
 			<div class="BLOCK3" id="block4">Starling: Использование текстур</div>
 			<div class="BLOCK3_2"><b>Загрузка текстур</b>
+				<br>import flash.display.Bitmap;
+				<br>import flash.utils.Dictionary;
 				<br>public class Resource 
 				<br>{
 				<br>&nbsp;&nbsp;&nbsp;[Embed(source = '../../../images/menu.png')]
@@ -296,7 +299,7 @@
 			<div class="BLOCK3_2"><b>Наложение текстуры на кнопку и создание событий для неё.</b>
 				<br>&nbsp;&nbsp;&nbsp;private var btn:Button;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// starling.display.Button
 				<br>//...
-				<br>&nbsp;&nbsp;&nbsp;btn = new Button(Resource.getTexture("StartButtonImage"));
+				<br>&nbsp;&nbsp;&nbsp;btn = new Button(Resource.getTexture("StartButtonImage"), "Старт");
 				<br>&nbsp;&nbsp;&nbsp;btn.x = 40; btn.y = 350;
 				<br>&nbsp;&nbsp;&nbsp;btn.addEventListener(TouchEvent.TOUCH, onButtonStartTouch); // событие
 				<br>&nbsp;&nbsp;&nbsp;this.addChild(btn);
@@ -320,6 +323,68 @@
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 				<br>&nbsp;&nbsp;&nbsp;}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block6">Starling: Атлас - использование текстур</div>
+			<div class="BLOCK3_2"><b>Создание атласа с помошью программы ShoeBox</b>
+				<br>В программе ShoeBox на закладку Sprite Sheets перенести несколько картинок (например *.png)
+				<br>Нажать "Save" будет создан атлас *.png объединивший в себе все картинки и *.xml файл описания атласа.
+				<br>Пример файла <a href="starling/atlas/crystals.png" target="_blank">crystal.png</a>
+				<br>Пример файла <a href="starling/atlas/crystals.xml" target="_blank">crystal.xml</a>
+				<br>В проекте файлы расположены в папке [images] -> [atlas]
+				<br>
+				<br><b>Обработка атласа</b>
+				<br>import starling.textures.Texture;
+				<br>import starling.textures.TextureAtlas;
+				<br>public class Resource 
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;private static var gameTextureAtlas:TextureAtlas;
+				<br>&nbsp;&nbsp;&nbsp;[Embed(source = '../../../images/atlas/crystals.png')]
+				<br>&nbsp;&nbsp;&nbsp;public static const CrystalsAtlasTexture:Class;
+				<br>&nbsp;&nbsp;&nbsp;[Embed(source = '../../../images/atlas/crystals.xml', mimeType = "application/octet-stream")]
+				<br>&nbsp;&nbsp;&nbsp;public static const CrystalAtlasXML:Class;
+				<br>/* Получить атлас */
+				<br>&nbsp;&nbsp;&nbsp;public static function getAtlas():TextureAtlas
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (gameTextureAtlas == null)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var texture:Texture = getTexture("CrystalsAtlasTexture");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var xml:XML = XML(new CrystalAtlasXML());
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gameTextureAtlas = new TextureAtlas(texture, xml);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return gameTextureAtlas;
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>}
+				<br>
+				<br><b>Получение отдельной текстуры из атласа</b>
+				<br>&nbsp;&nbsp;&nbsp;var crystal_3:Image = new Image(Resource.getAtlas().getTexture("crystal_3_50_50.png"));
+				<br>&nbsp;&nbsp;&nbsp;crystal_3.x = 100; crystal_3.y = 100;
+				<br>&nbsp;&nbsp;&nbsp;this.addChild(crystal_3);
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">Starling: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">Starling: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">Starling: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">Starling: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block1">Starling: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
 			</div>
 			<br>
 			<div class="BLOCK3" id="block1">Starling: </div>
