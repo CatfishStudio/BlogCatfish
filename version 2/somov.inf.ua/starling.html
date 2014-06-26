@@ -41,6 +41,10 @@
 					<div class="BLOCK5"><a href="#block4">Использование текстур</a></div>
 					<div class="BLOCK5"><a href="#block5">Кнопка с текстурой и текстом</a></div>
 					<div class="BLOCK5"><a href="#block6">Атлас - использование текстур</a></div>
+					<div class="BLOCK5"><a href="#block7">Атлас - использование MovieClip</a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<br>
@@ -362,9 +366,50 @@
 				<br>&nbsp;&nbsp;&nbsp;this.addChild(crystal_3);
 			</div>
 			<br>
-			<div class="BLOCK3" id="block1">Starling: </div>
-			<div class="BLOCK3_2"><b></b>
+			<div class="BLOCK3" id="block7">Starling: Атлас - использование MovieClip</div>
+			<div class="BLOCK3_2"><b>Воспроизведение атласа с помощью MovieClip</b>
+				<br>файл проекты StarlingMovieClip <a href="starling/StarlingMovieClip.zip">скачать</a>
+				<br>файл <a href="starling/atlas/atlas.png">atlas.png</a>
+				<br>файл <a href="starling/atlas/atlas.xml">atlas.xml</a>
 				<br>
+				<br>Исходный код примера
+				<br>&nbsp;&nbsp;&nbsp;package StarlingMovieClip 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.core.Starling;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.display.MovieClip;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.display.Sprite;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.textures.Texture;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.textures.TextureAtlas;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.events.Event;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public class Game extends Sprite 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Embed(source="../../media/atlas.xml", mimeType="application/octet-stream")]
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static const AtlasXml:Class;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Embed(source="../../media/atlas.png")]
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static const AtlasTexture:Class;
+				<br>		
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function Game() 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addEventListener(Event.ADDED_TO_STAGE, animationStarling);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function animationStarling(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;removeEventListener(Event.ADDED_TO_STAGE, animationStarling);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.x = 75; this.y = 75;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Создание атласа
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var texture:Texture = Texture.fromBitmap(new AtlasTexture());
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var xml:XML = XML(new AtlasXml());
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var atlas:TextureAtlas = new TextureAtlas(texture, xml);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Создание Movie Clip
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var movie:MovieClip = new MovieClip(atlas.getTextures("starling_"), 10);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;movie.loop = true; // постоянный повтор
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(movie);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Выполнение анимации
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Starling.juggler.add(movie);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
 			</div>
 			<br>
 			<div class="BLOCK3" id="block1">Starling: </div>
