@@ -42,7 +42,7 @@
 					<div class="BLOCK5"><a href="#block5">Кнопка с текстурой и текстом</a></div>
 					<div class="BLOCK5"><a href="#block6">Атлас - использование текстур</a></div>
 					<div class="BLOCK5"><a href="#block7">Атлас - использование MovieClip</a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block8">Навигация - испоьзование событий</a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
@@ -368,7 +368,7 @@
 			<br>
 			<div class="BLOCK3" id="block7">Starling: Атлас - использование MovieClip</div>
 			<div class="BLOCK3_2"><b>Воспроизведение атласа с помощью MovieClip</b>
-				<br>файл проекты StarlingMovieClip <a href="starling/StarlingMovieClip.zip">скачать</a>
+				<br>Архив проекты StarlingMovieClip <a href="starling/StarlingMovieClip.zip">скачать</a>
 				<br>файл <a href="starling/atlas/atlas.png">atlas.png</a>
 				<br>файл <a href="starling/atlas/atlas.xml">atlas.xml</a>
 				<br>
@@ -412,9 +412,104 @@
 				<br>&nbsp;&nbsp;&nbsp;}
 			</div>
 			<br>
-			<div class="BLOCK3" id="block1">Starling: </div>
-			<div class="BLOCK3_2"><b></b>
+			<div class="BLOCK3" id="block8">Starling: Навигация - события</div>
+			<div class="BLOCK3_2">
+				<br>Архив проекты Navigation <a href="starling/Navigation.zip">скачать</a>
+				<br><b>Main.as - Инициализация Старлинга.</b>
+				<br>&nbsp;&nbsp;&nbsp;private var _starling:Starling;
+				<br>&nbsp;&nbsp;&nbsp;//..
+				<br>&nbsp;&nbsp;&nbsp;_starling = new Starling(Game, stage);
+				<br>&nbsp;&nbsp;&nbsp;_starling.start();
 				<br>
+				<br><b>Game.as - Корневой спрайт для отображения в себе всех дочерних спрайтов.</b>
+				<br>package Navigation
+				<br>{
+				<br>&nbsp;&nbsp;&nbsp;import starling.display.Sprite;
+				<br>&nbsp;&nbsp;&nbsp;import starling.events.Event; 
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;public class Game extends Sprite
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var menu:Menu;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var level:Level;
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function Game() 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addEventListener(Event.ADDED_TO_STAGE, initGame); 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>					
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function initGame(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;removeEventListener(Event.ADDED_TO_STAGE, initGame);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>this.addEventListener(NavigationEvent.CHANGE_SCREEN, onChangeScreen);</u>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menu = new Menu();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(menu);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function onChangeScreen(e:NavigationEvent):void 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch(e.param.id)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "play":
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level = new Level();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(level);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.removeChild(menu);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "back":
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menu = new Menu();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(menu);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.removeChild(level);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>}
+				<br>
+				<br><b>NavigationEvent.as - Общее событие навигации для всех дочерних спрайтов.</b>
+				<br>&nbsp;&nbsp;&nbsp;package Navigation 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import starling.events.Event;
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public class NavigationEvent extends Event 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static const CHANGE_SCREEN:String = "changeScreen";
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public var param:Object;
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function NavigationEvent(type:String, _params:Object=null, bubbles:Boolean=false) 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(type, bubbles);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.param = _params;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br><b>Menu.as - Дочерний спрайт возвращающий событие нажатой кнопки "Играть".</b>
+				<br>&nbsp;&nbsp;&nbsp;//..
+				<br>&nbsp;&nbsp;&nbsp;private var btn:Button;
+				<br>&nbsp;&nbsp;&nbsp;//..
+				<br>&nbsp;&nbsp;&nbsp;this.addEventListener(Event.TRIGGERED, onClick);
+				<br>&nbsp;&nbsp;&nbsp;//..
+				<br>&nbsp;&nbsp;&nbsp;private function onClick(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ((e.target as Button) == btn)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id: "play" }, true));</u>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br><b>Menu.as - Дочерний спрайт возвращающий событие нажатой кнопки "Выход".</b>
+				<br>&nbsp;&nbsp;&nbsp;//..
+				<br>&nbsp;&nbsp;&nbsp;private var btn:Button;
+				<br>&nbsp;&nbsp;&nbsp;//..
+				<br>&nbsp;&nbsp;&nbsp;this.addEventListener(Event.TRIGGERED, onClick);
+				<br>&nbsp;&nbsp;&nbsp;//..
+				<br>&nbsp;&nbsp;&nbsp;private function onClick(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ((e.target as Button) == btn)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id: "back" }, true));</u>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
 			</div>
 			<br>
 			<div class="BLOCK3" id="block1">Starling: </div>
