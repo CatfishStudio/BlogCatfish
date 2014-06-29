@@ -43,7 +43,7 @@
 					<div class="BLOCK5"><a href="#block6">Атлас - использование текстур</a></div>
 					<div class="BLOCK5"><a href="#block7">Атлас - использование MovieClip</a></div>
 					<div class="BLOCK5"><a href="#block8">Навигация - испоьзование событий</a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block9">Загрузка ресурсов Loader</a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
@@ -512,9 +512,59 @@
 				<br>&nbsp;&nbsp;&nbsp;}
 			</div>
 			<br>
-			<div class="BLOCK3" id="block1">Starling: </div>
-			<div class="BLOCK3_2"><b></b>
+			<div class="BLOCK3" id="block9">Starling: Загрузка ресурсов</div>
+			<div class="BLOCK3_2"><b>Файл Main.as загружаем ресурсы, а потом инициализируем Старлинг</b>
+				<br>&nbsp;&nbsp;&nbsp;private var _loadResource:LoadResource;
+				<br>&nbsp;&nbsp;&nbsp;private var _starling:Starling;
+				<br>&nbsp;&nbsp;&nbsp;//...
+				<br>&nbsp;&nbsp;&nbsp;_loadResource = new LoadResource();
+				<br>&nbsp;&nbsp;&nbsp;_loadResource.addEventListener(Event.CLEAR, onLoadComplete);
+				<br>&nbsp;&nbsp;&nbsp;this.addChild(_loadResource);
+				<br>&nbsp;&nbsp;&nbsp;//...
+				<br>&nbsp;&nbsp;&nbsp;private function onLoadComplete(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.removeChild(_loadResource);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initStarling(); // инициализация Старлинг
+				<br>&nbsp;&nbsp;&nbsp;}
 				<br>
+				<br><b>Файл LoadResource.as выполняющий непосредственно загрузку данных с сервера</b>
+				<br>&nbsp;&nbsp;&nbsp;[Embed(source = '../../../media/textures/progress.png')]
+				<br>&nbsp;&nbsp;&nbsp;private var ProcessImage:Class;
+				<br>&nbsp;&nbsp;&nbsp;private var progressBar:Bitmap = new ProcessImage();
+				<br>&nbsp;&nbsp;&nbsp;private var loader:Loader;
+				<br>&nbsp;&nbsp;&nbsp;private var urlReq:URLRequest;
+				<br>&nbsp;&nbsp;&nbsp;//...
+				<br>&nbsp;&nbsp;&nbsp;progressBar.x = 300; progressBar.y = 300;
+				<br>&nbsp;&nbsp;&nbsp;progressBar.width = 0;
+				<br>&nbsp;&nbsp;&nbsp;this.addChild(progressBar);
+				<br>&nbsp;&nbsp;&nbsp;//...
+				<br>&nbsp;&nbsp;&nbsp;loader = new Loader();
+				<br>&nbsp;&nbsp;&nbsp;urlReq = new URLRequest("http://cf.ltd.ua/games/Crystal2/media/textures/map_1.jpg");
+				<br>&nbsp;&nbsp;&nbsp;loader.load(urlReq);
+				<br>&nbsp;&nbsp;&nbsp;loader.contentLoaderInfo.addEventListener(Event.COMPLETE, completePercent100);
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;private function completePercent100(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader.contentLoaderInfo.removeEventListener(Event.COMPLETE, completePercent100);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;progressBar.width += 200;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;progressText.text = "Загрузка 100%";
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resource.AtlasGameBitmap = new Bitmap();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resource.AtlasGameBitmap = (e.target.content as Bitmap);
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dispatchEvent(new Event(Event.CLEAR));
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br><b>Обращение к загруженному битмапу</b>
+				<br>&nbsp;&nbsp;&nbsp;private var panelImage:Image;
+				<br>&nbsp;&nbsp;&nbsp;private var mapImage:Image;
+				<br>&nbsp;&nbsp;&nbsp;//...
+				<br>&nbsp;&nbsp;&nbsp;mapImage = new Image(Texture.fromBitmap(Resource.MapBitmap));
+				<br>&nbsp;&nbsp;&nbsp;this.addChild(mapImage);
+				<br>&nbsp;&nbsp;&nbsp;//...
+				<br>&nbsp;&nbsp;&nbsp;var xml:XML = XML(new Resource.AtlasGameXML());
+				<br>&nbsp;&nbsp;&nbsp;var atlas:TextureAtlas = new TextureAtlas(Texture.fromBitmap(Resource.AtlasGameBitmap), xml);
+				<br>&nbsp;&nbsp;&nbsp;panelImage = new Image(atlas.getTexture("panel.png"));
+				<br>&nbsp;&nbsp;&nbsp;this.addChild(panelImage);
 			</div>
 			<br>
 			<div class="BLOCK3" id="block1">Starling: </div>
