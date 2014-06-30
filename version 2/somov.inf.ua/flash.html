@@ -370,15 +370,70 @@
 			<br>
 			<div class="BLOCK3" id="block15">Flash: Загрузка внешних файлов</div>
 			<div class="BLOCK3_2"><b>Загрузка выполняется пакетом Loader</b>
-				<br>import flash.events.Event; 
-				<br>import flash.display.Loader;
-				<br>import flash.net.URLRequest;
-				<br>/..
-				<br>var loadImage:Loader = new Loader();
-				<br>loadImage.Load(new URLRequest("http://www.[yourDomain].com/image1.png")
-				<br>loadImage.contentLoaderInfo.addEventListener(Event.COMPLITEMPLITE, LoadComplite);
-				<br>loadImage.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, LoadError);
-				<br>this.addChild(loadImage);
+				<br>&nbsp;&nbsp;&nbsp;import flash.events.Event; 
+				<br>&nbsp;&nbsp;&nbsp;import flash.display.Loader;
+				<br>&nbsp;&nbsp;&nbsp;import flash.net.URLRequest;
+				<br>&nbsp;&nbsp;&nbsp;/..
+				<br>&nbsp;&nbsp;&nbsp;var loadImage:Loader = new Loader();
+				<br>&nbsp;&nbsp;&nbsp;loadImage.Load(new URLRequest("http://www.[yourDomain].com/image1.png")
+				<br>&nbsp;&nbsp;&nbsp;loadImage.contentLoaderInfo.addEventListener(Event.COMPLITEMPLITE, LoadComplite);
+				<br>&nbsp;&nbsp;&nbsp;loadImage.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, LoadError);
+				<br>&nbsp;&nbsp;&nbsp;this.addChild(loadImage);
+				<br>
+				<br><b>Пример Progress bar</b>
+				<br>&nbsp;&nbsp;&nbsp;package LoadFiles 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.display.Bitmap;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.display.BitmapData;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.display.Loader;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.display.Sprite;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.events.Event;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import flash.net.URLRequest;
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public class ProgressBar extends Sprite
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Embed(source = '../../images/progress.png')]
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static const ProgressImage:Class; 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static const pImage:Bitmap = new ProgressImage(); 
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var progress:Sprite;
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function ProgressBar() 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pImage.width = 10;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pImage.x = 300; pImage.y = 300;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(pImage);
+				<br>		
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var loader:Loader = new Loader();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var urlReq:URLRequest = new URLRequest("http://cf.ltd.ua/games/Crystal2/media/textures/map_1.png");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader.load(urlReq);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onComplete1);
+				<br>		
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;urlReq.url = "http://cf.ltd.ua/games/Crystal2/media/textures/map_1.png";
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader.load(urlReq);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onComplete2);
+				<br>			
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//this.addChild(loader);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function onComplete1(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader.contentLoaderInfo.removeEventListener(Event.COMPLETE, completePercent1);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace("load 50%");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pImage.width += 100;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//this.addChild(e.target.content as Bitmap);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function onComplete2(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loader.contentLoaderInfo.removeEventListener(Event.COMPLETE, completePercent1);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace("load 100%");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pImage.width += 100;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//this.addChild(e.target.content as Bitmap);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
 				<br>
 			</div>
 			<br>
