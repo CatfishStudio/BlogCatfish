@@ -44,6 +44,12 @@
 					<div class="BLOCK5"><a href="#block7">Атлас - использование MovieClip</a></div>
 					<div class="BLOCK5"><a href="#block8">Навигация - испоьзование событий</a></div>
 					<div class="BLOCK5"><a href="#block9">Загрузка ресурсов Loader</a></div>
+					<div class="BLOCK5"><a href="#block10">Загрузка и чтение XML файлов</a></div>
+					<div class="BLOCK5"><a href="#block11">Настройка контента</a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
@@ -565,6 +571,71 @@
 				<br>&nbsp;&nbsp;&nbsp;var atlas:TextureAtlas = new TextureAtlas(Texture.fromBitmap(Resource.AtlasGameBitmap), xml);
 				<br>&nbsp;&nbsp;&nbsp;panelImage = new Image(atlas.getTexture("panel.png"));
 				<br>&nbsp;&nbsp;&nbsp;this.addChild(panelImage);
+			</div>
+			<br>
+			<div class="BLOCK3" id="block10">Starling: Загрузка и чтение XML файлов</div>
+			<div class="BLOCK3_2"><b>Загрузка XML файла с данными</b>
+				<br>&nbsp;&nbsp;&nbsp;import flash.net.*;
+				<br>&nbsp;&nbsp;&nbsp;import flash.events.*; 
+				<br>&nbsp;&nbsp;&nbsp;var loader:URLLoader = new URLLoader(); 
+				<br>&nbsp;&nbsp;&nbsp;loader.load(new URLRequest("myxml.xml")); 
+				<br>&nbsp;&nbsp;&nbsp;loader.addEventListener(Event.COMPLETE,onComplete); 
+				<br>&nbsp;&nbsp;&nbsp;loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR,securityError); 
+				<br>&nbsp;&nbsp;&nbsp;loader.addEventListener(IOErrorEvent.IO_ERROR,ioError); 
+				<br>&nbsp;&nbsp;&nbsp;function onComplete(event:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{ 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace(event.target.data) 
+				<br>&nbsp;&nbsp;&nbsp;} 
+				<br>&nbsp;&nbsp;&nbsp;function securityError(event:SecurityErrorEvent):void 
+				<br>&nbsp;&nbsp;&nbsp;{ 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace("SecurityErrorEvent"); 
+				<br>&nbsp;&nbsp;&nbsp;} 
+				<br>&nbsp;&nbsp;&nbsp;function ioError(event:IOErrorEvent):void 
+				<br>&nbsp;&nbsp;&nbsp;{ 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace("IOErrorEvent"); 
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br><b>Получение данных из XML файла</b>
+				<br>&nbsp;&nbsp;&nbsp;function onComplete(event:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{ 
+				<br>&nbsp;&nbsp;&nbsp;var myxml:XML = XML(event.target.data); 
+				<br>&nbsp;&nbsp;&nbsp;trace(myxml.mywidth.text());  // mywidth - это тег в xml файле
+				<br>&nbsp;&nbsp;&nbsp;trace(myxml.myheight.text()); // myheight - это тег в xml файле
+				<br>&nbsp;&nbsp;&nbsp;trace(myxml.mycolor.text());  // mycolor - это тег в xml файле
+				<br>&nbsp;&nbsp;&nbsp;trace(myxml.mytext.text());   // mytext - это тег в xml файле
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br><b>Определяем тип получаемых данных из XML файла</b>
+				<br>&nbsp;&nbsp;&nbsp;function onComplete(event:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{ 
+				<br>&nbsp;&nbsp;&nbsp;var myxml:XML = XML(event.target.data); 
+				<br>&nbsp;&nbsp;&nbsp;var mywidth:uint = parseInt(myxml.mywidth.text(),10); 
+				<br>&nbsp;&nbsp;&nbsp;var myheight:uint = parseInt(myxml.myheight.text(),10); 
+				<br>&nbsp;&nbsp;&nbsp;var mycolor:uint = parseInt(myxml.mycolor.text(),16); 
+				<br>&nbsp;&nbsp;&nbsp;var mytext:String = myxml.mytext.text(); 
+				<br>&nbsp;&nbsp;&nbsp;}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block11">Starling: Настройка контента</div>
+			<div class="BLOCK3_2"><b>Настройка контентк для предотвращения его потери</b>
+				<br>&nbsp;&nbsp;&nbsp;private var _starling:Starling;
+				<br>&nbsp;&nbsp;&nbsp;private function initStarling():void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stage.align = StageAlign.TOP_LEFT;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stage.scaleMode = StageScaleMode.NO_SCALE;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stage.addEventListener (Event.RESIZE, resizeListenerFlash);
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling = new Starling(Game, stage);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling.antiAliasing = 1;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling.start();
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;private function resizeListenerFlash(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Starling.current.viewPort = new Rectangle (0, 0, stage.stageWidth, stage.stageHeight);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling.stage.stageWidth = 800;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling.stage.stageHeight = 600;
+				<br>&nbsp;&nbsp;&nbsp;}
 			</div>
 			<br>
 			<div class="BLOCK3" id="block1">Starling: </div>
