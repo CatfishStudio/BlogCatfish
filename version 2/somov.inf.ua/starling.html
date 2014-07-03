@@ -636,6 +636,26 @@
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling.stage.stageWidth = 800;
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_starling.stage.stageHeight = 600;
 				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br><b>Настройка index.html файла под контент (описание в теге скрипт)</b>
+				<br>&nbsp;&nbsp;&nbsp;var flashvars = { };
+				<br>&nbsp;&nbsp;&nbsp;var params = {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;menu: "false",
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale: "noScale",
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allowFullscreen: "true",
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allowScriptAccess: "always",
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bgcolor: "",
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>wmode: "direct" // can cause issues with FP settings & webcam</u>
+				<br>&nbsp;&nbsp;&nbsp;};
+				<br>&nbsp;&nbsp;&nbsp;var attributes = {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:"Crystal2"
+				<br>&nbsp;&nbsp;&nbsp;};
+				<br>&nbsp;&nbsp;&nbsp;swfobject.embedSWF(
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Crystal2.swf", 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<u>altContent", "800", "600", "10.0.0", </u>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"expressInstall.swf", 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flashvars, params, attributes
+				<br>&nbsp;&nbsp;&nbsp;);
 			</div>
 			<br>
 			<div class="BLOCK3" id="block1">Starling: </div>
