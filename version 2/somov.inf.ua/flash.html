@@ -51,7 +51,7 @@
 					<div class="BLOCK5"><a href="#block14">Получить спрайт по имени</a></div>
 					<div class="BLOCK5"><a href="#block15">Загрузка внешних файлов Loader</a></div>
 					<div class="BLOCK5"><a href="#block16">Анимация картинки Timer</a></div>
-					<div class="BLOCK5"><a href="#block1"></a></div>
+					<div class="BLOCK5"><a href="#block17">FileReference открыть и сохранить файл</a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<br>
@@ -347,7 +347,7 @@
 			<div class="BLOCK3" id="block13">Flash: Создание и удаление события</div>
 			<div class="BLOCK3_2"><b>- Создание события</b>
 				<br>import flash.events.Event;
-				<br>/...
+				<br>//...
 				<br>this.addEventListener(Event.ENTER_FRAME, onLoop);
 				<br>
 				<br><b>- Удаление события</b>
@@ -504,6 +504,45 @@
 				<br>}
 			</div>
 			<br>
+			<div class="BLOCK3" id="block17">Flash: FileReference открыть и сохранить</div>
+			<div class="BLOCK3_2"><b>Диалоговое окно открытия и сохранения xml файла</b>
+				<br>&nbsp;&nbsp;&nbsp;private var fileRef:FileReference; // работа с файном
+				<br>&nbsp;&nbsp;&nbsp;private var openFile:URLLoader; // открытие XML файла
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;// Открыть файл -----------------------------------
+				<br>&nbsp;&nbsp;&nbsp;private function onButton1MouseClick(e:MouseEvent):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef = new FileReference();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef.addEventListener(Event.SELECT, selectFileDialog);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef.browse();
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;private function selectFileDialog(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile = new URLLoader();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile.load(new URLRequest(fileRef.name));
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile.addEventListener(Event.COMPLETE,onCompleteOpenFile);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile.addEventListener(SecurityErrorEvent.SECURITY_ERROR,securityError);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile.addEventListener(IOErrorEvent.IO_ERROR, ioError); 
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;// Сохранить файл -----------------------------------
+				<br>&nbsp;&nbsp;&nbsp;private function onButton2MouseClick(e:MouseEvent):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var bytes:ByteArray = new ByteArray();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef = new FileReference();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes.writeMultiByte("<levelNumber>", "iso-8859-1");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes.writeMultiByte("Уровень №1", "iso-8859-1");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes.writeMultiByte("</levelNumber>\n", "iso-8859-1");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef.save(bytes,"savedata.xml");
+				<br>&nbsp;&nbsp;&nbsp;}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
 			<div class="BLOCK3" id="block2">Flash: </div>
 			<div class="BLOCK3_2"><b></b>
 				<br>
@@ -518,7 +557,6 @@
 			<div class="BLOCK3_2"><b></b>
 				<br>
 			</div>
-			
 			
 			<div id="footer">
 				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
