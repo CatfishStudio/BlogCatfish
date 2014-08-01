@@ -51,10 +51,14 @@
 					<div class="BLOCK5"><a href="#block14">Получить спрайт по имени</a></div>
 					<div class="BLOCK5"><a href="#block15">Загрузка внешних файлов Loader</a></div>
 					<div class="BLOCK5"><a href="#block16">Анимация картинки Timer</a></div>
+<<<<<<< HEAD
 					<div class="BLOCK5"><a href="#block17">Класс Label отображение текста</a></div>
 					<div class="BLOCK5"><a href="#block18">MovieClip работа с фреймом</a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
+=======
+					<div class="BLOCK5"><a href="#block17">FileReference открыть и сохранить файл</a></div>
+>>>>>>> 628570d87e2b0c2fda9038211db19c18f9d583b8
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<br>
@@ -350,7 +354,7 @@
 			<div class="BLOCK3" id="block13">Flash: Создание и удаление события</div>
 			<div class="BLOCK3_2"><b>- Создание события</b>
 				<br>import flash.events.Event;
-				<br>/...
+				<br>//...
 				<br>this.addEventListener(Event.ENTER_FRAME, onLoop);
 				<br>
 				<br><b>- Удаление события</b>
@@ -507,6 +511,7 @@
 				<br>}
 			</div>
 			<br>
+<<<<<<< HEAD
 			<div class="BLOCK3" id="block17">Flash: Класс Label отображение текста</div>
 			<div class="BLOCK3_2"><b>Класс для отображения текста на спрайте.</b>
 				<br>&nbsp;&nbsp;&nbsp;import flash.text.TextField;
@@ -549,6 +554,39 @@
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_label.text += "*";
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+=======
+			<div class="BLOCK3" id="block17">Flash: FileReference открыть и сохранить</div>
+			<div class="BLOCK3_2"><b>Диалоговое окно открытия и сохранения xml файла</b>
+				<br>&nbsp;&nbsp;&nbsp;private var fileRef:FileReference; // работа с файном
+				<br>&nbsp;&nbsp;&nbsp;private var openFile:URLLoader; // открытие XML файла
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;// Открыть файл -----------------------------------
+				<br>&nbsp;&nbsp;&nbsp;private function onButton1MouseClick(e:MouseEvent):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef = new FileReference();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef.addEventListener(Event.SELECT, selectFileDialog);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef.browse();
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;private function selectFileDialog(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile = new URLLoader();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile.load(new URLRequest(fileRef.name));
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile.addEventListener(Event.COMPLETE,onCompleteOpenFile);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile.addEventListener(SecurityErrorEvent.SECURITY_ERROR,securityError);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openFile.addEventListener(IOErrorEvent.IO_ERROR, ioError); 
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;// Сохранить файл -----------------------------------
+				<br>&nbsp;&nbsp;&nbsp;private function onButton2MouseClick(e:MouseEvent):void 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var bytes:ByteArray = new ByteArray();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef = new FileReference();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes.writeMultiByte("<levelNumber>", "iso-8859-1");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes.writeMultiByte("Уровень №1", "iso-8859-1");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bytes.writeMultiByte("</levelNumber>\n", "iso-8859-1");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileRef.save(bytes,"savedata.xml");
+>>>>>>> 628570d87e2b0c2fda9038211db19c18f9d583b8
 				<br>&nbsp;&nbsp;&nbsp;}
 			</div>
 			<br>
