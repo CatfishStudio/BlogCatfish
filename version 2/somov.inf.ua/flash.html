@@ -51,6 +51,9 @@
 					<div class="BLOCK5"><a href="#block14">Получить спрайт по имени</a></div>
 					<div class="BLOCK5"><a href="#block15">Загрузка внешних файлов Loader</a></div>
 					<div class="BLOCK5"><a href="#block16">Анимация картинки Timer</a></div>
+					<div class="BLOCK5"><a href="#block17">Класс Label отображение текста</a></div>
+					<div class="BLOCK5"><a href="#block18">MovieClip работа с фреймом</a></div>
+					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
 					<div class="BLOCK5"><a href="#block1"></a></div>
@@ -504,6 +507,56 @@
 				<br>}
 			</div>
 			<br>
+			<div class="BLOCK3" id="block17">Flash: Класс Label отображение текста</div>
+			<div class="BLOCK3_2"><b>Класс для отображения текста на спрайте.</b>
+				<br>&nbsp;&nbsp;&nbsp;import flash.text.TextField;
+				<br>&nbsp;&nbsp;&nbsp;import flash.text.TextFieldType;
+				<br>&nbsp;&nbsp;&nbsp;import flash.text.TextFormat;
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;public class Label extends TextField 
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function Label(_x:int, _y:int, _w:int, _h:int, _font:String, _size:int, _color:int, _text:String, _edit:Boolean) 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.text = _text;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.x = _x; this.y = _y; // положение
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.width = _w; this.height = _h; // размер
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.defaultTextFormat = new TextFormat(_font, _size, _color); // формат
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.htmlText = this.text;	// текст
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.selectable = _edit; // запрет или разрешение выделения текста
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				
+			</div>
+			<br>
+			<div class="BLOCK3" id="block18">Flash: MovieClip работа с фреймом</div>
+			<div class="BLOCK3_2"><b>Используя MovieClip сделаем анимацию измменения значения в текстовой строке</b>
+				<br>&nbsp;&nbsp;&nbsp;import flash.display.MovieClip;
+				<br>&nbsp;&nbsp;&nbsp;import *.text.Label;
+				<br>&nbsp;&nbsp;&nbsp;public class Loader extends MovieClip
+				<br>&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private var _label:Label;
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public function Loader() 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_label = new Label(400, 350, 200, 30, "Arial", 16, 0x000000, "Загрузка", false);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addChild(_label);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.play();
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>	
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private function onEnterFrame(e:Event):void 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_label.text += "*";
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+			</div>
+			<br>
+			<div class="BLOCK3" id="block2">Flash: </div>
+			<div class="BLOCK3_2"><b></b>
+				<br>
+			</div>
+			<br>
 			<div class="BLOCK3" id="block2">Flash: </div>
 			<div class="BLOCK3_2"><b></b>
 				<br>
@@ -518,7 +571,6 @@
 			<div class="BLOCK3_2"><b></b>
 				<br>
 			</div>
-			
 			
 			<div id="footer">
 				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
