@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html leng="ru">
 	<head>
-		<title>Синтаксис языка C++</title>
+		<title>Мои разработки.</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/default.css">
 		<link rel="stylesheet" href="css/nav.css">
@@ -21,7 +21,7 @@
 						<li><a href="http://somov.inf.ua">Блог разработчика</a></li>
 						<li><a href="http://catfish.ltd.ua">Программное обеспечение</a></li>
 						<li><a href="http://cf.ltd.ua">Студия игр</a></li>
-						<li><a href="http://somov.inf.ua/university.html">Университет</a></li>
+						<li><a href="http://somov.inf.ua/university/university.html">Университет</a></li>
 					</ul>
 				</div>
 		
@@ -29,7 +29,7 @@
 
 			<div id="header">
 				<div id="display"></div>
-				<dir id="titleBlog">DEVELOPER: SOMOV EVGENIY</dir>
+				<dir id="titleBlog">UNIVERSITY</dir>
 			</div>
 
 			<div id="section">
@@ -72,143 +72,60 @@
 					<br>
 				</div>
 
-				<div class="BLOCK3">Синтаксис языка C++: Типы данных</div>
-				<div class="BLOCK3_2">int, long, short, unsigned, char, float, double, bool
-				<br><br>- Объявление переменных:
-					<br>int num = 10;
-					<br>float fnum = 12.5f;
-					<br>double dnum = 14.2;
-					<br>char c = 'c';
-					<br>char *text; char* text;
-					<br>char str[] = "строка текста";
-					<br>char *cstr = "строка текста \n";
-					<br>bool b = true;
+				<div class="BLOCK3">Объявление:</div>
+				<div class="BLOCK3_2"><b>Зимняя сессия 5-й курс</b>
+					<br>....
 					<br>
-					<br>- Тип данных строка String
-					<br>#include <string>
-					<br>string *str; string* str;
-					<br>
-					<br>- Одномерные массивы
-					<br>int A[10];
-					<br>int a[] = {1,2,3};
-					<br>char str[6] = {'h','e','l','l','o','\0'};
-					<br>char *msg[] = {"hello"};
-					<br>string *str = new string[100];
-					<br>
-					<br>- Многомерный массив
-					<br>int m[5][10];
-					<br>
-					<br>- Переименование типа
-					<br>typedef int arr[10];
-					<br>arr myArr;
+					<br>Дополнительно:
 				</div>
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: Структура</div>
-			<div class="BLOCK3_2">- Структура с объявленной переменной
-				<br>struct addr {
-				<br>char name[50];
-				<br>unsingned long int zip;
-				<br>addr_info
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: Объединения</div>
-			<div class="BLOCK3_2">
-				union myUnion {
-				<br>int year;
-				<br>string *str;
-				<br>};
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: Перечисления</div>
-			<div class="BLOCK3_2">
-				enum MyEnum {
-				<br>Jan = 1, feb = 2, dec = 12
-				<br>};
-				<br>MyNum mNum;
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: Процедуры</div>
-			<div class="BLOCK3_2">
-				void summa (void) { }
-				<br>void summa (int arg1, int arg2) { }
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: Функции</div>
-			<div class="BLOCK3_2">
-				int summa (void) {
-				<br>return 100;
-				<br>}
+				
 				<br>
-				<br>int summa (int arg1, int arg2) { 
-				<br>return arg1 + arg2;
-				<br>}
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: Условия</div>
-			<div class="BLOCK3_2">- Спецсимволы условий: 
-				<br>== (равно); != (не равно); 
-				<br>< (меньше); <= (меньше или равно); 
-				<br>> (больше); >= (больше или равно); 
-				<br>&& (логическое И); || (логическое ИЛИ); ! (логическое НЕ);
+				<div class="BLOCK3">Задания:</div>
 				<br>
-				<br>bool value = true;
-				<br>if(value) {
-				<br>//...
-				<br>} else {
-				<br>//...
-				<br>}
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: Циклы</div>
-			<div class="BLOCK3_2">- Цикл с предусловием
-				<br>int w = 1;
-				<br>while (w < 10) {
-				<br>w++;
-				<br>}
-				<br>
-				<br>- Цикл с постусловием
-				<br>int d = 10;
-				<br>do {
-				<br>d--;
-				<br>} while (d > 1);
-				<br>
-				<br>- Цикл счётчик
-				<br>for (int i = 0; i < 10; i++) {
-				<br>//...
-				<br>}
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: оператор выбора</div>
-			<div class="BLOCK3_2">
-				char c;
-				<br>c = getche();
-				<br>switch (c) {
-				<br>case '1':
-				<br>//... 
-				<br>break;
-				<br>case '2':
-				<br>//... 
-				<br>break;
-				<br>default:
-				<br>//...
-				<br>}
-			</div>
-			<br>
-			<div class="BLOCK3">Синтаксис языка C++: Классы</div>
-			<div class="BLOCK3_2">
-				class MyClass {
-				<br>public:
-				<br>int memi;
-				<br>message() { };
-				<br>protected:
-				<br>private:
-				<br>}
-				<br>
-				<br>MyClass mclass;
-				<br>mclass.memi = 100;
-				<br>mclass->memi = 100;
-			</div>
+				<div class="BLOCK7">
+					<ul>
+						<li>Предмет: "..."  <a href="" target="_blank">Скачать</a></li>
+					</ul>
+				</div>
+				<div class="BLOCK7">
+					<ul>
+						<li>Предмет: "..."  <a href="" target="_blank">Скачать</a></li>
+					</ul>
+				</div>
+				<div class="BLOCK7">
+					<ul>
+						<li>Предмет: "..."  <a href="" target="_blank">Скачать</a></li>
+					</ul>
+				</div>
+				<div class="BLOCK7">
+					<ul>
+						<li>Предмет: "..."  <a href="" target="_blank">Скачать</a></li>
+					</ul>
+				</div>
+				<div class="BLOCK7">
+					<ul>
+						<li>Предмет: "..."  <a href="" target="_blank">Скачать</a></li>
+					</ul>
+				</div>
+				<div class="BLOCK7">
+					<ul>
+						<li>Предмет: "..."  <a href="" target="_blank">Скачать</a></li>
+					</ul>
+				</div>
+				<div class="BLOCK7">
+					<ul>
+						<li>Предмет: "..."  <a href="" target="_blank">Скачать</a></li>
+					</ul>
+				</div>
+				<div class="BLOCK7">
+					<ul>
+						<li>Предмет: "..."  <a href="" target="_blank">Скачать</a></li>
+					</ul>
+				</div>
+				<div class="BLOCK3_2"></div>
+				
+				
+				
 			
 			<div id="footer">
 				<div>(c) Somov Evgeniy. Copyright 2014.  All rights reserved.</div>
