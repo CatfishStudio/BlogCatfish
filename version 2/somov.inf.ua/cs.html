@@ -35,6 +35,23 @@
 			<div id="section">
 
 				<div id="aside">
+					<div class="BLOCK4">Оглавление:</div>
+					<div class="BLOCK5"><a href="#block1">Типы данных</a></div>
+					<div class="BLOCK5"><a href="#block2">Оператор checked</a></div>
+					<div class="BLOCK5"><a href="#block3">Константы</a></div>
+					<div class="BLOCK5"><a href="#block4">Строки</a></div>
+					<div class="BLOCK5"><a href="#block5">Перечисление</a></div>
+					<div class="BLOCK5"><a href="#block6">Операторы</a></div>
+					<div class="BLOCK5"><a href="#block7">Операторы IS</a></div>
+					<div class="BLOCK5"><a href="#block8">Условие IF</a></div>
+					<div class="BLOCK5"><a href="#block9">Оператор выбора SWITCH</a></div>
+					<div class="BLOCK5"><a href="#block10">Циклы FOR DO WHILE</a></div>
+					<div class="BLOCK5"><a href="#block11">Классы</a></div>
+					<div class="BLOCK5"><a href="#block12">Операторы this</a></div>
+					<div class="BLOCK5"><a href="#block13">Структура</a></div>
+					<div class="BLOCK5"><a href="#block14">Массивы</a></div>
+					<br>
+					<br>
 					<div class="BLOCK4">Справочники:</div>
 					<div class="BLOCK5"><a href="cpp.html" target="_self">Язык программирования С++</a></div>
 					<div class="BLOCK5"><a href="cs.html" target="_self">Язык программирования С#</a></div>
@@ -84,7 +101,7 @@
 					<br>
 				</div>
 
-				<div class="BLOCK3">Синтаксис языка C#: Типы данных</div>
+				<div class="BLOCK3" id="block1">Синтаксис языка C#: Типы данных</div>
 				<div class="BLOCK3_2">- Объявление переменных: sbyte, byte, short, ushort, int, uint, long, ulong
 					<br>int i = 10;
 					<br>long l = -1234;
@@ -126,7 +143,7 @@
 				</div>
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Оператор checked</div>
+			<div class="BLOCK3" id="block2">Синтаксис языка C#: Оператор checked</div>
 			<div class="BLOCK3_2">- Оператор приводит к генерации исключения при присвоении значения за пределы допустимые типом
 				<br>try {
 				<br>checked
@@ -138,18 +155,18 @@
 				<br>}
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Константы</div>
+			<div class="BLOCK3" id="block3">Синтаксис языка C#: Константы</div>
 			<div class="BLOCK3_2">
 				<br>const int LENGTH = 3;
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Строки</div>
+			<div class="BLOCK3" id="block4">Синтаксис языка C#: Строки</div>
 			<div class="BLOCK3_2">
 				<br>string str = "hello";
 				<br>system.Console.WriteLine(str);
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Перечисление</div>
+			<div class="BLOCK3" id="block5">Синтаксис языка C#: Перечисление</div>
 			<div class="BLOCK3_2">
 				<br>enum Planet : long {
 				<br>Venus = 255;
@@ -159,7 +176,7 @@
 				<br>system.Console.WriteLine("Марс: " + (long)Planet.Mars);
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Операторы</div>
+			<div class="BLOCK3" id="block6">Синтаксис языка C#: Операторы</div>
 			<div class="BLOCK3_2">- Арифметические: +, -, *, /, %
 				<br>- Сравнение: ==, !=, >, >=, <, <=
 				<br>- Логические: && (И), || (ИЛИ), ! (НЕ)
@@ -168,13 +185,13 @@
 				<br>- Сокращение: += (сложение), -= (вычитание), *= (умножение), /= (деление)
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Операторы IS</div>
+			<div class="BLOCK3" id="block7">Синтаксис языка C#: Операторы IS</div>
 			<div class="BLOCK3_2">- Определяет пренадлежность к константе. Проверка переменной является ли она соответствующим типом.
 				<br>int num = 0;
 				<br>bool compatible = num is int;
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Условие</div>
+			<div class="BLOCK3" id="block8">Синтаксис языка C#: Условие</div>
 			<div class="BLOCK3_2">- Спецсимволы условий:
 				<br>== (равно); != (не равно); 
 				<br>< (меньше); <= (меньше или равно); 
@@ -189,7 +206,7 @@
 				<br>}
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Оператор выбора</div>
+			<div class="BLOCK3" id="block9">Синтаксис языка C#: Оператор выбора</div>
 			<div class="BLOCK3_2">- Если текстовое значение:
 				<br>string planet = "Mars";
 				<br>switch (planet) {
@@ -216,7 +233,7 @@
 				<br>}
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Циклы</div>
+			<div class="BLOCK3" id="block10">Синтаксис языка C#: Циклы</div>
 			<div class="BLOCK3_2">- Цикл с предусловием
 				<br>int w = 1;
 				<br>while (w <= 5) {
@@ -246,7 +263,7 @@
 				<br>goto label; // переход к метке
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Классы</div>
+			<div class="BLOCK3" id="block11">Синтаксис языка C#: Классы</div>
 			<div class="BLOCK3_2">- Определение классов.
 				<br>class MyClass:BigClass // класс наследуется от другого класса BigClass
 				<br>{
@@ -272,7 +289,7 @@
 				<br>string str = myClass1.GetProprty();
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Операторы this</div>
+			<div class="BLOCK3" id="block12">Синтаксис языка C#: Операторы this</div>
 			<div class="BLOCK3_2">- Ссылка на текущий объект.
 				<br>public class Car {
 				<br>&nbsp;&nbsp;&nbsp;public int year;
@@ -282,7 +299,7 @@
 				<br>}
 			</div>
 			<br>
-			<div class="BLOCK3">Синтаксис языка C#: Структура</div>
+			<div class="BLOCK3" id="block13">Синтаксис языка C#: Структура</div>
 			<div class="BLOCK3_2">- Подобие класса но более облегченный вариант.
 				<br>public struct Rectangle
 				<br>{
@@ -306,6 +323,56 @@
 				<br>rect.Width = 10;
 				<br>rect.Area();
 				<br>
+			</div>
+			<br>
+			<div class="BLOCK3" id="block14">Синтаксис языка C#: Массивы</div>
+			<div class="BLOCK3_2">- Описание и инициализация массивов
+				<br>int[] arrInt;
+				<br>char[] arrChar;
+				<br>float[] arrFloat;
+				<br>arrInt = new int[25];
+				<br>arrChar = new char[3];
+				<br>arrFloat = new float[1000];
+				<br>arrInt[0] = 10;
+				<br>arrInt[1] = 20;
+				<br>
+				<br>int[] arrInt = new int[9];
+				<br>int[] arrInt = {1,2,3,4,5};
+				<br>int[] arrInt = new int[4]{1,2,3,4,5}
+				<br>
+				<br>- Многомерные массивы
+				<br>int[,] Matrix = new int[2,2];
+				<br>int[][] Matris = new int[2][2];
+				<br>int[,] Matrix = { {1,2} , {3,4} };
+				<br>
+				<br>- Класса Array (System.Array)
+				<br>CreateInstance() - позволяет создавать многомерный или одномерный массив.
+				<br>int[] lengths = {10};
+				<br>int lowBounds = {1};
+				<br>Array aMatrix = Array.CreateInstance(typeof(int), lengths, lowBounds);
+				<br>
+				<br>- Класс ArrayList (System.Collections)
+				<br>Предназначен для хранения объекточ произвольного типа
+				<br>static ArrayList Books = new ArrayList();
+				<br>Books.Add("Значение");
+				<br>string nameBook = Books[0].toString();
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;Add - добавить новый объект в конец списка
+				<br>&nbsp;&nbsp;&nbsp;AddRange - добавить несколько объектов в конец списка
+				<br>&nbsp;&nbsp;&nbsp;BinarySearch - поиск объекта в отсортированном списке
+				<br>&nbsp;&nbsp;&nbsp;Capacity - текущая ёмкость коллекции
+				<br>&nbsp;&nbsp;&nbsp;Clean - удалить все элементы
+				<br>&nbsp;&nbsp;&nbsp;Contains - возвращает истину если коллекция содержит элемент
+				<br>&nbsp;&nbsp;&nbsp;Count - текущая длина коллекции
+				<br>&nbsp;&nbsp;&nbsp;GetRange - возвращает диапазон элеменов
+				<br>&nbsp;&nbsp;&nbsp;IndexOf - возвращает индекс элемента со значением
+				<br>&nbsp;&nbsp;&nbsp;Insert - вставляет элемент по интексу в коллекцию
+				<br>&nbsp;&nbsp;&nbsp;LastIndexOf - индекс последнего вхождения
+				<br>&nbsp;&nbsp;&nbsp;Remove - удаляет из коллекции первое вхождение
+				<br>&nbsp;&nbsp;&nbsp;RemoveAt - удаляет элемент по индексу
+				<br>&nbsp;&nbsp;&nbsp;RemoveRange - удаляет диапазон элементов
+				<br>&nbsp;&nbsp;&nbsp;Reverse - реверсирует элементы
+				<br>&nbsp;&nbsp;&nbsp;Sort - сортирует элементы
 			</div>
 			
 			<div id="footer">
