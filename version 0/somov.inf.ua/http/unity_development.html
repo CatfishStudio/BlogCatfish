@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Design environment Unity3D.</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="logo">
+<a href="http://somov.inf.ua">DEVELOPER: SOMOV EVGENIY</a>
+</div>
+
+<div id="menu">
+<a href="index.html">Главная / Home</a> &nbsp; &nbsp; &nbsp; <a href="university.html">Университет / University</a> &nbsp; &nbsp; &nbsp; <a href="development.html">Разработки / Development</a> &nbsp; &nbsp; &nbsp; <a href="soft.html">Бесплатные программы / Free sotfware</a>
+</div>
+
+<div class="clear"></div>
+
+<div id="main">
+
+<div id="left">
+
+<div class="block">
+<h2>Оглавление</h2>
+<br>1. <a href="unity_development.html">Среда разработки.</a>
+				<br>2. <a href="unity_events.html">События.</a>
+				<br>3. <a href="unity_class.html">Классы.</a>
+				<br>4. <a href="http://unity3d.com/learn/documentation">Официальная документация на сайте unity3d.com</a>
+				<br>5. <a href="http://www.unity3d.ru/">Unity по русски на сайте unity3d.ru</a>
+				<hr>
+				<br><br>Среда разработки: объекты визуализации.
+				<br>1. <a href="#block1">Scene (Новая сцена)</a>
+				<br>2. <a href="#block2">Terrain (Местность)</a>
+				<br>3. <a href="#block3">Render Settings (Небо на сцене)</a>
+				<br>4. <a href="#block4">Directional Light (Источник света: Солнце)</a>
+				<br>5. <a href="#block5">Audio (Компонент: Звук)</a>
+				
+				<br><br>Разное:
+				<br>1. <a href="#blockV1">Импортировать пакеты в проект.</a>
+				<br>2. <a href="#blockV2">Наложение текстур на объект.</a>
+				<br>3. <a href="#blockV3">Импортирование 3D объектов (3DsMax)</a>
+				<br>4. <a href="#blockV4">Настройка врещения изображения в окне на Андроид планшете.</a>
+				<br>5. <a href="#blockV5">Установка Android SDK и подключение к Unity3D.</a>
+<div class="clear"></div>
+</div>
+
+<div class="block">
+<h2 align="center">Объекты визуаллизации.</h2>
+<h4 id="block1">1. Scene (Новая сцена) [<a href="#container">назад к меню</a>]</h4>
+				Меню <font color="#0000FF"><b>GameObject -> Create Other -> Directional Light</b></font> расположение в окне <font color="#0000FF"><b>Inspector</b></font> (Инспектор) Position: X, Y, Z
+				<hr>
+
+				<h4 id="block2">2. Terrain (Местность) [<a href="#container">назад к меню</a>]</h4>
+				Меню <font color="#0000FF"><b>Terrain ->Create Terrain</b></font> Настройка местности <font color="#0000FF"><b>Terrain -> Set Resolution</b></font>
+				<hr>
+
+				<h4 id="block3">3. Render Settings (Небо на сцене) [<a href="#container">назад к меню</a>]</h4>
+				Меню <font color="#0000FF"><b>Edit -> Render Settings</b></font> выбираем<font color="#0000FF"><b>Skybox Material = Sunny2 Skybox</b></font>
+				<hr>
+
+				<h4 id="block4">4. Directional Light (Источник света: Солнце) [<a href="#container">назад к меню</a>]</h4>
+				Меню <font color="#0000FF"><b>GameObject -> Create Other -> Directional Light</b></font> расположение в окне <font color="#0000FF"><b>Inspector</b></font>(Инспектор) Position: X, Y, Z
+				<hr>
+				
+				<h4 id="block5">5. Audio (Компонент: Звук) [<a href="#container">назад к меню</a>]</h4>
+				Меню <font color="#0000FF"><b>Component -> Audio -> Audio Listener </b></font> (объект который слышит звук)
+				<br>Меню <font color="#0000FF"><b>Component -> Audio -> Audio Source </b></font> (объект источник звука)
+				<hr>
+
+				<h2 align="center">Разное.</h2>
+
+				<h4 id="blockV1">1. Импортировать пакеты в проект. [<a href="#container">назад к меню</a>]</h4>
+				В окне <font color="#0000FF"><b>Project</b></font> через контекстное меню <font color="#0000FF"><b>Import Packeg -> </b></font>выбираем пакет.
+				<hr>
+
+				<h4 id="blockV2">2. Наложение текстур на объект (Cube). [<a href="#container">назад к меню</a>]</h4>
+				В меню <font color="#0000FF"><b>GameObject -> Create Other -> Cube</b></font> создадим объект куб.
+				<br>В окне <font color="#0000FF"><b>Project</b></font> в папке <font color="#0000FF"><b>Assets</b></font> создадим папку MyMaterials, в ней через контекстное меню <font color="#0000FF"><b>Create -> Material</b></font> создадим новый материал ForCube, теперь в окне <font color="#0000FF"><b>Inspector</b></font> выберем текстуру.
+				<br>Теперь перетаскиваем материал ForCube из окна <font color="#0000FF"><b>Project</b></font> в окно <font color="#0000FF"><b>Hierarchy</b></font> на объект Cube.
+				<hr>
+				
+				<h4 id="blockV3">3. Импортирование 3D объектов (3DsMax). [<a href="#container">назад к меню</a>]</h4>
+				В окне <font color="#0000FF"><b>Project</b></font> в папке <font color="#0000FF"><b>Assets</b></font> создадим папку My3DObjects, в эту папку копируем файл warship.3ds (модель корабля) и папку с текстурами этого корабля. (автоматически будет создана папка с материалами)
+				<br>Теперь из окна <font color="#0000FF"><b>Project</b></font> папки <font color="#0000FF"><b>Assets -> My3DObjects</b></font> перетащим объект WARSHIP в окно <font color="#0000FF"><b>Scene</b></font> (сцены)
+				<hr>
+
+				<h4 id="blockV4">4. Настройка врещения изображения в окне на Андроид планшете. [<a href="#container">назад к меню</a>]</h4>
+				В окне настройки билда<font color="#0000FF"><b>File -> Build Settings</b></font> выбираем Андроид и нажимаем кнопку <font color="#0000FF"><b>Player Settings</b></font> в окне Inspector отобразятся настройки проекта.
+				<br>Нас интересует настройка <font color="#0000FF"><b>Default Orientation</b></font> значение которого можно установить в <font color="#0000FF"><b>Auto Rotation</b></font> после чего изображение на экране будет вращаться в зависимости от расположения планшета.
+				<hr>
+				
+				<h4 id="blockV5">5. Установка Android SDK и подключение к Unity3D. [<a href="#container">назад к меню</a>]</h4>
+				- Скачать и установить <font color="#0000FF"><b>Java SDK</b></font> по ссылке <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com</a> скачиваем версию под Windows x86 даже если у вес Windows x64. Устанавливаем её.
+				<br>- Скачиваем и устанавливаем <font color="#0000FF"><b>Android SDK</b></font> <a href="http://developer.android.com/sdk/index.html">http://developer.android.com</a> выбрать в разделе DOWNLOAD FOR OTHER PLATFORMS скачиваем версию installer_r22.0.1-windows.exe и устанавливаем её.
+				<br>- Теперь заходим в C:\Program Files (x86)\Android\android-sdk\ и запускаем <font color="#0000FF"><b>SDK Manager</b></font> в менеджере оставляем всё по умолчанию и выбираем нужные нам пакеты Android API, устанавливаем их.
+				<br>- Теперь в Unity переходим в меню <font color="#0000FF"><b>File -> Build Settings</b></font> выбираем Андроид и нажимаем кнопку <font color="#0000FF"><b>Build</b></font> будет придложено указать место Android SDK которое находится по адресу: <font color="#0000FF"><b>C:\Program Files (x86)\Android\android-sdk</b></font>
+				<br>- Изменить путь к Android SDK можно в настройках <font color="#0000FF"><b>Edit -> Preferences...</b></font> на закладке <font color="#0000FF"><b>External Tools</b></font>
+				<hr>
+<div class="clear"></div>
+</div>
+
+<div class="block">
+<h2>Дополнительная информация:</h2>
+...
+<div class="clear"></div>
+</div>
+
+</div>
+
+<div id="right">
+
+<div class="block">
+	<b>Университет<br />University</b>
+	<br /><br /><a href="un_news.html">Новости / News</a>
+	<br /><br /><a href="un_quests.html">Задания / Quests</a>
+	<br /><br /><a href="un_soft.html">Программы / Soft</a>
+	<br /><br /><a href="un_students.html">Студенты / Students</a>
+	<br /><br /><a href="un_books.html">Книги / Books</a>
+	<br /><br /><a href="un_maps.html">Карта / Maps</a>
+	<br /><br /><a href="un_links.html">Ссылки / Links</a>
+	<br/><br/><br/><br/>
+	<b>Тестирование<br />Testing</b>
+	<br /><br /><a href="testing_video_lessons.html">Видео уроки / Video lessons</a>
+	<br /><br /><a href="testing_books.html">Книги / Books</a>
+	<br/><br/><br/><br/>
+	<b>Программирование<br />Programming</b>
+	<br /><br /><a href="pg_cpp.html">Programming language C++</a>
+	<br /><br /><a href="pg_csharp.html">Programming language C#</a>
+	<br /><br /><a href="pg_java.html">Programming language Java</a>
+	<br /><br /><a href="pg_js.html">Programming language JaveScript</a>
+	<br /><br /><a href="pg_as.html">Programming language ActiveScript</a>
+	<br /><br /><a href="pg_vb.html">Programming language VB .NET</a>
+	<br /><br /><a href="pg_php.html">Programming language PHP</a>
+	<br /><br /><a href="pg_asm.html">Programming language Assembler</a>
+	<br /><br /><a href="pg_pascal.html">Programming language Pascal</a>
+	<br /><br /><a href="pg_unity.html">Development with Unity3D</a>
+	<br /><br /><a href="pg_eclipse.html">Development with Eclipse</a>
+	<br/><br/>
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+<div id="footer">
+&copy; 2013 Developer: Somov Evgeniy &nbsp;<span class="separator">|</span>&nbsp; Design by <a href="http://www.realitysoftware.ca" title="Website Design">Reality Software</a> | <a href="http://free-templates.ru" title="Website Design">free-templates.ru</a>
+</div>
+
+</div>
+
+</body>
+</html>

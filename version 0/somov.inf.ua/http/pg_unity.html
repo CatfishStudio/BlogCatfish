@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Design environment Unity3D.</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="logo">
+<a href="http://somov.inf.ua">DEVELOPER: SOMOV EVGENIY</a>
+</div>
+
+<div id="menu">
+<a href="index.html">Главная / Home</a> &nbsp; &nbsp; &nbsp; <a href="university.html">Университет / University</a> &nbsp; &nbsp; &nbsp; <a href="development.html">Разработки / Development</a> &nbsp; &nbsp; &nbsp; <a href="soft.html">Бесплатные программы / Free sotfware</a>
+</div>
+
+<div class="clear"></div>
+
+<div id="main">
+
+<div id="left">
+
+<div class="block">
+<h2>Описание среды и програмого кода в среде Unity3D.</h2>
+<br>Игра "Морской бой" разработана в среде Unity <a href="battleships.html">Перейти</a>
+<br>Игра "Морской бой 2 Остров сокровищ" разработана в среде Unity <a href="treasure_island.html">Перейти</a>
+<div class="clear"></div>
+</div>
+
+<div class="block">
+<h2>Оглавление</h2>
+<br>1. <a href="unity_development.html">Среда разработки.</a>
+				<br>2. <a href="unity_events.html">События.</a>
+				<br>3. <a href="unity_class.html">Классы.</a>
+				<br>4. <a href="http://unity3d.com/learn/documentation">Официальная документация на сайте unity3d.com</a>
+				<br>5. <a href="http://www.unity3d.ru/">Unity по русски на сайте unity3d.ru</a>
+				
+				<br><br>Краткие примеры программного кода.
+				<br>1. <a href="#block1">Новый скрипт на языке C#</a>
+				<br>2. <a href="#block2">Новый скрипт на языке JavaScript</a>
+				<br>3. <a href="#block3">GUI. Отображение 2D текстуры. (C# и JavaScript)</a>
+				<br>4. <a href="#block4">GUI. Отображение текста  и его стиль. (C# и JavaScript)</a>
+				<br>5. <a href="#block5">GUI. Кнопка и её событие. (C# и JavaScript)</a>
+				<br>6. <a href="#block6">GUI. Панель. (C# и JavaScript)</a>
+				<br>7. <a href="#block7">Debug. Вывести лог в окно консоли. (C# и JavaScript)</a>
+				<br>8. <a href="#block8">Закрыть приложение. (C# и JavaScript)</a>
+				<br>9. <a href="#block9">Отключение / включение скрипта. (C# и JavaScript)</a>
+				<br>10. <a href="#block10">FindGameObjectWithTag() Найти этемент по его тегу. (C# и JavaScript)</a>
+				<br>11. <a href="#block11">LoadLevel. Смена сцены. Загрузка уровня. (C# и JavaScript)</a>
+				<br>12. <a href="#block12">Input.mousePosition Координаты мыши (C# и JavaScript)</a>
+				<br>13. <a href="#block13">Динамическое создание объекта (C#)</a>
+				<br>14. <a href="#block14">this объект.(C#)</a>
+				<br>15. <a href="#block15">Подсветка объекта. (C#)</a>
+				<br>16. <a href="#block16">Передача данных между скриптами.(C#)</a>
+				<br>17. <a href="#block17">Динамическое удаление объектов.(C#)</a>
+				<br>18. <a href="#block18">Динамическое восстановление скрытых объектов.(C#)</a>
+				<br>19. <a href="#block19">GetMouseButton. Перемещение камеры при нажатии кнопки мыши.(C#)</a>
+				<br>20. <a href="#block20">Ramdom Генератор случайных чисел.(C#)</a>
+				<br>21. <a href="#block21">Динамическая анимация (Стрелка.png). (C#)</a>
+				<br>22. <a href="#block22">transform. Перемещение объекта к назначенной цели. (C#)</a>
+				<br>23. <a href="#block23">Обращение к скрепту объекта. (C#)</a>
+				<br>24. <a href="#block24">DontDestroyOnLoad. Отмена удаления объекта при смене сцены. (C#)</a>
+				<br>25. <a href="#block25">audio. Воспроизведение звука. (C#)</a>
+				<br>26. <a href="#block26">List<> Объектный пул. Object pool. (C#)</a>
+				<br>27. <a href="#block27">static. глобальные статичные переменные.</a>
+				<br>28. <a href="#block28"></a>
+<div class="clear"></div>
+</div>
+
+<div class="block">
+
+				<h4 id="block1">Новый скрипт на языке C# (имя файла: ScriptCS1.cs) [<a href="#container">назад к меню</a>]</h4>
+				<font color="#BBCCFF">
+				using UnityEngine;
+				<br>using System.Collections;
+				<br>public class ScriptCS1 : MonoBehaviour {
+				<br>&nbsp;&nbsp;&nbsp;void Start () { }
+				<br>&nbsp;&nbsp;&nbsp;void Update () { }
+				<br>}
+				</font>
+				<hr>
+
+				<h4 id="block2">Новый скрипт на языке JavaScript (имя файла ScriptJS1.js) [<a href="#container">назад к меню</a>]</h4>
+				<font color="#F3CFEE">
+				#pragma strict
+				<br>function Start () { }
+				<br>function Update () { }
+				</font>
+				<hr>
+
+				<h4 id="block3">GUI. Отображение 2D текстуры. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>public Texture2D textureLogo;
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(new Rect(Screen.width - 110,Screen.height - 110,100,100), textureLogo);
+				<br>}
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>public var textureLogo: Texture2D;
+				<br>function OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(Rect(Screen.width-100, Screen.height-100, 100, 100), textureLogo);
+				<br>}
+				</font>
+				<hr>
+
+				<h4 id="block4">GUI. Отображение текста и его стиль. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;var TextStyle = new GUIStyle();
+				<br>&nbsp;&nbsp;&nbsp;TextStyle.normal.textColor = Color.black;
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(new Rect(Screen.width - 150,Screen.height-15,200, 50),"Текст сообщения.",TextStyle);
+				<br>}
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>function OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;var TextStyle: GUIStyle = new GUIStyle();
+				<br>&nbsp;&nbsp;&nbsp;TextStyle.normal.textColor = Color.black;
+				<br>&nbsp;&nbsp;&nbsp;GUI.Label(Rect(10, 10, 100, 100), "Текст сообщения", TextStyle);
+				<br>}
+				</font>
+				<hr>
+
+				<h4 id="block5">GUI. Кнопка и её событие. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;if(GUI.Button (new Rect(Screen.width / 2 - 100,Screen.height / 2 - 50,200,40),"New game")){  /*событие*/  }
+				<br>}
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>function OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;if(GUI.Button(Rect(10,10, 100, 25), "New game")){  /*событие*/  }
+				<br>}
+				</font>
+				<hr>
+
+				<h4 id="block6">GUI. Панель. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;GUI.Box(new Rect(10,10,50,Screen.height - 20),"");
+				<br>}
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>function OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;GUI.Box(Rect(10,10,50,Screen.height - 20),"");
+				<br>}
+				</font>
+				<hr>
+
+				<h4 id="block7">Debug. Вывести лог в окно консоли. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;Debug.Log("Play OK!!!");
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;Debug.Log("Play OK!!!");
+				</font>
+				<hr>
+
+				<h4 id="block8">Закрыть приложение. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;Application.Quit();
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;Application.Quit();
+				</font>
+				<hr>
+
+				<h4 id="block9">Отключение / включение скрипта. (C# и JavaScript)  [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C# (MenuOptions - это класс описаный в файле MenuOptions.cs)
+				<font color="#BBCCFF">
+				<br>MenuOptions mo = (MenuOptions)GetComponent("MenuOptions");
+				<br>mo.enabled = true;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//включаем скрипк</font>
+				<br>this.enabled = false;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//отключаем текущий скрипт</font>
+				</font>
+				<br>пример на языке JavaScript (ScriptJS2- это класс описаный в файле ScriptJS2.js)
+				<font color="#F3CFEE">
+				<br>var SJS2: ScriptJS2;
+				<br>SJS2 = GetComponent("ScriptJS2");
+				<br>SJS2.enabled = true;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//включаем скрипк</font>
+				<br>this.enabled = false;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//отключаем текущий скрипт</font>
+				</font>
+				<hr>
+
+				<h4 id="block10">FindGameObjectWithTag() Найти этемент по его тегу. (C# и JavaScript)  [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C# (поиск объекта Camera по его тегу "GameCamera")
+				<font color="#BBCCFF">
+				<br>GameObject go = GameObject.FindGameObjectWithTag("GameCamera");
+				<br>go.camera.enabled = true;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//включаем камеру</font>
+				<br>this.camera.enabled = false;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//отключаем текущую камеру</font>
+				</font>
+				<br>пример на языке JavaScript (поиск объекта Camera по его тегу "MainCamera")
+				<font color="#F3CFEE">
+				<br>var MCamera : GameObject;
+				<br>MCamera = GameObject.FindGameObjectWithTag("MainCamera");
+				<br>MCamera.camera.enabled = true;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//включаем камеру</font>
+				<br>this.camera.enabled = false;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//отключаем текущую камеру</font>
+				</font>
+				<hr>
+
+				<h4 id="block11">LoadLevel. Смена сцены. Загрузка уровня. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				Для того чтобы загружать уровни их нужно добавить в список уровне в окне <font color="#BBCCFF"><b>Build Settings</b></font> в меню <font color="#BBCCFF"><b>File -> Build Settings...</b></font> нажатием кнопки <font color="#BBCCFF"><b>Add Current</b></font> мы добавляем активную сцену в список.
+				<br>пример на языке C# (смена сцены по её имени)
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;Application.LoadLevel("Scene2");
+				</font>
+				<br>пример на языке JavaScript (смена сцены по её имени)
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;Application.LoadLevel("Scene2");
+				</font>
+				<hr>
+
+				<h4 id="block12">Input.mousePosition Координаты мыши (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;Input.mousePosition
+				<br>&nbsp;&nbsp;&nbsp;Input.mousePosition.x
+				<br>&nbsp;&nbsp;&nbsp;Input.mousePosition.y
+				<br>&nbsp;&nbsp;&nbsp;Input.mousePosition.z
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;Input.mousePosition
+				<br>&nbsp;&nbsp;&nbsp;Input.mousePosition.x
+				<br>&nbsp;&nbsp;&nbsp;Input.mousePosition.y
+				<br>&nbsp;&nbsp;&nbsp;Input.mousePosition.z
+				</font>
+				<hr>
+				
+				<h4 id="block13">Динамическое создание объекта (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;public Object MyObject;
+				<br>&nbsp;&nbsp;&nbsp;void Start () {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject newObject = Instantiate(MyObject) as GameObject;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newObject.transform.position = new Vector3(100.0f, 10.0f, 50.0f);
+				<br>&nbsp;&nbsp;&nbsp;}
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block14">this объект.(C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;GameObject MySelf;
+				<br>&nbsp;&nbsp;&nbsp;MySelf = this.gameObject;
+				</font>
+				<br>&nbsp;&nbsp;&nbsp;можно записать коротко
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;this.gameObject.renderer.enabled = false;
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block15">Подсветка объекта. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;Color BackColor; <font color="#B9FFB7">//цвет поумолчанию.</font>
+				<br>&nbsp;&nbsp;&nbsp;void Start () {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BackColor = this.gameObject.renderer.material.color;  <font color="#B9FFB7">//цвет по умолчанию.</font>
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;void OnMouseEnter () {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.gameObject.renderer.material.color = new Color(0.0f,0.0f,50.0f,10.0f);
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;void OnMouseExit () {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.gameObject.renderer.material.color = BackColor;
+				<br>&nbsp;&nbsp;&nbsp;}
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block16">Передача данных между скриптами. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				Создаем модуль в котором описываем переменные и функции с параметром public, затем включаем его в сцену и свободно можем манипулировать данными.
+				<br>пример на языке C# (файл Globals.cs)
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;using UnityEngine;
+				<br>&nbsp;&nbsp;&nbsp;using System.Collections;
+				<br>&nbsp;&nbsp;&nbsp;public class Globals : MonoBehaviour {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public int ship = 10;
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">/* Обращаемся к глобальному модулю из любого скрипта */</font>
+				<br>&nbsp;&nbsp;&nbsp;Globals glM;
+				<br>&nbsp;&nbsp;&nbsp;glM = GameObject.FindObjectOfType(typeof(Globals)) as Globals;
+				<br>&nbsp;&nbsp;&nbsp;glM.ship = 100; <font color="#B9FFB7">// записать данные</font>
+				<br>&nbsp;&nbsp;&nbsp;int num = glM.ship; <font color="#B9FFB7">// получить данные</font>
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block17">Динамическое удаление объектов. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;for (int iShip = 1; iShip < 6; iShip++){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Destroy(GameObject.FindGameObjectWithTag("BattleShip" + iShip));
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//или использовать вторую конструкцию.</font>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//Destroy(GameObject.Find("warship(Clone)"));</font>
+				<br>&nbsp;&nbsp;&nbsp;}
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block18">Динамическое восстановление скрытых объектов. (C# и JavaScript) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;for (int iCell = 1; iCell < 6; iCell++){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int jCell = 1; jCell < 6; jCell++)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject.FindGameObjectWithTag("cell" + iCell + "" +jCell).gameObject.renderer.enabled = true;
+				<br>&nbsp;&nbsp;&nbsp;}
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block19">GetMouseButton Перемещение камеры при нажатии кнопки мыши.(C#) [<a href="#container">назад к меню</a>]</h4>
+				Данный скрипт размещается на камере.
+				<br>пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (Input.GetMouseButton(0)){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject gCamera = GameObject.FindGameObjectWithTag("GameCamera");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gCamera.transform.position = new Vector3(Input.mousePosition.x, gCamera.transform.position.y, gCamera.transform.position.z);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;{
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block20">Ramdom Генератор случайных чисел.(C#) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C# (генерация числа в диапазоне 1-5)
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;System.Random rnd = new System.Random();
+				<br>&nbsp;&nbsp;&nbsp;for(int i = 0; i < 5; i++){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int iCellPC = 0;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iCellPC = rnd.Next(1, 5);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//...
+				<br>&nbsp;&nbsp;&nbsp;{
+				</font>
+				<br>пример на языке JavaScript
+				<font color="#F3CFEE">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block21">Динамическая анимация (Стрелка.png)(C#) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;bool helpUp = true;
+				<br>&nbsp;&nbsp;&nbsp;float timer = 0.0f;
+				<br>&nbsp;&nbsp;&nbsp;int y1 = 35;
+				<br>&nbsp;&nbsp;&nbsp;int y2 = 70;
+				<br>&nbsp;&nbsp;&nbsp;public Texture2D textureArrow;
+				<br>&nbsp;&nbsp;&nbsp;void Update(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer += Time.deltaTime;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (timer > 0.4f){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer = 0.0f;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (y1 == 35){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y1 = 45;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y2 = 80;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y1 = 35;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y2 = 70;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;void OnGUI(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (helpUp == true)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GUI.Label(new Rect(25, y1, 75, y2), textureArrow);
+				<br>&nbsp;&nbsp;&nbsp;}
+				</font>
+				<hr>
+				
+				<h4 id="block22">transform. Перемещение объекта к назначенной целе. (C#) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;public Transform target;
+				<br>&nbsp;&nbsp;&nbsp;public int moveSpeed;
+				<br>&nbsp;&nbsp;&nbsp;public int rotationSpeed;
+				<br>&nbsp;&nbsp;&nbsp;private Transform _myTransform;
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;void Awake(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_myTransform = transform;
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;void Update(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//рисуем дебажную линию к цели</font>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debug.DrawLine(target.position, _myTransform.position, Color.yellow);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//поворот в сторону цели</font>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_myTransform.rotation = Quaternion.Slerp(_myTransform.rotation, Quaternion.lookRotation(target.position - _myTransform.position), rotationSpeed * Time.deltaTime);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//движение к цели</font>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_myTransform.position += _myTransform.forward * moveSpeed * Time.deltaTime;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//Определение дистанции и локальная замена цели</font>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(Vector3.Distance(target.position, _myTransform.position) < 2.0f){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject go = GameObject.FindGameObjectWithTag("Player1");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target = go.transform;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">/* Глобальная замена цели */</font>
+				<br>&nbsp;&nbsp;&nbsp;void OnMouseDown(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject go = GameObject.FindGameObjectWithTag("Player2");
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TargetScript TS = GameObject.FindObjectOfType(typeof(TargetScript)) as TargetScript;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TS.target = go.transform;
+				<br>&nbsp;&nbsp;&nbsp;}
+				</font>
+				<hr>
+				
+				<h4 id="block23">Обращение к скрепту объекта. (C#) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;GameObject mCamera = GameObject.FindGameObjectWithTag("MenuCamera");
+				<br>&nbsp;&nbsp;&nbsp;PanelScript gPanel = (PanelScript)mCamera.GetComponent("PanelScript");
+				<br>&nbsp;&nbsp;&nbsp;gPanel.enable = false;
+				</font>
+				<hr>
+				
+				<h4 id="block24">DontDestroyOnLoad. Отмена удаления объекта при смене сцены. (C#) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;void Start(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DontDestroyOnLoad(this);
+				<br>&nbsp;&nbsp;&nbsp;}
+				</font>
+				<hr>
+				
+				<h4 id="block25">audio. Воспроизведение звука. (C#) [<a href="#container">назад к меню</a>]</h4>
+				Меню <b>Component -> Audio -> Audio Listener </b> (объект который слышит звук)
+				<br>Меню <b>Component -> Audio -> Audio Source </b> (объект источник звука)
+				<br>
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//включить звук</font>
+				<br>&nbsp;&nbsp;&nbsp;this.audio.Play();
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//отключить звук</font>
+				<br>&nbsp;&nbsp;&nbsp;this.audio.Stop();
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">/* Отключить звук обратившись к камере из вне */</font>
+				<br>&nbsp;&nbsp;&nbsp;GameObject goMenuCamera = GameObject.FindGameObjectWithTag("MenuCamera");
+				<br>&nbsp;&nbsp;&nbsp;goMenuCamera.audio.Stop();
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">/* Отдельное воспроизведение звуков */</font>
+				<br>&nbsp;&nbsp;&nbsp;public class Level2_GamePanel : MonoBehavior {
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public AudioClip soundFire;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public AudioClip soundBoom;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void Fire(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio.PlayOneShot(soundFire);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public void Boom(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;audio.PlayOneShot(soundBoom);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//вызов процедур данного класса из другого класса.</font>
+				<br>&nbsp;&nbsp;&nbsp;GameObject mCamera = GameObject.FindGameObjectWithTag("MainCamera");
+				<br>&nbsp;&nbsp;&nbsp;Level2_GamePanel L2gp = (Level2_GamePanel)mCamera.GetComponent("Level2_GamePanel");
+				<br>&nbsp;&nbsp;&nbsp;L2gp.Fire();
+				<br>&nbsp;&nbsp;&nbsp;L2gp.Boom();
+				</font>
+				<hr>
+				
+				<h4 id="block26">List<> Объектный пул. Object pool. (C#) [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;static public List<Transform> poolCellsUser;
+				<br>&nbsp;&nbsp;&nbsp;static public Transform selectedObjectPool;	
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//Запись объектов в лист</font>
+				<br>&nbsp;&nbsp;&nbsp;public GameObject objectCellUser;
+				<br>&nbsp;&nbsp;&nbsp;void AddCellsUserInObjectPool(){
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         GameObject newObj = Instantiate(objectCellUser) as GameObject;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		newObj.transform.position = _vPosCell;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         newObj.name = objectCellUser.name;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			newObj.tag = "CellUser" + i + "" + n;
+				<br>&nbsp;&nbsp;&nbsp;		
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			//Записать элемент в пул
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			poolCellsUser.Add(newObj.transform);
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    	}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	}
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Destroy(objectCellUser);	//удаляем шаблоны
+				<br>&nbsp;&nbsp;&nbsp;}
+				<br>
+				<br>&nbsp;&nbsp;&nbsp;<font color="#B9FFB7">//Обращение к листу</font>
+				<br>&nbsp;&nbsp;&nbsp;selectedObjectPool = poolCellsUser[1].gameObject.transform;
+				<br>&nbsp;&nbsp;&nbsp;poolCellsUser[1].gameObject.transform.position = new Vector3(x, y, z);
+				<br>&nbsp;&nbsp;&nbsp;Destroy(poolCellsUser[1]);
+				</font>
+				<hr>
+				
+				<h4 id="block27">static. глобальные статичные переменные. [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block27"> [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+				
+				<h4 id="block27"> [<a href="#container">назад к меню</a>]</h4>
+				пример на языке C#
+				<font color="#BBCCFF">
+				<br>&nbsp;&nbsp;&nbsp;
+				</font>
+				<hr>
+
+<div class="clear"></div>
+</div>
+
+<div class="block">
+<h2>Дополнительная информация:</h2>
+...
+<div class="clear"></div>
+</div>
+
+
+</div>
+
+<div id="right">
+
+<div class="block">
+	<b>Университет<br />University</b>
+	<br /><br /><a href="un_news.html">Новости / News</a>
+	<br /><br /><a href="un_quests.html">Задания / Quests</a>
+	<br /><br /><a href="un_soft.html">Программы / Soft</a>
+	<br /><br /><a href="un_students.html">Студенты / Students</a>
+	<br /><br /><a href="un_books.html">Книги / Books</a>
+	<br /><br /><a href="un_maps.html">Карта / Maps</a>
+	<br /><br /><a href="un_links.html">Ссылки / Links</a>
+	<br/><br/><br/><br/>
+	<b>Тестирование<br />Testing</b>
+	<br /><br /><a href="testing_video_lessons.html">Видео уроки / Video lessons</a>
+	<br /><br /><a href="testing_books.html">Книги / Books</a>
+	<br/><br/><br/><br/>
+	<b>Программирование<br />Programming</b>
+	<br /><br /><a href="pg_cpp.html">Programming language C++</a>
+	<br /><br /><a href="pg_csharp.html">Programming language C#</a>
+	<br /><br /><a href="pg_java.html">Programming language Java</a>
+	<br /><br /><a href="pg_js.html">Programming language JaveScript</a>
+	<br /><br /><a href="pg_as.html">Programming language ActiveScript</a>
+	<br /><br /><a href="pg_vb.html">Programming language VB .NET</a>
+	<br /><br /><a href="pg_php.html">Programming language PHP</a>
+	<br /><br /><a href="pg_asm.html">Programming language Assembler</a>
+	<br /><br /><a href="pg_pascal.html">Programming language Pascal</a>
+	<br /><br /><a href="pg_unity.html">Development with Unity3D</a>
+	<br /><br /><a href="pg_eclipse.html">Development with Eclipse</a>
+	<br/><br/>
+
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+<div id="footer">
+&copy; 2013 Developer: Somov Evgeniy &nbsp;<span class="separator">|</span>&nbsp; Design by <a href="http://www.realitysoftware.ca" title="Website Design">Reality Software</a> | <a href="http://free-templates.ru" title="Website Design">free-templates.ru</a>
+</div>
+
+</div>
+
+</body>
+</html>

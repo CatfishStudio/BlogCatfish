@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>main.cpp</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+ ;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #9d9da1;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #716f64;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #9d9da1;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #9d9da1;
+}
+span.rvts10 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts11 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts12 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts13, span.rvts13 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<script type="text/javascript">if(top.frames.length == 0) { top.location.href="../BookAPIC++.htm?{F56ED65E-57E8-4B65-A7F2-DD0A1D47E9E5}.htm"; }</script>
+<meta name="generator" content="HelpNDoc Free"></head>
+<body>
+
+<p class=rvps2><span class=rvts10>main.cpp</span></p>
+<p>#include &lt;windows.h&gt;</p>
+<p><br></p>
+<p>#define err_ex(a) MessageBox(NULL,a,NULL,NULL),ExitProcess(NULL);</p>
+<p><br></p>
+<p>void SetMyText(HWND a,DWORD b) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;static char buf1[20];</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wsprintf (buf1, "%d", (DWORD)b);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (a, &amp;buf1[0]);</p>
+<p>}</p>
+<p>void SaveBMP ();</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>LRESULT CALLBACK windowProc (HWND, UINT, WPARAM, LPARAM);</p>
+<p><br></p>
+<p>HINSTANCE hinstMain=GetModuleHandle(NULL);</p>
+<p>HWND hwndMain=NULL;</p>
+<p>HDC winDC, //контекст окна</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cwinDC, //контекст в памяти (копия окна) - прослойка между ресурсными контекстами и окном - на нем будем рисовать всё</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;fonDC, //контекст с фоновым рисунком</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;samDC; //контекст с самолетом</p>
+<p>RECT rClient, //прямоугольник с клиентской частью</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rWindow, //прямоугольник всего окна</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rFon, //прямоугольник с фоном (будет использоваться, если обновлять будем только часть фона, а не весь)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rSam, //прямоугольник с самолетом</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rcurSam; //текущий прямоугольник (куда мы рисуем самолет)</p>
+<p>HANDLE hThread; //хэндл потока</p>
+<p>HBITMAP bmpFon, //хэндл для хранения картинки-фона</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bmpSam, //самолет</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bmpMask, //маска</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bmpMem, //битмап, в котором будет храниться копия клиентской области</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bmpTemp; //временный хэндл</p>
+<p><br></p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>DWORD WINAPI ThreadProc (LPVOID A) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Координаты самолета (потребуются при создании области перекрашивания)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;static int x = 500;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;static int y = 100;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;static int w = 160; //Ширина самолета</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;static int h = 120; //Высота</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;HDC tempDC = GetDC (hwndMain); //Захватываем контекст окна (чтобы создать всё что нужно для него)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;cwinDC = CreateCompatibleDC (tempDC); //Контекст-прослойка между ресурсными контекстами и окном</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;fonDC = CreateCompatibleDC (tempDC); //ресурсный контекст для хранения нетронутого фона</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;samDC = CreateCompatibleDC (tempDC); //ресурсный контекст для хранения самолета</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Загружаем все картинки</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bmpFon = (HBITMAP)LoadImage (NULL, "fon.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bmpSam = (HBITMAP)LoadImage (NULL, "samolet.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bmpMask = (HBITMAP)LoadImage (NULL, "maska.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Создаем пустой битмап для хранения всей картины (т.к. сам контекст это не хранит)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Именно в этом битмапе мы будем рисовать</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bmpMem = CreateCompatibleBitmap (tempDC, 800, 600);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;ReleaseDC (hwndMain, tempDC); //Отпускаем контекст окна</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bmpTemp = (HBITMAP)SelectObject (fonDC, bmpFon); //Прикручиваем битмап к контексту</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (bmpTemp) DeleteObject (bmpTemp);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bmpTemp = (HBITMAP)SelectObject (cwinDC, bmpMem);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (bmpTemp) DeleteObject (bmpTemp);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bmpTemp = (HBITMAP)SelectObject (samDC, bmpSam);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (bmpTemp) DeleteObject (bmpTemp);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Запускаем бесконечный цикл для рисования</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;while (true) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Заполняем прямоугольник, который будет перекрашиваться</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Здесь я использую всё окно целиком, чтобы показать что мерцание в первую очередь зависит не от размера области,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//а от того, как вызывается оно</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rcurSam.left = 0;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rcurSam.top = 0;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rcurSam.right = 800;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rcurSam.bottom = 600;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Изменяем Х для создания движения</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (x &lt; -300) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;x = 900;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} else {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;x -= 3;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Сначала обновляем фон (можно сохранять старое положение самолета, чтобы не копировать весь фон, а обновлять только</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//этот участок)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;StretchBlt (cwinDC, 0, 0, 800, 600, fonDC, 0, 0, 800, 600, SRCCOPY);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Копируем на прослойку изображение самолета через маску</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MaskBlt(cwinDC, x, y, 160, 120, samDC, 0, 0, bmpMask, 0, 0, 0xaacc0020);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Еще пару самолетов</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MaskBlt(cwinDC, x + 150, y - 100, 160, 120, samDC, 0, 0, bmpMask, 0, 0, 0xaacc0020);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MaskBlt(cwinDC, x + 150, y + 100, 160, 120, samDC, 0, 0, bmpMask, 0, 0, 0xaacc0020);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Посылаем сообщение WM_PAINT с обязательным указанием области перекрашивания, чтобы не обновлялись все</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//элементы окна и не было мерцания</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;InvalidateRect (hwndMain, &amp;rcurSam, false);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Sleep (60); //Усыпляем потом на 60 мс</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>}</p>
+<p>////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>int WinMain (HINSTANCE funcH1, HINSTANCE funcH2, LPSTR funcStr, int funcShow) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;MSG msgMain;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;WNDCLASS winClass;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Заполняем структуру для создания окна</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.style = CS_HREDRAW|CS_VREDRAW ;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.lpfnWndProc = (WNDPROC)windowProc;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.hInstance = hinstMain;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.hbrBackground = (HBRUSH)(COLOR_WINDOW);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.lpszClassName = "osdufoasdf";</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.hCursor = LoadCursor(NULL,IDC_ARROW);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.hIcon = LoadIcon(NULL,IDI_APPLICATION);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.lpszMenuName=NULL;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.cbClsExtra=0;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;winClass.cbWndExtra=0;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Создаем прямоугольник клиентской части</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;rClient.left = 100;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;rClient.top = 100;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;rClient.bottom = 700;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;rClient.right = 900;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;rWindow = rClient;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;AdjustWindowRectEx (&amp;rWindow, WS_OVERLAPPEDWINDOW, false, 0); //Корректировка прямоугольника окна</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Регистрируем класс и создаем окно</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (!RegisterClass (&amp;winClass)) err_ex ("no class");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;hwndMain=CreateWindow (</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;winClass.lpszClassName,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"Кликни по окну, чтобы сохранить кадр",</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WS_OVERLAPPEDWINDOW,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CW_USEDEFAULT,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CW_USEDEFAULT,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rWindow.right - rWindow.left,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rWindow.bottom - rWindow.top,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NULL,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NULL,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;hinstMain,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NULL</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Создание второго потока (функция ThreadProc), который будет перемещать самолет</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//(и плюс еще создаст все необходимые ресурсы)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;hThread = CreateThread (NULL, 0, ThreadProc, NULL, NULL, NULL);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;ShowWindow (hwndMain, SW_SHOW);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;UpdateWindow (hwndMain);</p>
+<p><br></p>
+<p>//SetMyText (hwndMain, rWindow.bottom - rWindow.top);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;while (GetMessage (&amp;msgMain, NULL, 0, 0)) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DispatchMessage (&amp;msgMain);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TranslateMessage (&amp;msgMain);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;ExitProcess (0);</p>
+<p>}</p>
+<p>LRESULT CALLBACK windowProc (HWND funcHWND,UINT funcMSG, WPARAM funcWP, LPARAM funcLP) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;static PAINTSTRUCT paintStruct;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;switch (funcMSG) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case&nbsp; WM_DESTROY: {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Убиваем поток и освобождаем память, которую заняли ресурсами</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (hThread) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TerminateThread (hThread, 0);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (bmpFon) DeleteObject (bmpFon);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (bmpSam) DeleteObject (bmpSam);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (bmpMask) DeleteObject (bmpMask);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (bmpMem) DeleteObject (bmpMem);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (cwinDC) DeleteDC (cwinDC);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (fonDC) DeleteDC (fonDC);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (samDC) DeleteDC (samDC);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ExitProcess (0);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} break;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case WM_LBUTTONDOWN: {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SaveBMP ();</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} break;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;case WM_PAINT: {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Копирование на окно из прослойки в памяти (буфера)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Здесь используется структура для указания области обновления (для примера у нас она занимает весь фон)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;winDC = BeginPaint (hwndMain, &amp;paintStruct);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;StretchBlt (</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;winDC,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;paintStruct.rcPaint.left,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;paintStruct.rcPaint.top,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;paintStruct.rcPaint.right,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;paintStruct.rcPaint.bottom,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cwinDC,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;paintStruct.rcPaint.left,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;paintStruct.rcPaint.top,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;paintStruct.rcPaint.right,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;paintStruct.rcPaint.bottom,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SRCCOPY</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EndPaint (hwndMain, &amp;paintStruct);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}break;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;default: return DefWindowProc (funcHWND, funcMSG, funcWP, funcLP);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>}</p>
+<p>/////////////////////////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>void SaveBMP () {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;BITMAPFILEHEADER bfh; //структура с заголовком файла</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;BITMAPINFOHEADER bih; &nbsp; &nbsp; &nbsp; &nbsp;//структура с описанием формата картинки</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;BITMAPINFO bi; &nbsp; &nbsp; &nbsp; &nbsp;//описание формата для функции GetDIBits ()</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;void *pdwBits = NULL; //указатель на буфер с будущим рисунком</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;DWORD dwWB = 0; //переменная для хранения записанных байт в файл</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;HANDLE hFile = NULL; //хэндл открытого файла</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Создаем пустой буфер, в который потом скопируется картинка</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;pdwBits = (void *)GlobalAlloc (GMEM_FIXED, 800 * 600 * 4);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Обнуляем структуры</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;memset (&amp;bfh, 0, sizeof (BITMAPFILEHEADER));</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;memset (&amp;bih, 0, sizeof (BITMAPINFOHEADER));</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;memset (&amp;bi, 0, sizeof (BITMAPINFO));</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Заполняем заголовочную структуру</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bfh.bfType = 0x4D42;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Обозначим, что это bmp 'BM'</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bfh.bfOffBits = sizeof(bfh) + sizeof(bih);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bfh.bfSize = bfh.bfOffBits + 800 * 600 * 4;&nbsp;&nbsp; // Посчитаем размер конечного файла</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Заполняем описание картинки</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biSize = sizeof(bih);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Так положено</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biBitCount = 32;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 16 бит на пиксель</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biCompression = BI_RGB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Без сжатия</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biHeight = 600;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biWidth = 800;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biPlanes = 1;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Копируем в структуру BITMAPINFO</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;CopyMemory (&amp;bi, &amp;bih, sizeof (BITMAPINFOHEADER));</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Получаем с помощью функции саму картинку из контекста в памяти</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;GetDIBits (cwinDC, bmpMem, 0, 600, pdwBits, (LPBITMAPINFO)&amp;bi, DIB_RGB_COLORS);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Создаем файл для записи</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;hFile = CreateFile ("save.bmp",</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GENERIC_WRITE,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NULL,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CREATE_ALWAYS,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FILE_ATTRIBUTE_NORMAL,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(HANDLE)NULL);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (hFile == INVALID_HANDLE_VALUE) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (hwndMain, "Ошибка при открытии файла");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Записываем структуру с заголовком файла</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (!WriteFile (hFile, (void *)&amp;bfh, sizeof (BITMAPFILEHEADER), &amp;dwWB, NULL)) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (hwndMain, "Ошибка при записи BITMAPFILEHEADER");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Записываем структуру с описанием формата картинки</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (!WriteFile (hFile, (void *)&amp;bih, sizeof (BITMAPINFOHEADER), &amp;dwWB, NULL)) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (hwndMain, "Ошибка при записи BITMAPINFOHEADER");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Записываем собсна саму картинку после двух предыдущих структур</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (!WriteFile (hFile, (void *)pdwBits, 800 * 600 * 4, &amp;dwWB, NULL)) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (hwndMain, "Ошибка при записи DIBits");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;//Закрываем хэндл файла и очищаем буфер</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;CloseHandle (hFile);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p>}</p>
+<p><br></p>
+<p class=rvps3><span class=rvts11>Сомов Е.П. © 2012, Примеры программирования API функция на DevC++</span></p>
+<p class=rvps4><span class=rvts12>This help file has been generated by the freeware version of </span><a class=rvts13 href="http://www.ibe-software.com/products/software/helpndoc/" target="_blank">HelpNDoc</a></p>
+
+</body></html>

@@ -1,0 +1,1140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Design environment Unity3D.</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="logo">
+<a href="http://somov.inf.ua">DEVELOPER: SOMOV EVGENIY</a>
+</div>
+
+<div id="menu">
+<a href="index.html">Главная / Home</a> &nbsp; &nbsp; &nbsp; <a href="university.html">Университет / University</a> &nbsp; &nbsp; &nbsp; <a href="development.html">Разработки / Development</a> &nbsp; &nbsp; &nbsp; <a href="soft.html">Бесплатные программы / Free sotfware</a>
+</div>
+
+<div class="clear"></div>
+
+<div id="main">
+
+<div id="left">
+
+<div class="block">
+<h2>Оглавление</h2>
+<br>1. <a href="unity_development.html">Среда разработки.</a>
+				<br>2. <a href="unity_events.html">События.</a>
+				<br>3. <a href="unity_class.html">Классы.</a>
+				<br>4. <a href="http://unity3d.com/learn/documentation">Официальная документация на сайте unity3d.com</a>
+				<br>5. <a href="http://www.unity3d.ru/">Unity по русски на сайте unity3d.ru</a>
+<div class="clear"></div>
+</div>
+
+
+<div class="block" style="background-color:#C0C0C0; ">
+<h2>Дополнительная информация:</h2>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000000"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 13pt"><B>MonoBehaviour
+</B></FONT></FONT></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Наследуется
+от </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Behaviour.html">Behaviour</A></U></SPAN></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+</FONT></FONT></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>MonoBehaviour
+это базовый класс каждого скрипта происходит от.</FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Использование
+JavaScript каждый скрипт автоматически вытекает из MonoBehaviour. При
+использовании C # или Boo вы должны явно вытекают из MonoBehaviour.</FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><B>Примечание:</B></FONT></FONT></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;флажок
+для отключения MonoBehavior (в редакторе) только предотвратить </FONT></FONT></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">Start</SPAN></FONT></FONT></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+(), Awake (), Update (), FixedUpdate () и OnGUI () от исполнения.
+Если ни одна из этих функций нет, флажок не отображается.</FONT></FONT></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><A NAME="Variables0"></A>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><B>Переменные</B></FONT></FONT>
+</FONT></FONT>
+</P>
+<TABLE WIDTH=688 BORDER=0 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=213>
+	<COL WIDTH=467>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour-useGUILayout.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>useGUILayout</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Отключение
+			этого позволяет пропускать GUI фазы макета.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><A NAME="Functions0"></A>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><B>Функции</B></FONT></FONT>
+</FONT></FONT>
+</P>
+<TABLE WIDTH=688 BORDER=0 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=213>
+	<COL WIDTH=467>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>I</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">nvoke</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывает
+			метод MethodName время в секундах.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.InvokeRepeating.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>InvokeRepeating</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывает
+			метод MethodName в время секунд.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.CancelInvoke.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>CancelInvoke</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Отмена
+			всех вызовах на этом MonoBehaviour.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.IsInvoking.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>IsInvoking</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Любой
+			ссылаться на MethodName в ожидании?</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.StartCoroutine.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>StartCoroutine</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Запуск
+			подпрограммы.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.StopCoroutine.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>StopCoroutine</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Останавливает
+			все сопрограммам имени MethodName работает на это поведение.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.StopAllCoroutines.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>StopAllCoroutines</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Останавливает
+			все сопрограммам работает на это поведение.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><A NAME="Overridable_Functions0"></A>
+<BR>
+</P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><B>Функции
+Overridable</B></FONT></FONT></P>
+<TABLE WIDTH=647 BORDER=0 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=215>
+	<COL WIDTH=424>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>U</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">pdate</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Обновление
+			вызывается каждый кадр, если MonoBehaviour включена.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.LateUpdate.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>LateUpdate</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>LateUpdate
+			вызывается каждый кадр, если </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Behaviour.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Behavior</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			включена.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.FixedUpdate.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>FixedUpdate</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Эта
+			функция вызывается каждый кадр постоянной частоты кадров, если
+			MonoBehaviour включена.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>A</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">wake</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Пробудитесь
+			вызывается, когда экземпляр сценария загружается.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>S</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">tart</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Начать
+			вызывается непосредственно перед любым из методов обновления
+			называется в первый раз.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>R</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">eset</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Значения
+			по умолчанию.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnMouseEnter.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseEnter</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseEnter
+			вызывается, когда мышь вошла в </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GUIElement.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GUIElement</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			или </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Collider</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnMouseOver.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseOver</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseOver
+			вызывается каждый кадр в то время как мыши находится над
+			</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GUIElement.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GUIElement</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			или </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Collider</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnMouseExit.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseExit</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseExit
+			вызывается, когда мышь не больше над </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GUIElement.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GUIElement</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			или </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Collider</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnMouseDown.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseDown</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseDown
+			вызывается, когда пользователь нажал кнопку мыши, когда над
+			</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GUIElement.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GUIElement</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			или </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Collider</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnMouseUp.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseUp</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseUp
+			вызывается, когда пользователь отпустил кнопку мыши.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnMouseUpAsButton.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseUpAsButton</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseUpAsButton
+			вызывалась только когда будет отпущена кнопка мыши по сравнению с
+			аналогичным </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GUIElement.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GUIElement</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			или </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Collider</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			она была нажата.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnMouseDrag.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseDrag</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMouseDrag
+			вызывается, когда пользователь нажал на </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GUIElement.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GUIElement</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			или </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>кCollider</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			и все еще удерживая кнопку мыши.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnTriggerEnter.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnTriggerEnter</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnTriggerEnter
+			вызывается, когда </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Collider
+			</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>другими
+			входит в </FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/Manual/class-BoxCollider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>trigger</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnTriggerExit.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnTriggerExit</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnTriggerExit
+			вызывается, когда&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>коллайдер&nbsp;</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>других&nbsp;остановилось
+			касаясь&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/Manual/class-BoxCollider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>триггер</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnTriggerStay.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnTriggerStay</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnTriggerStay
+			вызывается один раз на кадр для каждого&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>коллайдер&nbsp;</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>другим&nbsp;,
+			который соприкасается&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/Manual/class-BoxCollider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>триггер</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnCollisionEnter.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnCollisionEnter</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnCollisionEnter
+			вызывается при этом коллайдере / Rigidbody начался касании другой
+			Rigidbody / коллайдера.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnCollisionExit.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnCollisionExit</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnCollisionExit
+			вызывается при этом коллайдере / Rigidbody остановилось касании
+			другой Rigidbody / коллайдера.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnCollisionStay.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnCollisionStay</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnCollisionStay
+			вызывается один раз на кадр для каждого коллайдера / Rigidbody,
+			который соприкасается Rigidbody / коллайдера.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnControllerColliderHit.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnControllerColliderHit</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnControllerColliderHit
+			вызывается, когда контроллер попадает коллайдера при выполнении
+			шага.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnJointBreak.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnJointBreak</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывается
+			при совместном присоединены к одному объекту игра сломалась.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnParticleCollision.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnParticleCollision</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnParticleCollision
+			вызывается, когда частица попадает коллайдер (наследие частицу
+			системе).</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnBecameVisible.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnBecameVisible</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnBecameVisible
+			вызывается при визуализации стала видна с любой камерой.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnBecameInvisible.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnBecameInvisible</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnBecameInvisible
+			называется если при выводе не больше не видна с любой камерой.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnLevelWasLoaded.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnLevelWasLoaded</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Эта
+			функция вызывается после того, как новый уровень был загружен.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnEnable.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnEnable</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Эта
+			функция вызывается, когда объект становится доступным и активным.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnDisable.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnDisable</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Эта
+			функция вызывается, когда поведение становится инвалидом () или
+			неактивным.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnDestroy.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnDestroy</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Эта
+			функция вызывается, когда MonoBehaviour будут уничтожены.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnPreCull.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnPreCull</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnPreCull
+			вызывается перед камерой отбирает сцену.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnPreRender.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnPreRender</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnPreRender
+			вызывается перед камерой начинает рендеринга сцены.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnPostRender.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnPostRender</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnPostRender
+			вызывается после того, камера закончил рендеринга сцены.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnRenderObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnRenderObject</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnRenderObject
+			вызывается после камеры оказал сцены.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnWillRenderObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnWillRenderObject</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnWillRenderObject
+			вызывается один раз для каждой камеры, если объект является
+			видимым.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnGUI.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnGUI</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnGUI
+			называется для рендеринга и обработки событий графического
+			интерфейса.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnRenderImage.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnRenderImage</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnRenderImage
+			называется Ведь завершения визуализации для отображения
+			изображения.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnDrawGizmosSelected.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnDrawGizmosSelected</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Реализуйте
+			этот OnDrawGizmosSelected, если вы хотите привлечь вещиц только
+			если объект выбран.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnDrawGizmos.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnDrawGizmos</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Реализуйте
+			этот OnDrawGizmos, если вы хотите привлечь вещиц, которые также
+			pickable и всегда тянуло.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnApplicationPause.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnApplicationPause</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Передается
+			всем игровых объектов, когда игрок пауз.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnApplicationFocus.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnApplicationFocus</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Передается
+			всем игровых объектов, когда игрок получает или теряет фокус.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnApplicationQuit.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnApplicationQuit</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Передается
+			всем игровых объектов перед выходе из приложения.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnPlayerConnected.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnPlayerConnected</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывается
+			на сервере всякий раз, когда новый игрок успешно подключился.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnServerInitialized.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnServerInitialized</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Призвал
+			сервером, как только&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Network.InitializeServer.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Network.InitializeServer</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;был
+			вызван и завершил.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnConnectedToServer.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnConnectedToServer</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Призвал
+			клиентом при успешном подключении к серверу.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnPlayerDisconnected.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnPlayerDisconnected</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывается
+			на сервере когда игрок отключается от сервера.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnDisconnectedFromServer.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnDisconnectedFromServer</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывается
+			на клиенте, когда связь была потеряна или вы отключены от сервера.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnFailedToConnect.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnFailedToConnect</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Призвал
+			клиенту, когда сбой при попытке соединения по некоторым причинам.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnFailedToConnectToMasterServer.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnFailedToConnectToMasterServer</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Призвал
+			клиентов или серверов, когда есть проблемы с подключением к
+			MasterServer.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnMasterServerEvent.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnMasterServerEvent</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Призвал
+			клиентов или серверов при освещении событий из MasterServer.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnNetworkInstantiate.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnNetworkInstantiate</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Призвал
+			объекты, которые были экземпляры с сетью&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Network.Instantiate.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Network.Instantiate</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnSerializeNetworkView.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnSerializeNetworkView</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Используется
+			для настройки синхронизации переменных в скрипте наблюдали сети
+			зрения.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnAudioFilterRead.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnAudioFilterRead</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Если
+			OnAudioFilterRead реализован, единство будет вставлять
+			пользовательский фильтр в аудио цепи DSP.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnAnimatorMove.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnAnimatorMove</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Обратный
+			звонок для обработки анимации движения для изменения корень
+			движения.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.OnAnimatorIK.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>OnAnimatorIK</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=424>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Обратный
+			звонок для создания анимации IK (инверсной кинематики).</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><A NAME="Class_Functions0"></A>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><B>Функции
+класса</B></FONT></FONT> </FONT></FONT>
+</P>
+<TABLE WIDTH=688 BORDER=0 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=213>
+	<COL WIDTH=467>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>p</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">rint</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=467>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Журналы
+			сообщение для Unity Console.&nbsp;Эта функция
+			идентична&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Debug.Log.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>debug.log</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><A NAME="Variables1"></A>
+<BR>
+</P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><B>Унаследованные
+переменные</B></FONT></FONT> </FONT></FONT>
+</P>
+<TABLE WIDTH=693 BORDER=0 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=213>
+	<COL WIDTH=471>
+	<TR>
+		<TD WIDTH=213>
+			<P LANG="en-US" STYLE="widows: 2; orphans: 2"><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Enable</FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Включено
+			Поведение обновляются, инвалидов Поведение нет.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component-rigidbody.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>rigidbody</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Rigidbody.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Rigidbody</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>c</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">amera</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Camera.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Камера</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;в
+			приложении к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>l</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">ight</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Light.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Свет</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;в
+			приложении к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет никого, прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>a</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">nimation</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Animation.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Анимация</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;в
+			приложении к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component-constantForce.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>constantForce</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/ConstantForce.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>ConstantForce</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>r</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">enderer</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Renderer.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Renderer</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>a</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">udio</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/AudioSource.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>AudioSource</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component-guiText.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>guiText</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GUIText.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GUIText</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component-networkView.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>NetworkView</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/NetworkView.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>NetworkView</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject&nbsp;</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>(только
+			чтение)&nbsp;.&nbsp;(NULL, если нет никого, прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component-guiTexture.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>guiTexture</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GUITexture.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GUITexture</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject&nbsp;</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>(только
+			чтение)&nbsp;.&nbsp;(NULL, если нет никого, прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>c</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">ollider</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Collider.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Коллайдер</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;в
+			приложении к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component-hingeJoint.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>hingeJoint</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/HingeJoint.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>HingeJoint</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component-particleEmitter.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>particleEmitter</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/ParticleEmitter.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>ParticleEmitter</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component-particleSystem.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>ParticleSystem</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/ParticleSystem.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>ParticleSystem</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;прилагается
+			к настоящему&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;(нуль,
+			если нет ни одного прилагается).</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>t</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">ag</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Тег
+			этой игры объекта.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>n</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">ame</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Имя
+			объекта.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object-hideFlags.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>hideFlags</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Если
+			объектом быть скрыты, сохранены со сценой или модифицируемые
+			пользователем?</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><A NAME="Functions1"></A>
+<BR>
+</P>
+<P LANG="en-US" STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><BR>
+</P>
+<P LANG="en-US" STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><BR>
+</P>
+<P LANG="en-US" STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><B>Функции
+унаследованные</B></FONT></FONT></FONT> </FONT></FONT>
+</P>
+<TABLE WIDTH=693 BORDER=0 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=213>
+	<COL WIDTH=471>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component.GetComponent.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GetComponent</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Возвращает
+			компонент типа&nbsp;типа&nbsp;если игра объект имеет один
+			прилагается, отсутствует, если это не так.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component.GetComponentInChildren.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GetComponentInChildren</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Возвращает
+			компонент типа&nbsp;типа&nbsp;в&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;или
+			любой из его детей, используя глубиной первого поиска.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component.GetComponentsInChildren.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GetComponentsInChildren</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Возвращает
+			все компоненты типа&nbsp;типа&nbsp;в&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;или
+			любой из его детей.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component.GetComponents.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GetComponents</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Возвращает
+			все компоненты типа&nbsp;типа&nbsp;в&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GameObject</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component.CompareTag.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>CompareTag</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Эта
+			игра объектом, помеченным&nbsp;теги&nbsp;?</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component.SendMessageUpwards.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>SendMessageUpwards</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывает
+			метод, названный&nbsp;MethodName&nbsp;на каждом&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>MonoBehaviour</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;в
+			этой игре объект и на каждом предком поведения.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Component.SendMessage.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>SendMessage</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывает
+			метод, названный&nbsp;MethodName&nbsp;на каждом&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>MonoBehaviour</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;в
+			этом цель игры.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>B</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">roadcastMessage</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Вызывает
+			метод, названный&nbsp;MethodName&nbsp;на каждом&nbsp;</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/MonoBehaviour.html"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>MonoBehaviour</FONT></FONT></A></U></SPAN></FONT><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>&nbsp;в
+			этом объекте игра или любой из его детей.</FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object.GetInstanceID.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>GetInstanceID</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Возвращает
+			идентификатор экземпляра объекта.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=213>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object.ToString.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>ToString</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=471>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Возвращает
+			имя игрового объекта.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><A NAME="Class_Functions1"></A>
+<BR>
+</P>
+<P STYLE="margin-bottom: 0cm; widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><B>Унаследованные
+функции класса</B></FONT></FONT></FONT></P>
+<TABLE WIDTH=647 BORDER=0 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=215>
+	<COL WIDTH=423>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>O</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">perator
+			bool</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Тут
+			предмет существует?</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>I</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">nstantiate</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Клоны
+			объект&nbsp;оригинальным&nbsp;и возвращает клона.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>D</FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">estroy</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Удаляет
+			GameObject, компонента или актива.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object.DestroyImmediate.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>DestroyImmediate</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Удаляет
+			объект&nbsp;объект&nbsp;немедленно.&nbsp;Настоятельно
+			рекомендуется использовать вместо уничтожить.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object.FindObjectsOfType.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>FindObjectsOfType</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Возвращает
+			список всех активных загруженных объектов типа&nbsp;типа&nbsp;.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object.FindObjectOfType.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>FindObjectOfType</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Возвращает
+			первый активный загруженного объекта типа&nbsp;типа&nbsp;.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>operator</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object-operator_eq.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>
+			==</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Сравнивает
+			два объекта относятся к одному.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN LANG="en-US">o</SPAN></FONT></FONT></FONT><FONT COLOR="#145d7b"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>perator
+			</FONT></FONT></FONT><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object-operator_ne.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>!
+			=</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Сравнение
+			двух объектов относятся к другой объект.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=215>
+			<P STYLE="widows: 2; orphans: 2"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><FONT COLOR="#000080"><SPAN LANG="zxx"><U><A CLASS="western" HREF="http://docs.unity3d.com/Documentation/ScriptReference/Object.DontDestroyOnLoad.html?from=MonoBehaviour"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>DontDestroyOnLoad</FONT></FONT></A></U></SPAN></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=423>
+			<P STYLE="widows: 2; orphans: 2"><FONT COLOR="#444444"><FONT FACE="Helvetica, Arial, sans-serif"><FONT SIZE=2>Делает
+			объект&nbsp;целевого&nbsp;не быть уничтожены автоматически при
+			загрузке новой сцены.</FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>	
+
+<div class="clear"></div>
+</div>
+
+<div class="block">
+<h2>Дополнительная информация:</h2>
+...
+<div class="clear"></div>
+</div>
+
+</div>
+
+<div id="right">
+
+<div class="block">
+	<b>Университет<br />University</b>
+	<br /><br /><a href="un_news.html">Новости / News</a>
+	<br /><br /><a href="un_quests.html">Задания / Quests</a>
+	<br /><br /><a href="un_soft.html">Программы / Soft</a>
+	<br /><br /><a href="un_students.html">Студенты / Students</a>
+	<br /><br /><a href="un_books.html">Книги / Books</a>
+	<br /><br /><a href="un_maps.html">Карта / Maps</a>
+	<br /><br /><a href="un_links.html">Ссылки / Links</a>
+	<br/><br/><br/><br/>
+	<b>Тестирование<br />Testing</b>
+	<br /><br /><a href="testing_video_lessons.html">Видео уроки / Video lessons</a>
+	<br /><br /><a href="testing_books.html">Книги / Books</a>
+	<br/><br/><br/><br/>
+	<b>Программирование<br />Programming</b>
+	<br /><br /><a href="pg_cpp.html">Programming language C++</a>
+	<br /><br /><a href="pg_csharp.html">Programming language C#</a>
+	<br /><br /><a href="pg_java.html">Programming language Java</a>
+	<br /><br /><a href="pg_js.html">Programming language JaveScript</a>
+	<br /><br /><a href="pg_as.html">Programming language ActiveScript</a>
+	<br /><br /><a href="pg_vb.html">Programming language VB .NET</a>
+	<br /><br /><a href="pg_php.html">Programming language PHP</a>
+	<br /><br /><a href="pg_asm.html">Programming language Assembler</a>
+	<br /><br /><a href="pg_pascal.html">Programming language Pascal</a>
+	<br /><br /><a href="pg_unity.html">Development with Unity3D</a>
+	<br /><br /><a href="pg_eclipse.html">Development with Eclipse</a>
+	<br/><br/>
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+<div id="footer">
+&copy; 2013 Developer: Somov Evgeniy &nbsp;<span class="separator">|</span>&nbsp; Design by <a href="http://www.realitysoftware.ca" title="Website Design">Reality Software</a> | <a href="http://free-templates.ru" title="Website Design">free-templates.ru</a>
+</div>
+
+</div>
+
+</body>
+</html>

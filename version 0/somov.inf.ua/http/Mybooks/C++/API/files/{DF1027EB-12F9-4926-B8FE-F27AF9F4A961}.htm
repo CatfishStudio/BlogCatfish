@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>fill_listbox.cpp</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+ ;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #9d9da1;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #716f64;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #9d9da1;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #9d9da1;
+}
+span.rvts10
+{
+ color: #008000;
+}
+span.rvts11 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts12 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts13 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts14, span.rvts14 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<script type="text/javascript">if(top.frames.length == 0) { top.location.href="../BookAPIC++.htm?{DF1027EB-12F9-4926-B8FE-F27AF9F4A961}.htm"; }</script>
+<meta name="generator" content="HelpNDoc Free"></head>
+<body>
+
+<p class=rvps2><span class=rvts11>fill_listbox.cpp</span></p>
+<p><span class=rvts10>// файл fill_listbox.cpp</span></p>
+<p>#include &lt;windows.h&gt;</p>
+<p>#include &lt;windowsx.h&gt;</p>
+<p>#include "fill_listbox.h"</p>
+<p><br></p>
+<p>int WINAPI WinMain (HINSTANCE hThisInstance,HINSTANCE</p>
+<p>&nbsp;&nbsp;&nbsp; hPrevInstance,LPSTR lpszArgument,int nFunsterStil)</p>
+<p>&nbsp; {</p>
+<p>&nbsp; HWND hwnd;</p>
+<p>&nbsp; MSG messages;</p>
+<p>&nbsp; WNDCLASSEX wincl;</p>
+<p>&nbsp; hI=hThisInstance;</p>
+<p>&nbsp; wincl.hInstance = hThisInstance;</p>
+<p>&nbsp; wincl.lpszClassName = szClassName;</p>
+<p>&nbsp; wincl.lpfnWndProc = WindowProcedure;</p>
+<p>&nbsp; wincl.style = CS_DBLCLKS;</p>
+<p>&nbsp; wincl.cbSize = sizeof (WNDCLASSEX);</p>
+<p>&nbsp; wincl.hIcon = LoadIcon (NULL, IDI_APPLICATION);</p>
+<p>&nbsp; wincl.hIconSm = LoadIcon (NULL, IDI_APPLICATION);</p>
+<p>&nbsp; wincl.hCursor = LoadCursor (NULL, IDC_ARROW);</p>
+<p>&nbsp; wincl.lpszMenuName = NULL;</p>
+<p>&nbsp; wincl.cbClsExtra = 0;</p>
+<p>&nbsp; wincl.cbWndExtra = 0;</p>
+<p>&nbsp; wincl.hbrBackground = CreateSolidBrush(RGB(192,192,192));</p>
+<p>&nbsp; if (!RegisterClassEx (&amp;wincl)) return 0;</p>
+<p>&nbsp; hwnd=CreateWindowEx(0,szClassName,"KWPlayer",WS_OVERLAPPEDWINDOW,</p>
+<p>&nbsp;&nbsp;&nbsp; 200,50,320,205,HWND_DESKTOP,NULL,hThisInstance,NULL);</p>
+<p>&nbsp; hI = hThisInstance;</p>
+<p>&nbsp; ShowWindow (hwnd, nFunsterStil);</p>
+<p>&nbsp; UpdateWindow(hwnd);</p>
+<p>&nbsp; while (GetMessage (&amp;messages, NULL, 0, 0))</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp; TranslateMessage(&amp;messages);</p>
+<p>&nbsp;&nbsp;&nbsp; DispatchMessage(&amp;messages);</p>
+<p>&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp; return messages.wParam;</p>
+<p>&nbsp; }//WinMain</p>
+<p><br></p>
+<p>LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message,</p>
+<p>&nbsp;&nbsp;&nbsp; WPARAM wParam, LPARAM lParam)</p>
+<p>&nbsp; {</p>
+<p>&nbsp; HDC hdc;</p>
+<p>&nbsp; switch (message)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; HANDLE_MSG (hwnd,WM_CREATE,OnCreate);</p>
+<p>&nbsp;&nbsp; HANDLE_MSG (hwnd,WM_DESTROY,OnDestroy);</p>
+<p>&nbsp;&nbsp; HANDLE_MSG (hwnd,WM_COMMAND,OnCommand);</p>
+<p>&nbsp;&nbsp; HANDLE_MSG (hwnd,WM_CTLCOLORLISTBOX,SetColorListBox);</p>
+<p>&nbsp;&nbsp; default: return DefWindowProc (hwnd, message, wParam, lParam);</p>
+<p>&nbsp;&nbsp; }</p>
+<p>&nbsp; return 0;</p>
+<p> }//WindowProcedure</p>
+<p><br></p>
+<p>BOOL OnCreate(HWND hwnd,LPCREATESTRUCT)</p>
+<p> {</p>
+<p> CreateDirectory("C:\\KWPlayer_Data",NULL);</p>
+<p> ReadIniParam();</p>
+<p> SetWindowPos(hwnd,HWND_TOPMOST,iwinL,iwinT,0,0,SWP_NOSIZE);</p>
+<p> hListBox=CreateWindow("LISTBOX","",WS_CHILD|WS_VISIBLE|LBS_NOTIFY|</p>
+<p>&nbsp;&nbsp;&nbsp; WS_VSCROLL,10,10,290,140,hwnd,(HMENU)1111,hInstLB,NULL);</p>
+<p> hMainMenu = CreateMenu();</p>
+<p> CreateMenuItem(hMainMenu, "меню", 0, 1001, hPopMenu);</p>
+<p> SetMenu(hwnd, hMainMenu);</p>
+<p> return TRUE;</p>
+<p> }</p>
+<p><br></p>
+<p>void OnDestroy(HWND hwnd)</p>
+<p>{</p>
+<p> WriteIniParam(hwnd);</p>
+<p> PostQuitMessage(0);</p>
+<p> }</p>
+<p><br></p>
+<p>void OnCommand (HWND hwnd, int id, HWND,UINT)</p>
+<p> {</p>
+<p>&nbsp; // меню</p>
+<p> if(id==1001)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; static POINT Curs;</p>
+<p>&nbsp;&nbsp; GetCursorPos(&amp;Curs);</p>
+<p>&nbsp;&nbsp; hPopMenu=CreatePopupMenu();</p>
+<p>&nbsp;&nbsp; CreateMenuItem(hPopMenu, "заполнить список воспроизведения", 0, 2001, NULL);</p>
+<p>&nbsp;&nbsp; CreateMenuItem(hPopMenu, "удалить из списка выделенное"&nbsp;&nbsp;&nbsp; , 0, 2002, NULL);</p>
+<p>&nbsp;&nbsp; CreateMenuItem(hPopMenu, "очистить список воспроизведения" , 0, 2003, NULL);</p>
+<p>&nbsp;&nbsp; CreateMenuItem(hPopMenu, "выделенная строка вверх"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; , 0, 2004, NULL);</p>
+<p>&nbsp;&nbsp; CreateMenuItem(hPopMenu, "выделенная строка вниз"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; , 0, 2005, NULL);</p>
+<p>&nbsp;&nbsp; CreateMenuItem(hPopMenu, "сохранить список воспроизведения", 0, 2006, NULL);</p>
+<p>&nbsp;&nbsp; CreateMenuItem(hPopMenu, "загрузить список воспроизведения", 0, 2007, NULL);</p>
+<p>&nbsp;&nbsp; CreateMenuItem(hPopMenu, "выход"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; , 0, 2008, NULL);</p>
+<p>&nbsp;&nbsp; TrackPopupMenuEx(hPopMenu,TPM_VERTICAL,Curs.x,Curs.y,hwnd,NULL);</p>
+<p>&nbsp;&nbsp; DeleteObject(hPopMenu);</p>
+<p>&nbsp;&nbsp; } // меню</p>
+<p><br></p>
+<p>&nbsp;&nbsp; // заполнить список</p>
+<p>&nbsp; if(id==2001)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; FillPlayList(hwnd);</p>
+<p>&nbsp;&nbsp; } // заполнить список</p>
+<p><br></p>
+<p>&nbsp;&nbsp; // удалить из списка</p>
+<p>&nbsp; if(id==2002)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; if (Selected())</p>
+<p>&nbsp;&nbsp; SendMessage(hListBox,LB_DELETESTRING,(WPARAM)GetSelIndex(),0);</p>
+<p>&nbsp;&nbsp; } // удалить из списка</p>
+<p>&nbsp;&nbsp; // очистить список</p>
+<p>&nbsp; if(id==2003)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; SendMessage(hListBox,LB_RESETCONTENT,0,0);</p>
+<p>&nbsp;&nbsp; } // очистить список</p>
+<p><br></p>
+<p>&nbsp;&nbsp; // строка вверх</p>
+<p>&nbsp; if(id==2004)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; MoveStrUp();</p>
+<p>&nbsp;&nbsp; }&nbsp; // строка вверх</p>
+<p><br></p>
+<p>&nbsp;&nbsp; // строка вниз</p>
+<p>&nbsp; if(id==2005)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; MoveStrDown();</p>
+<p>&nbsp;&nbsp; } // строка вниз</p>
+<p><br></p>
+<p>&nbsp;&nbsp; // сохранить список</p>
+<p>&nbsp; if(id==2006)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; SavePlayList(hwnd);</p>
+<p>&nbsp;&nbsp; } // сохранить список</p>
+<p><br></p>
+<p>&nbsp;&nbsp; // загрузить список</p>
+<p>&nbsp; if(id==2007)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; LoadPlayList(hwnd);</p>
+<p>&nbsp;&nbsp; } // загрузить список</p>
+<p><br></p>
+<p>&nbsp;&nbsp; // выход</p>
+<p>&nbsp; if(id==2008)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; OnDestroy(hwnd);</p>
+<p>&nbsp;&nbsp; }</p>
+<p> } // OnCommand</p>
+<p><br></p>
+<p>void WriteIniParam(HWND hw)</p>
+<p> {</p>
+<p> RECT Okno;</p>
+<p> char wLft[4],wTop[4],wVid[4];</p>
+<p> GetWindowRect(hw,&amp;Okno);</p>
+<p> wsprintf(wLft,"%d",Okno.left);</p>
+<p> wsprintf(wTop,"%d",Okno.top);</p>
+<p> wsprintf(wVid,"%d",iVid);</p>
+<p> WritePrivateProfileString("WIND","oknoL",wLft,szIniPath);</p>
+<p> WritePrivateProfileString("WIND","oknoT",wTop,szIniPath);</p>
+<p> WritePrivateProfileString("WIND","Small",wVid,szIniPath);</p>
+<p> }</p>
+<p><br></p>
+<p>void ReadIniParam()</p>
+<p> {</p>
+<p> WIN32_FIND_DATA wfdEx; HANDLE hFile;</p>
+<p> strcat(szIniPath, "\\kwp.prm");</p>
+<p> hFile = FindFirstFile(szIniPath, &amp;wfdEx);</p>
+<p> char wLft[4],wTop[4],wVid[4];</p>
+<p> if (!( hFile == INVALID_HANDLE_VALUE))</p>
+<p>&nbsp; {</p>
+<p>&nbsp; GetPrivateProfileString("WIND","oknoL","",wLft,4,szIniPath);</p>
+<p>&nbsp; GetPrivateProfileString("WIND","oknoT","",wTop,4,szIniPath);</p>
+<p>&nbsp; GetPrivateProfileString("WIND","Small","",wVid,4,szIniPath);</p>
+<p>&nbsp; iwinL=atoi(wLft); iwinT=atoi(wTop); iVid=atoi(wVid);</p>
+<p>&nbsp; }</p>
+<p> }</p>
+<p><br></p>
+<p>BOOL CreateMenuItem (HMENU hMenu, char* str,</p>
+<p> UINT uID, UINT wID, HMENU hSubMenu)</p>
+<p> {</p>
+<p>&nbsp;&nbsp;&nbsp; // Заполняем структуру mi.</p>
+<p> MENUITEMINFO mi;</p>
+<p> mi.cbSize = sizeof(MENUITEMINFO);</p>
+<p> mi.fMask = MIIM_STATE|MIIM_TYPE|MIIM_SUBMENU|MIIM_ID;</p>
+<p> mi.fType = MFT_STRING;</p>
+<p> mi.fState = MFS_ENABLED;</p>
+<p> mi.dwTypeData = str;</p>
+<p> mi.cch = sizeof(str);</p>
+<p> mi.wID = wID;</p>
+<p> mi.hSubMenu = hSubMenu; // Устновка подменю.</p>
+<p>&nbsp;&nbsp;&nbsp; // Вставляем меню.</p>
+<p> return InsertMenuItem(hMenu, uID, FALSE, &amp;mi);</p>
+<p> } //CreateMenuItem</p>
+<p><br></p>
+<p class=rvps3><span class=rvts12>Сомов Е.П. © 2012, Примеры программирования API функция на DevC++</span></p>
+<p class=rvps4><span class=rvts13>This help file has been generated by the freeware version of </span><a class=rvts14 href="http://www.ibe-software.com/products/software/helpndoc/" target="_blank">HelpNDoc</a></p>
+
+</body></html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>fill_listbox.h</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+ ;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #9d9da1;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #716f64;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #9d9da1;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #9d9da1;
+}
+span.rvts10
+{
+ color: #008000;
+}
+span.rvts11 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts12 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts13 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts14, span.rvts14 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<script type="text/javascript">if(top.frames.length == 0) { top.location.href="../BookAPIC++.htm?{3C04094B-676B-4AF6-89DA-6B3A9573D49A}.htm"; }</script>
+<meta name="generator" content="HelpNDoc Free"></head>
+<body>
+
+<p class=rvps2><span class=rvts11>fill_listbox.h</span></p>
+<p><span class=rvts10>// файл fill_listbox.h</span></p>
+<p>LRESULT CALLBACK WindowProcedure (HWND,UINT,WPARAM,LPARAM);</p>
+<p>BOOL OnCreate(HWND,CREATESTRUCT FAR*);</p>
+<p>void OnDestroy(HWND);</p>
+<p>void OnCommand(HWND,int,HWND,UINT);</p>
+<p>HBRUSH SetColorListBox(HWND,HDC,HWND,INT);</p>
+<p>void OpenDialog(HWND);</p>
+<p>void FillPlayList(HWND);</p>
+<p>int GetSelIndex();</p>
+<p>int GetLBCount();</p>
+<p>void SetIndex(int);</p>
+<p>BOOL Selected();</p>
+<p>BOOL CreateMenuItem (HMENU, char*, UINT, UINT, HMENU);</p>
+<p>void WriteIniParam(HWND);</p>
+<p>void ReadIniParam();</p>
+<p>void MoveStrUp();</p>
+<p>void MoveStrDown();</p>
+<p>void SavePlayList(HWND);</p>
+<p>void LoadPlayList(HWND);</p>
+<p><br></p>
+<p>int iwinL=300,iwinT=50;</p>
+<p>int iCount=0,iVid;</p>
+<p>char szIniPath[]="C:\\KWPlayer_Data";</p>
+<p>char szMediaPath[255][255]={0};</p>
+<p>char szMediaDir[255]={0};</p>
+<p>char pMedia[255][255];</p>
+<p>int loaded=0;</p>
+<p><br></p>
+<p>int islist=0;int iItemNumb=-1;</p>
+<p><br></p>
+<p>struct MelodyItem</p>
+<p>{</p>
+<p>&nbsp; char path[255];</p>
+<p>&nbsp; char name[255];</p>
+<p>}melody[1000];</p>
+<p><br></p>
+<p>char szClassName[] = "WindowsApp";</p>
+<p>char szSendStr[255]={0};</p>
+<p>char szMode[255]={0};</p>
+<p>char szNameSelctd[255]={0};</p>
+<p>char chBuf[4];</p>
+<p>int iIndexBuf,iLBCount;</p>
+<p>HINSTANCE hI,hInstLB;</p>
+<p>HWND hListBox;</p>
+<p>HDC hdc,hdcMem;</p>
+<p>OPENFILENAME ofn;</p>
+<p><br></p>
+<p>static HMENU hMainMenu;</p>
+<p>static HMENU hPopMenu;</p>
+<p><br></p>
+<p>void FillPlayList(HWND hwMain)</p>
+<p> {</p>
+<p> int fset,len0,K,L,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; len[255];</p>
+<p> LPTSTR nextName;</p>
+<p> char fname[255][255];</p>
+<p> char szDir[255]={0};</p>
+<p> char szTemp[255]={0}; char szItemNumb[5]={0};</p>
+<p> islist=0;</p>
+<p> OpenDialog(hwMain);</p>
+<p> K=0;len[0]=0;</p>
+<p> if(GetOpenFileName(&amp;ofn))</p>
+<p>&nbsp; {</p>
+<p>&nbsp; GetCurrentDirectory(255,szDir);</p>
+<p>&nbsp; fset=ofn.nFileOffset;</p>
+<p>&nbsp; lstrcpy(fname[K],ofn.lpstrFile);</p>
+<p>&nbsp; len0=lstrlen(fname[K]);</p>
+<p>&nbsp; ofn.lpstrFile+=ofn.nFileOffset;</p>
+<p>&nbsp; K=K+1; // =1</p>
+<p>&nbsp; lstrcpy(fname[K],ofn.lpstrFile);</p>
+<p>&nbsp; len[K]=lstrlen(fname[K]);</p>
+<p>&nbsp; if (fset &gt; len0) // т.е. открыто &gt; 1-го файла</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; while (lstrlen(fname[K])!=0)</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp; len[K]=lstrlen(fname[K])+len[K-1]+1; // +1 - учет разделителя имён</p>
+<p>&nbsp;&nbsp;&nbsp; nextName=ofn.lpstrFile + len[K];</p>
+<p>&nbsp;&nbsp;&nbsp; K=K+1; // =2 и т.д.</p>
+<p>&nbsp;&nbsp;&nbsp; lstrcpy(fname[K],nextName);</p>
+<p>&nbsp;&nbsp;&nbsp; } // while (fname[K]!="")</p>
+<p>&nbsp;&nbsp; }&nbsp; // if (fset &gt; len0)</p>
+<p>&nbsp;&nbsp; if (K &gt; 1)</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp; L=1; K=K-1;</p>
+<p>&nbsp;&nbsp;&nbsp; while (L &lt; K)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; L=L+1;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; iItemNumb=iItemNumb+1;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; wsprintf(melody[iItemNumb].name,fname[L]);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; wsprintf(melody[iItemNumb].path,szDir);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; wsprintf(szItemNumb,"%d",iItemNumb);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; if(iItemNumb&lt;10)wsprintf(szTemp,"00");</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; if((iItemNumb&lt;100) &amp;&amp; (iItemNumb&gt;9))wsprintf(szTemp,"0");</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; lstrcat(szTemp,szItemNumb);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; lstrcat(szTemp," ");</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; lstrcat(szTemp,melody[iItemNumb].name);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_ADDSTRING,0,(LPARAM)szTemp);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; wsprintf(szTemp,"");</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; } // while L &lt; K</p>
+<p>&nbsp;&nbsp;&nbsp; } // if (K &gt; 1)</p>
+<p>&nbsp;&nbsp; iItemNumb=iItemNumb+1;</p>
+<p>&nbsp;&nbsp; wsprintf(melody[iItemNumb].name,fname[1]);</p>
+<p>&nbsp;&nbsp; wsprintf(melody[iItemNumb].path,szDir);</p>
+<p>&nbsp;&nbsp; wsprintf(szItemNumb,"%d",iItemNumb);</p>
+<p>&nbsp;&nbsp; if(iItemNumb&lt;10)wsprintf(szTemp,"00");</p>
+<p>&nbsp;&nbsp; if((iItemNumb&lt;100) &amp;&amp; (iItemNumb&gt;9))wsprintf(szTemp,"0");</p>
+<p>&nbsp;&nbsp; lstrcat(szTemp,szItemNumb);</p>
+<p>&nbsp;&nbsp; lstrcat(szTemp," ");</p>
+<p>&nbsp;&nbsp; lstrcat(szTemp,melody[iItemNumb].name);</p>
+<p>&nbsp;&nbsp; SendMessage(hListBox,LB_ADDSTRING,0,(LPARAM)szTemp);</p>
+<p>&nbsp;&nbsp; wsprintf(szTemp,"");</p>
+<p>&nbsp;&nbsp; }&nbsp; // if(GetOpenFileName(&amp;ofn))</p>
+<p> iLBCount=GetLBCount();</p>
+<p>&nbsp; if(iLBCount&gt;0)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; iCount=1;</p>
+<p>&nbsp;&nbsp; SendMessage(hListBox,LB_SETCURSEL,(WPARAM)0,0);</p>
+<p>&nbsp;&nbsp; }</p>
+<p> }</p>
+<p><br></p>
+<p>int GetSelIndex()</p>
+<p> {</p>
+<p> int ix;</p>
+<p> ix=SendMessage(hListBox,LB_GETCURSEL,0,0);</p>
+<p> return ix;</p>
+<p> }</p>
+<p><br></p>
+<p>int GetLBCount()</p>
+<p> {</p>
+<p> int ic;</p>
+<p> ic=SendMessage(hListBox,LB_GETCOUNT,0,0);</p>
+<p> return ic;</p>
+<p> }</p>
+<p><br></p>
+<p>void SetIndex(int ix)</p>
+<p> {</p>
+<p> SendMessage(hListBox,LB_SETCURSEL,(WPARAM)ix,0);</p>
+<p> }</p>
+<p><br></p>
+<p>BOOL Selected()</p>
+<p> {</p>
+<p> BOOL ns;</p>
+<p> if(GetSelIndex()!=LB_ERR)ns=TRUE;</p>
+<p> else ns=FALSE;</p>
+<p> return ns;</p>
+<p> }</p>
+<p><br></p>
+<p>void MoveStrUp()</p>
+<p> {</p>
+<p> int indexsel;</p>
+<p> if (Selected())</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp; indexsel=GetSelIndex();iLBCount=GetLBCount();</p>
+<p>&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_GETTEXT,(WPARAM)indexsel,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (LPARAM)szNameSelctd);</p>
+<p>&nbsp;&nbsp;&nbsp; if(indexsel&gt;0)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_INSERTSTRING,(WPARAM)(indexsel-1),</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; (LPARAM)szNameSelctd);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_DELETESTRING,(WPARAM)(indexsel+1),0);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SetIndex(indexsel-1);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; }else</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_INSERTSTRING,(WPARAM)iLBCount,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; (LPARAM)szNameSelctd);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_DELETESTRING,(WPARAM)0,0);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SetIndex(iLBCount-1);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; } //else</p>
+<p>&nbsp;&nbsp;&nbsp; }&nbsp; //(Selected())</p>
+<p> }</p>
+<p><br></p>
+<p>void MoveStrDown()</p>
+<p> {</p>
+<p> int indexsel;</p>
+<p> if (Selected())</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp; indexsel=GetSelIndex();iLBCount=GetLBCount();</p>
+<p>&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_GETTEXT,(WPARAM)indexsel,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (LPARAM)szNameSelctd);</p>
+<p>&nbsp;&nbsp;&nbsp; if((indexsel+1)&lt;iLBCount)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_INSERTSTRING,(WPARAM)(indexsel+2),</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (LPARAM)szNameSelctd);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_DELETESTRING,(WPARAM)indexsel,0);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SetIndex(indexsel+1);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; }else</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_INSERTSTRING,(WPARAM)0,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; (LPARAM)szNameSelctd);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SendMessage(hListBox,LB_DELETESTRING,(WPARAM)indexsel+1,0);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; SetIndex(0);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp; }</p>
+<p> }</p>
+<p><br></p>
+<p>void SavePlayList(HWND hwn)</p>
+<p> {</p>
+<p> char szTemp[255]={0};</p>
+<p> char szTemp1[255]={0};</p>
+<p> char wCount[4];</p>
+<p> char szItemPath[255]={0};</p>
+<p> char szItemName[255]={0};</p>
+<p> char pMedia[255][255];</p>
+<p> char szTxt[255]={0};</p>
+<p> iLBCount=GetLBCount();</p>
+<p> wsprintf(wCount,"%d",iLBCount);</p>
+<p> islist=1;</p>
+<p> OpenDialog(hwn);</p>
+<p> if(GetSaveFileName(&amp;ofn))</p>
+<p>&nbsp; {</p>
+<p>&nbsp; if(strstr(ofn.lpstrFile,".lst")==NULL) lstrcat(ofn.lpstrFile,".lst");</p>
+<p>&nbsp; WritePrivateProfileString("MEDIA","LBCount",wCount,ofn.lpstrFile);</p>
+<p>&nbsp; for(int i=0; i&lt;iLBCount; i++)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; SendMessage(hListBox,LB_GETTEXT,(WPARAM)i,(LPARAM)szTemp);</p>
+<p>&nbsp;&nbsp; iItemNumb=atoi(szTemp);</p>
+<p>&nbsp;&nbsp; wsprintf(pMedia[i],"%d",i);</p>
+<p>&nbsp;&nbsp; wsprintf(szItemPath,melody[iItemNumb].path);</p>
+<p>&nbsp;&nbsp; wsprintf(szItemName,melody[iItemNumb].name);</p>
+<p>&nbsp;&nbsp; WritePrivateProfileString(pMedia[i],"ItemPath",szItemPath,ofn.lpstrFile);</p>
+<p>&nbsp;&nbsp; WritePrivateProfileString(pMedia[i],"ItemName",szItemName,ofn.lpstrFile);</p>
+<p>&nbsp;&nbsp; } // for</p>
+<p>&nbsp; }</p>
+<p> }&nbsp; // SavePlayList()</p>
+<p><br></p>
+<p>void LoadPlayList(HWND hwn)</p>
+<p> {</p>
+<p> char szTemp[255]={0}; char szItemNumb[5]={0};</p>
+<p> char wCount[4];</p>
+<p> char szItemPath[255]={0};</p>
+<p> char szItemName[255]={0};</p>
+<p> char pMedia[255][255];</p>
+<p> islist=1;</p>
+<p> OpenDialog(hwn);</p>
+<p> if(GetOpenFileName(&amp;ofn))</p>
+<p>&nbsp; {</p>
+<p>&nbsp; GetPrivateProfileString("MEDIA","LBCount","",wCount,4,ofn.lpstrFile);</p>
+<p>&nbsp; for(int i=0;i&lt;atoi(wCount);i++)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; iItemNumb=iItemNumb+1;</p>
+<p>&nbsp;&nbsp; wsprintf(pMedia[i],"%d",i);</p>
+<p>&nbsp;&nbsp; GetPrivateProfileString(pMedia[i],"ItemPath","",szItemPath,255,ofn.lpstrFile);</p>
+<p>&nbsp;&nbsp; GetPrivateProfileString(pMedia[i],"ItemName","",szItemName,255,ofn.lpstrFile);</p>
+<p>&nbsp;&nbsp; wsprintf(melody[iItemNumb].path,szItemPath);</p>
+<p>&nbsp;&nbsp; wsprintf(melody[iItemNumb].name,szItemName);</p>
+<p>&nbsp;&nbsp; wsprintf(szItemNumb,"%d",iItemNumb);</p>
+<p>&nbsp;&nbsp; if(iItemNumb&lt;10)wsprintf(szTemp,"00");</p>
+<p>&nbsp;&nbsp; if((iItemNumb&lt;100) &amp;&amp; (iItemNumb&gt;9))wsprintf(szTemp,"0");</p>
+<p>&nbsp;&nbsp; lstrcat(szTemp,szItemNumb);</p>
+<p>&nbsp;&nbsp; lstrcat(szTemp," ");</p>
+<p>&nbsp;&nbsp; lstrcat(szTemp,melody[iItemNumb].name);</p>
+<p>&nbsp;&nbsp; SendMessage(hListBox,LB_ADDSTRING,0,(LPARAM)szTemp);</p>
+<p>&nbsp;&nbsp; wsprintf(szTemp,"");</p>
+<p>&nbsp;&nbsp; } // for</p>
+<p>&nbsp; iLBCount=GetLBCount();</p>
+<p>&nbsp; if(iLBCount&gt;0)</p>
+<p>&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp; iCount=1;</p>
+<p>&nbsp;&nbsp; SendMessage(hListBox,LB_SETCURSEL,(WPARAM)0,0);</p>
+<p>&nbsp;&nbsp; }</p>
+<p>&nbsp; }&nbsp; // if (GetOpen</p>
+<p> }&nbsp;&nbsp; // load PlayList</p>
+<p><br></p>
+<p>void OpenDialog(HWND hwnd1)</p>
+<p> {</p>
+<p> TCHAR szFile[20000]="";</p>
+<p> TCHAR szFileTitle[20000]="";</p>
+<p> ZeroMemory(&amp;ofn, sizeof(ofn));</p>
+<p> ofn.lStructSize = sizeof(ofn);</p>
+<p> ofn.lpstrFile = szFile;</p>
+<p> ofn.lpstrFile[0] = '\0';</p>
+<p> ofn.lpstrFileTitle = szFileTitle;</p>
+<p> ofn.lpstrFileTitle[0] = '\0';</p>
+<p> ofn.hwndOwner = hwnd1;</p>
+<p> ofn.nMaxFile = sizeof(szFile);</p>
+<p> ofn.nMaxFileTitle = sizeof(szFileTitle);</p>
+<p> if(islist==0)</p>
+<p>&nbsp; {</p>
+<p>&nbsp; ofn.lpstrFilter =</p>
+<p>&nbsp; "mp3 wav wma mid midi avi vob mp4\0*.mp3;*.wav;*.wma;*.mid;*.midi;*.avi;"</p>
+<p>&nbsp; "*.vob;*.mp4\0 ALL FILES\0*.*\0\0";</p>
+<p>&nbsp; ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST |</p>
+<p>&nbsp;&nbsp;&nbsp; OFN_ALLOWMULTISELECT | OFN_EXPLORER;// OFN_ALLOWMULTISELECT</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // открыть несколько файлов</p>
+<p>&nbsp;&nbsp;&nbsp; }</p>
+<p> else</p>
+<p>&nbsp; {</p>
+<p>&nbsp; ofn.lpstrFilter =&nbsp; "playlist *.lst\0*.lst\0\0";</p>
+<p>&nbsp; ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_EXPLORER;</p>
+<p>&nbsp; }</p>
+<p> ofn.nFilterIndex = 1;</p>
+<p> }</p>
+<p><br></p>
+<p>HBRUSH SetColorListBox(HWND,HDC hdc,HWND,INT)</p>
+<p> {</p>
+<p> SetBkMode(hdc,TRANSPARENT);</p>
+<p> SetTextColor(hdc,RGB(0,0,255));</p>
+<p> return CreateSolidBrush(RGB(0,0,0));</p>
+<p> }</p>
+<p><br></p>
+<p class=rvps3><span class=rvts12>Сомов Е.П. © 2012, Примеры программирования API функция на DevC++</span></p>
+<p class=rvps4><span class=rvts13>This help file has been generated by the freeware version of </span><a class=rvts14 href="http://www.ibe-software.com/products/software/helpndoc/" target="_blank">HelpNDoc</a></p>
+
+</body></html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Programming language C++</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="logo">
+<a href="http://somov.inf.ua">DEVELOPER: SOMOV EVGENIY</a>
+</div>
+
+<div id="menu">
+<a href="index.html">Главная / Home</a> &nbsp; &nbsp; &nbsp; <a href="university.html">Университет / University</a> &nbsp; &nbsp; &nbsp; <a href="development.html">Разработки / Development</a> &nbsp; &nbsp; &nbsp; <a href="soft.html">Бесплатные программы / Free sotfware</a>
+</div>
+
+<div class="clear"></div>
+
+<div id="main">
+
+<div id="left">
+
+<div class="block">
+<h2>Справочная информация по языку С++.</h2>
+1.
+<a href="#block1">Директивы препроцессора.</a>
+<br>
+2.
+<a href="#block2">Типы данных.</a>
+<br>
+3.
+<a href="#block3">Структуры.</a>
+<br>
+4.
+<a href="#block4">Объединения.</a>
+<br>
+5.
+<a href="#block5">Перечисления.</a>
+<br>
+6.
+<a href="#block6">Переименование типов.</a>
+<br>
+7.
+<a href="#block7">Процедуры и функции.</a>
+<br>
+8.
+<a href="#block8">Условия.</a>
+<br>
+9.
+<a href="#block9">Циклы.</a>
+<br>
+10.
+<a href="#block10">Оператор выбора.</a>
+<br>
+11.
+<a href="#block11">Классы.</a>
+<br>
+12.
+<a href="#block12">Преобразование.</a>
+<br>
+13.
+<a href="#block13">Консольная программа.</a>
+<div class="clear"></div>
+</div>
+
+<div class="block">
+<h4 id="block1" align="center">
+Директивы препроцессора. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+<b>Директива #include</b>
+<br>
+Включает копию указанного в директиве файла в том месте, где находится эта директива.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    #include < gl\gl.h >
+<br>
+ &nbsp;&nbsp;&nbsp;    #include “Unit1.h”
+</font>
+<br>
+<br>
+<b>Директива #define и #undef</b>
+<br>
+Создание символьные константы или макросы с параметрами или без них.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    #define PI 3.14159
+<br>
+&nbsp;&nbsp;&nbsp;     #define Anyk “Нажмите любую клавишу”
+<br>
+ &nbsp;&nbsp;&nbsp;    #define GETSTD #include
+<stdio.h>
+</font>
+<br>
+Макрос с одним параметром
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    #define CIRC(x) (3.14159 * (x) * (x))
+</font>
+<br>
+Аннулирование символьной константы и макроса.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    #undef PI
+<br>
+ &nbsp;&nbsp;&nbsp;    #undef myinc
+</font>
+<br>
+<br>
+<b>Условная компиляция: директивы #if, #endif, #ifdef, #ifndef, #else, #elif</b>
+<br>
+Условная компиляция дает возможность программисту управлять выполнением директив препроцессора и компиляцией программного кода.
+<font color="#BBCCFF">
+<br>
+&nbsp;&nbsp;&nbsp;     #if условие
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;        фрагмент кода
+<br>
+&nbsp;&nbsp;&nbsp;     #elif условие
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          фрагмент кода
+<br>
+ &nbsp;&nbsp;&nbsp;    #else
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         фрагмент кода
+<br>
+ &nbsp;&nbsp;&nbsp;    #endif
+</font>
+<br>
+<br>
+<b>Директива #error</b>
+<br>
+Директива печатает в процессе компиляции сообщение об ошибке.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    #ifndef Unit1H
+<br>
+ &nbsp;&nbsp;&nbsp;    #error Не найден файл Unit1.h
+</font>
+<br>
+<br>
+<b>Директива #line</b>
+<br>
+Задает начальное значение номера строки для нумерации следующих за директивой строк.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    #line 100 “Unit1.cpp”
+</font>
+<br>
+<br>
+<b>Директива #pragma</b>
+<br>
+Вызывает действие, зависящее от указанной операции.
+<font color="#BBCCFF">
+<br>
+&nbsp;&nbsp;&nbsp;     #include
+<vcl.h>
+<br>
+ &nbsp;&nbsp;&nbsp;    #pragma hdrstop
+<br>
+ &nbsp;&nbsp;&nbsp;    #pragma package(smart_init)
+<br>
+ &nbsp;&nbsp;&nbsp;    #pragma resource “*.dfm”
+</vcl.h>
+</font>
+<br>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block2" align="center">
+Типы данных. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+<b>Стандартные типы</b>
+<table width="850" border="0">
+<tbody>
+<tr>
+<td width="300" align="left">
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    int
+<br>
+ &nbsp;&nbsp;&nbsp;    long
+<br>
+ &nbsp;&nbsp;&nbsp;    short
+<br>
+ &nbsp;&nbsp;&nbsp;    unsigned
+<br>
+ &nbsp;&nbsp;&nbsp;    char
+<br>
+  &nbsp;&nbsp;&nbsp;   float
+<br>
+ &nbsp;&nbsp;&nbsp;    double
+<br>
+  &nbsp;&nbsp;&nbsp;   bool
+</font>
+</td>
+<td width="550" align="left">
+<br>
+Объявление переменных
+<font color="#BBCCFF">
+<br>
+&nbsp;&nbsp;&nbsp;     int num = 10;
+<br>
+ &nbsp;&nbsp;&nbsp;    float fnum 12.5f;
+<br>
+ &nbsp;&nbsp;&nbsp;    double dnum = 14.2;
+<br>
+ &nbsp;&nbsp;&nbsp;    char c = 'S';
+<br>
+ &nbsp;&nbsp;&nbsp;    bool b = true;
+<br>
+ &nbsp;&nbsp;&nbsp;    char *text; char* text; char str[] = "строка текста";
+</font>
+<br>
+</td>
+</tr>
+</tbody>
+</table>
+<b>Тип строка String</b>
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    #include
+<string>
+<br>
+ &nbsp;&nbsp;&nbsp;    string *str; string* str;
+<br>
+ &nbsp;&nbsp;&nbsp;    char *cstr = "hello world \n";
+</string>
+</font>
+<br>
+<b>Одномерные массивы</b>
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    int A[10]; int a[] = {1,2,3};
+<br>
+ &nbsp;&nbsp;&nbsp;    int a[3] = {1,2,3};
+<br>
+ &nbsp;&nbsp;&nbsp;    char str[6] = {'h','e','l','l','o','\0'};
+<br>
+ &nbsp;&nbsp;&nbsp;    char *msg[] = {"123"};
+<br>
+ &nbsp;&nbsp;&nbsp;    string *str = new string[100];
+</font>
+<br>
+<b>Многомерные массивы</b>
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    int B[5][10];
+</font>
+<br>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block3" align="center">
+Структура. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+структура с объявленной структурной переменной addr_info.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    struct addr {
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         char name[50];
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         unsingned long int zip;
+<br>
+ &nbsp;&nbsp;&nbsp;    } addr_info;
+</font>
+<br>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block4" align="center">
+Объединения. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+<font color="#BBCCFF">
+ &nbsp;&nbsp;&nbsp;    union MyUnion {
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         int year;
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         string *str;
+<br>
+ &nbsp;&nbsp;&nbsp;    };
+</font>
+<br>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block5" align="center">
+Перечисления. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+<font color="#BBCCFF">
+&nbsp;&nbsp;&nbsp;     enum MyEnum {
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         JAN = 1, FEB, MAR, APR, MAY, YUN, YUL, AUG, SEP, OCT, NOV, DEC
+<br>
+ &nbsp;&nbsp;&nbsp;    };
+<br>
+ &nbsp;&nbsp;&nbsp;    MyEnum menum;
+</font>
+<br>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block6" align="center">
+Переименование типов. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+<font color="#BBCCFF">
+&nbsp;&nbsp;&nbsp;     typedef int ar[10];
+<br>
+ &nbsp;&nbsp;&nbsp;    ar MyAr;
+</font>
+<br>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block7" align="center">
+Процедуры и функции. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+описание процедур.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    void summa(void){ }
+<br>
+  &nbsp;&nbsp;&nbsp;   void summa(int arg1, int arg2){ }
+</font>
+<br>
+описание функций
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    int summa(void){
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         return 100;
+<br>
+ &nbsp;&nbsp;&nbsp;    }
+<br>
+ &nbsp;&nbsp;&nbsp;    int summa(int arg1, int arg2){
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         return arg1 + arg2;
+<br>
+ &nbsp;&nbsp;&nbsp;    }
+</font>
+<br>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block8" align="center">
+Условия. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+<font color="#BBCCFF">
+ &nbsp;&nbsp;&nbsp;    bool value1 = false;
+<br>
+ &nbsp;&nbsp;&nbsp;    bool value2 = true;
+<br>
+ &nbsp;&nbsp;&nbsp;    if (value1){
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         if (value2) printf("value 2 = true");
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    } else printf("value 1 = false");
+</font>
+<br>
+<br>
+ &nbsp;&nbsp;&nbsp;    == &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     равенство
+<br>
+ &nbsp;&nbsp;&nbsp;    != &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     не равно
+<br>
+ &nbsp;&nbsp;&nbsp;    < &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     меньше
+<br>
+ &nbsp;&nbsp;&nbsp;    <= &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     меньше или равно
+<br>
+ &nbsp;&nbsp;&nbsp;    >  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    больше
+<br>
+&nbsp;&nbsp;&nbsp;     >= &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     больше или равно
+<br>
+ &nbsp;&nbsp;&nbsp;    && &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     логическое "И"
+<br>
+ &nbsp;&nbsp;&nbsp;    || &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     логическое "ИЛИ"
+<br>
+ &nbsp;&nbsp;&nbsp;    ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     логическое "НЕ" 
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block9" align="center">
+Циклы. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+Описание цикла while.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    int wi = 1;
+<br>
+ &nbsp;&nbsp;&nbsp;    while (wi < 10){
+<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        wi++;
+<br>
+ &nbsp;&nbsp;&nbsp;    }
+</font>
+<br>
+<br>
+Описание цикла do...while.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    int di = 10;
+<br>
+ &nbsp;&nbsp;&nbsp;    do {
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          di--;
+<br>
+ &nbsp;&nbsp;&nbsp;    } while (di > 1);
+</font>
+<br>
+<br>
+Описание цикла for.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    for (int i = 0; i < 10; i++){
+<br>
+<font color="#B9FFB7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*тело цикла*/</font>
+<br>
+&nbsp;&nbsp;&nbsp;     }
+<br>
+</font>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block10" align="center">
+Оператор выбора. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+Чтение символов с экрана.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    char ch;
+<br>
+ &nbsp;&nbsp;&nbsp;    ch = getche();
+<br>
+ &nbsp;&nbsp;&nbsp;    switch(ch){
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         case '1':
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              printf("Выбрана 1");
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              break;
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         case '2':
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              printf("Выбрана 2");
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              break;
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         default:
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              printf("Не выбрано!");
+<br>
+ &nbsp;&nbsp;&nbsp;    }
+</font>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block11" align="center">
+Классы. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+Описание класса и его вызов.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    class MyClass {
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         public:
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              int memi;
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              double memd;
+<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             message(){};
+<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        __published:
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         protected:
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         private:
+<br>
+ &nbsp;&nbsp;&nbsp;    }
+<br>
+ &nbsp;&nbsp;&nbsp;    MyClass mclass;
+<br>
+ &nbsp;&nbsp;&nbsp;    mclass.memi = 100;
+<br>
+ &nbsp;&nbsp;&nbsp;    mclass->memi = 100;
+</font>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block12" align="center">
+Преобразование. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+Пребразование числа в строку:
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    char strVal[256];
+<br>
+ &nbsp;&nbsp;&nbsp;    double dVal;
+<br>
+ &nbsp;&nbsp;&nbsp;    sprint(strVal, "%4g", dVal);
+</font>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h4 id="block13" align="center">
+Консольная программа. [
+<a href="#container">назад к меню</a>
+]
+</h4>
+Пример простой консолькой программы.
+<font color="#BBCCFF">
+<br>
+ &nbsp;&nbsp;&nbsp;    #include < cstdlib >
+<br>
+ &nbsp;&nbsp;&nbsp;    #include < iostream >
+<br>
+ &nbsp;&nbsp;&nbsp;    #include < conio.h >
+<br>
+&nbsp;&nbsp;&nbsp;     #include < stdlib.h >
+<br>
+ &nbsp;&nbsp;&nbsp;    #include < string >
+<br>
+<br>
+ &nbsp;&nbsp;&nbsp;    int main(int argc, char *argv[])
+<br>
+ &nbsp;&nbsp;&nbsp;    {
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         string UserName;
+<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        System("cls");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7"> //очистка экрана</font>
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         cout << "Hello World!!! \n\n" << "you name: ";
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7"> //вывод сообщения на экран</font>
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         cin >> UserName; << "you name: ";
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7"> //получаем данные ввобимые пользователем</font>
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         cout << "you name: " << UserName; << "you name: ";
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#B9FFB7"> //вывод результата на экран</font>
+<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         return 0;
+<br>
+&nbsp;&nbsp;&nbsp;     }
+
+</font>
+<div class="clear"></div>
+</div>
+
+
+<div class="block">
+<h2>Дополнительная информация:</h2>
+...
+<div class="clear"></div>
+</div>
+</div>
+
+<div id="right">
+
+<div class="block">
+	<b>Университет<br />University</b>
+	<br /><br /><a href="un_news.html">Новости / News</a>
+	<br /><br /><a href="un_quests.html">Задания / Quests</a>
+	<br /><br /><a href="un_soft.html">Программы / Soft</a>
+	<br /><br /><a href="un_students.html">Студенты / Students</a>
+	<br /><br /><a href="un_books.html">Книги / Books</a>
+	<br /><br /><a href="un_maps.html">Карта / Maps</a>
+	<br /><br /><a href="un_links.html">Ссылки / Links</a>
+	<br/><br/><br/><br/>
+	<b>Тестирование<br />Testing</b>
+	<br /><br /><a href="testing_video_lessons.html">Видео уроки / Video lessons</a>
+	<br /><br /><a href="testing_books.html">Книги / Books</a>
+	<br/><br/><br/><br/>
+	<b>Программирование<br />Programming</b>
+	<br /><br /><a href="pg_cpp.html">Programming language C++</a>
+	<br /><br /><a href="pg_csharp.html">Programming language C#</a>
+	<br /><br /><a href="pg_java.html">Programming language Java</a>
+	<br /><br /><a href="pg_js.html">Programming language JaveScript</a>
+	<br /><br /><a href="pg_as.html">Programming language ActiveScript</a>
+	<br /><br /><a href="pg_vb.html">Programming language VB .NET</a>
+	<br /><br /><a href="pg_php.html">Programming language PHP</a>
+	<br /><br /><a href="pg_asm.html">Programming language Assembler</a>
+	<br /><br /><a href="pg_pascal.html">Programming language Pascal</a>
+	<br /><br /><a href="pg_unity.html">Development with Unity3D</a>
+	<br /><br /><a href="pg_eclipse.html">Development with Eclipse</a>
+	<br/><br/>
+
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+<div id="footer">
+&copy; 2013 Developer: Somov Evgeniy &nbsp;<span class="separator">|</span>&nbsp; Design by <a href="http://www.realitysoftware.ca" title="Website Design">Reality Software</a> | <a href="http://free-templates.ru" title="Website Design">free-templates.ru</a>
+</div>
+
+</div>
+
+</body>
+</html>

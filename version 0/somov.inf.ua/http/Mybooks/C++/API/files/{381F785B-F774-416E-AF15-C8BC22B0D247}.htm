@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>main.cpp</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+ ;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #9d9da1;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #716f64;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #9d9da1;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #9d9da1;
+}
+span.rvts10
+{
+ font-weight: bold;
+}
+span.rvts11
+{
+ color: #008000;
+}
+span.rvts12
+{
+ color: #ff0000;
+}
+span.rvts13 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts14 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts15 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts16, span.rvts16 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<script type="text/javascript">if(top.frames.length == 0) { top.location.href="../BookAPIC++.htm?{381F785B-F774-416E-AF15-C8BC22B0D247}.htm"; }</script>
+<meta name="generator" content="HelpNDoc Free"></head>
+<body>
+
+<p class=rvps2><span class=rvts13>main.cpp</span></p>
+<p><span class=rvts11>#include &lt;windows.h&gt;</span></p>
+<p><span class=rvts11>#include "main.h"</span></p>
+<p><span class=rvts11>#define CM_FILE_OPEN 1001</span></p>
+<p><span class=rvts11>#define CM_FILE_SAVE 1002</span></p>
+<p><span class=rvts11>#define CM_FILE_QUIT 1003</span></p>
+<p><br></p>
+<p><br></p>
+<p>BOOL RegClass(WNDPROC, LPCTSTR, UINT);</p>
+<p>BOOL CreateMenuItem(HMENU, char, UINT, UINT, HMENU, BOOL, UINT);</p>
+<p>LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);</p>
+<p><br></p>
+<p>HINSTANCE hInstance;</p>
+<p><span class=rvts10>char</span> szClass[ ] = <span class=rvts12>"OpenSaveFile"</span>;</p>
+<p><span class=rvts10>char</span> szTitle[ ] = <span class=rvts12>"Открытие и Сохранение BMP файла."</span>;</p>
+<p><br></p>
+<p>HWND hwnd = NULL;</p>
+<p>HDC winDC,&nbsp; <span class=rvts11>//контекст окна</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;cwinDC, <span class=rvts11>//контекст в памяти (копия окна) - на нем будем рисовать всё</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;fonDC;&nbsp; <span class=rvts11>//контекст с фоновым рисунком</span></p>
+<p>HBITMAP bmpFon, <span class=rvts11>//хэндл для хранения картинки-фона</span></p>
+<p>&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;bmpMem, <span class=rvts11>//битмап, в котором будет храниться копия клиентской области</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bmpTemp; <span class=rvts11>//временный хэндл</span></p>
+<p><span class=rvts10>void</span> SaveBMP ();</p>
+<p><br></p>
+<p><br></p>
+<p>OPENFILENAME ofn;</p>
+<p>TCHAR szFile[20000]="";</p>
+<p>TCHAR szFileTitle[20000]="";</p>
+<p><span class=rvts10>void</span> OpenDialog(HWND);</p>
+<p><span class=rvts10>void</span> LoadFile(HWND);</p>
+<p><span class=rvts10>void</span> SaveFile(HWND);</p>
+<p><br></p>
+<p><br></p>
+<p><span class=rvts10>int</span> WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpszCmdLine, int nCmdShow)</p>
+<p>{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;MSG msg;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;hInstance = hInst;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>if</span>(!RegClass(WndProc, szClass, COLOR_WINDOW))</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return FALSE;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;hwnd = <span class=rvts10>CreateWindow</span>(szClass,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;szTitle,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WS_OVERLAPPEDWINDOW,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CW_USEDEFAULT,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CW_USEDEFAULT,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;800,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;600,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;hInstance,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NULL);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>if</span>(!hwnd) <span class=rvts10>return</span> FALSE;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>ShowWindow</span> (hwnd, SW_SHOW);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>UpdateWindow</span> (hwnd);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>while</span>(GetMessage(&amp;msg, 0, 0, 0)) DispatchMessage(&amp;msg);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>return</span> msg.wParam;</p>
+<p>}</p>
+<p><br></p>
+<p>BOOL RegClass(WNDPROC Proc, LPCTSTR szName, UINT brBackground)</p>
+<p>{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;WNDCLASS wc;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.style = CS_HREDRAW|CS_VREDRAW;</p>
+<p>&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;wc.cbClsExtra = 0;</p>
+<p>&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;wc.cbWndExtra = 0;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.lpfnWndProc = Proc;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.hInstance = hInstance;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.hCursor = LoadCursor(NULL, IDC_ARROW);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.hbrBackground = (HBRUSH)(brBackground);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.lpszMenuName = NULL;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.lpszClassName = szName;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>return</span> (RegisterClass(&amp;wc)!= 0);</p>
+<p>}</p>
+<p><span class=rvts11>//---------------------------------------------------------------------</span></p>
+<p>BOOL CreateMenuItem(HMENU hMenu, char *str, UINT uIns, UINT uCom, HMENU hSubMenu,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BOOL flag, UINT fType)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>static</span> MENUITEMINFO mii;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; mii.cbSize = sizeof(MENUITEMINFO);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; mii.fMask = MIIM_STATE | MIIM_TYPE | MIIM_SUBMENU | MIIM_ID;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; mii.fType = fType;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; mii.fState = MFS_ENABLED;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; mii.dwTypeData = str;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; mii.cch = sizeof(str);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; mii.wID = uCom;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; mii.hSubMenu = hSubMenu;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>return</span> InsertMenuItem(hMenu, uIns, flag, &amp;mii);</p>
+<p>}</p>
+<p>//---------------------------------------------------------------------</p>
+<p>LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp; <span class=rvts10>static</span> HMENU hMainMenu, hFileMenu;</p>
+<p>&nbsp;&nbsp;&nbsp; <span class=rvts10>static</span> PAINTSTRUCT paintStruct1;</p>
+<p>&nbsp;&nbsp;&nbsp; <span class=rvts10>switch</span>(msg)</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case WM_CREATE:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hMainMenu = CreateMenu();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>//Создаем временное меню для раздела "ФАЙЛ"</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hFileMenu = CreatePopupMenu();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i=0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateMenuItem(hFileMenu, "&amp;Открыть", i++, CM_FILE_OPEN,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NULL, FALSE, MFT_STRING);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateMenuItem(hFileMenu, "&amp;Сохранить", i++, CM_FILE_SAVE,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NULL, FALSE, MFT_STRING);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateMenuItem(hFileMenu, "", i++, 0,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NULL, FALSE, MFT_SEPARATOR);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CreateMenuItem(hFileMenu, "&amp;Выход", i++, CM_FILE_QUIT,</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NULL, FALSE, MFT_STRING);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>//Подключаем временные меню к главному меню</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>CreateMenuItem</span>(hMainMenu, "&amp;Файл", i++, 0, hFileMenu, FALSE, MFT_STRING);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>SetMenu</span>(hwnd, hMainMenu);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>DrawMenuBar</span>(hwnd);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //-------------------------------</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>case</span> WM_COMMAND:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>switch</span> (LOWORD(wParam))</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>case</span> CM_FILE_OPEN:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LoadFile(hwnd);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case CM_FILE_SAVE:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SaveFile(hwnd);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case CM_FILE_QUIT:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PostQuitMessage(0);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //-------------------------------</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>case</span> WM_LBUTTONUP:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; winDC = <span class=rvts10>BeginPaint</span> (hwnd, &amp;paintStruct1);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;StretchBlt (</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;winDC,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;800,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;600,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cwinDC,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;800,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;600,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SRCCOPY</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; );</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class=rvts10>Rectangle</span>(cwinDC,LOWORD(lParam),HIWORD(lParam),LOWORD(lParam)+100,LOWORD(lParam)+100); </p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class=rvts10>EndPaint</span> (hwnd, &amp;paintStruct1);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span class=rvts10>InvalidateRect</span> (hwnd, NULL, false);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //-------------------------------</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>case</span> WM_PAINT: {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Копирование на окно из прослойки в памяти (буфера)</span></p>
+<p><span class=rvts11> &nbsp; &nbsp; &nbsp; &nbsp;//Здесь используется структура для указания области обновления (для примера у нас она занимает весь фон)</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; winDC = BeginPaint (hwnd, &amp;paintStruct1);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StretchBlt (</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; winDC,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 800,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 600,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; cwinDC,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 800,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 600,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; SRCCOPY</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>EndPaint</span> (hwnd, &amp;paintStruct1);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //-------------------------------</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>case</span> WM_DESTROY:</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PostQuitMessage(0);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>return</span> 0;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>return</span> DefWindowProc(hwnd, msg, wParam, lParam);</p>
+<p>}</p>
+<p><span class=rvts11>//---------------------------------------------------------------------------</span></p>
+<p><br></p>
+<p><span class=rvts10>void</span> LoadFile(HWND hwn)</p>
+<p>{</p>
+<p> <span class=rvts10>static</span> PAINTSTRUCT paintStruct;</p>
+<p><br></p>
+<p> OpenDialog(hwn);</p>
+<p> <span class=rvts10>if</span>(GetOpenFileName(&amp;ofn))</p>
+<p>&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HDC tempDC = GetDC (hwnd); <span class=rvts11>//Захватываем контекст окна (чтобы создать всё что нужно для него)</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; cwinDC = CreateCompatibleDC (tempDC); <span class=rvts11>//Контекст-прослойка между ресурсными контекстами и окном</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; fonDC = CreateCompatibleDC (tempDC); <span class=rvts11>//ресурсный контекст для хранения нетронутого фона</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; <span class=rvts11>//Загружаем картинку</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; bmpFon = (HBITMAP)LoadImage (NULL, szFile, IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; <span class=rvts11>//Создаем пустой битмап для хранения всей картины (т.к. сам контекст это не хранит)</span></p>
+<p><span class=rvts11> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; //Именно в этом битмапе мы будем рисовать</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; bmpMem = CreateCompatibleBitmap (tempDC, 800, 600);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ReleaseDC (hwnd, tempDC); /<span class=rvts11>/Отпускаем контекст окна</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bmpTemp = (HBITMAP)SelectObject (fonDC, bmpFon); <span class=rvts11>//Прикручиваем битмап к контексту</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>if</span> (bmpTemp) DeleteObject (bmpTemp);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bmpTemp = (HBITMAP)SelectObject (cwinDC, bmpMem);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>if</span> (bmpTemp) DeleteObject (bmpTemp);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>//Обновляем загруженную картинку</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StretchBlt (cwinDC, 0, 0, 800, 600, fonDC, 0, 0, 800, 600, SRCCOPY);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; winDC = <span class=rvts10>BeginPaint</span> (hwnd, &amp;paintStruct);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>StretchBlt</span> (</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;winDC,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;800,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;600,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cwinDC,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;800,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;600,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SRCCOPY</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>EndPaint</span> (hwnd, &amp;paintStruct);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Посылаем сообщение WM_PAINT с о перерисовке.</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>InvalidateRect</span> (hwnd, NULL, false);</p>
+<p>&nbsp; }</p>
+<p> }</p>
+<p><span class=rvts11>//------------------------------------------------------------------------</span></p>
+<p><span class=rvts10>void</span> SaveFile(HWND hwn)</p>
+<p> {</p>
+<p> OpenDialog(hwn);</p>
+<p> <span class=rvts10>if</span>(GetSaveFileName(&amp;ofn))</p>
+<p>&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>strcat</span>(szFile, ".bmp");</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SaveBMP();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageBox(hwn, "Файл успешно сохранен", "Сообщение:", MB_OK);</p>
+<p><br></p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p><span class=rvts11>//-----------------------------------------------------------------------</span></p>
+<p>void OpenDialog(HWND hwnd1)</p>
+<p>{</p>
+<p> ZeroMemory(&amp;ofn, sizeof(ofn));</p>
+<p> ofn.lStructSize = sizeof(ofn);</p>
+<p> ofn.lpstrFile = szFile;</p>
+<p> ofn.lpstrFile[0] = '\0';</p>
+<p> ofn.lpstrFileTitle = szFileTitle;</p>
+<p> ofn.lpstrFileTitle[0] = '\0';</p>
+<p> ofn.hwndOwner = hwnd1;</p>
+<p> ofn.nMaxFile = sizeof(szFile);</p>
+<p> ofn.nMaxFileTitle = sizeof(szFileTitle);</p>
+<p> ofn.lpstrFilter =&nbsp; "Рисунок *.bmp\0*.bmp\0\0";</p>
+<p> ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_EXPLORER;</p>
+<p> ofn.nFilterIndex = 1;</p>
+<p> }</p>
+<p><span class=rvts11>//------------------------------------------------------------------------</span></p>
+<p>void SaveBMP () {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;BITMAPFILEHEADER bfh; <span class=rvts11>//структура с заголовком файла</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;BITMAPINFOHEADER bih; &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//структура с описанием формата картинки</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;BITMAPINFO bi; &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//описание формата для функции GetDIBits ()</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;void *pdwBits = NULL; <span class=rvts11>//указатель на буфер с будущим рисунком</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;DWORD dwWB = 0; <span class=rvts11>//переменная для хранения записанных байт в файл</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;HANDLE hFile = NULL; <span class=rvts11>//хэндл открытого файла</span></p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Создаем пустой буфер, в который потом скопируется картинка</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;pdwBits = (<span class=rvts10>void</span> *)GlobalAlloc (GMEM_FIXED, 800 * 600 * 4);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Обнуляем структуры</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;memset (&amp;bfh, 0, sizeof (BITMAPFILEHEADER));</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;memset (&amp;bih, 0, sizeof (BITMAPINFOHEADER));</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;memset (&amp;bi, 0, sizeof (BITMAPINFO));</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Заполняем заголовочную структуру</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bfh.bfType = 0x4D42;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>// Обозначим, что это bmp 'BM'</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bfh.bfOffBits = sizeof(bfh) + sizeof(bih);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bfh.bfSize = bfh.bfOffBits + 800 * 600 * 4;&nbsp;&nbsp; <span class=rvts11>// Посчитаем размер конечного файла</span></p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Заполняем описание картинки</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biSize = sizeof(bih);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>// Так положено</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biBitCount = 32;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>// 16 бит на пиксель</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biCompression = BI_RGB;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>// Без сжатия</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biHeight = 600;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biWidth = 800;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;bih.biPlanes = 1;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Копируем в структуру BITMAPINFO</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;CopyMemory (&amp;bi, &amp;bih, sizeof (BITMAPINFOHEADER));</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Получаем с помощью функции саму картинку из контекста в памяти</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;GetDIBits (cwinDC, bmpMem, 0, 600, pdwBits, (LPBITMAPINFO)&amp;bi, DIB_RGB_COLORS);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Создаем файл для записи</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;hFile = CreateFile (szFile,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GENERIC_WRITE,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NULL,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CREATE_ALWAYS,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FILE_ATTRIBUTE_NORMAL,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(HANDLE)NULL);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>if</span> (hFile == INVALID_HANDLE_VALUE) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (hwnd, "Ошибка при открытии файла");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Записываем структуру с заголовком файла</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>if</span> (!WriteFile (hFile, (void *)&amp;bfh, sizeof (BITMAPFILEHEADER), &amp;dwWB, NULL)) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (hwnd, "Ошибка при записи BITMAPFILEHEADER");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Записываем структуру с описанием формата картинки</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>if</span> (!WriteFile (hFile, (void *)&amp;bih, sizeof (BITMAPINFOHEADER), &amp;dwWB, NULL)) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (hwnd, "Ошибка при записи BITMAPINFOHEADER");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Записываем собсна саму картинку после двух предыдущих структур</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>if</span> (!WriteFile (hFile, (void *)pdwBits, 800 * 600 * 4, &amp;dwWB, NULL)) {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetWindowText (hwnd, "Ошибка при записи DIBits");</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>//Закрываем хэндл файла и очищаем буфер</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;CloseHandle (hFile);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>if</span> (pdwBits) GlobalFree (pdwBits);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts10>return</span>;</p>
+<p>}</p>
+<p><br></p>
+<p class=rvps3><span class=rvts14>Сомов Е.П. © 2012, Примеры программирования API функция на DevC++</span></p>
+<p class=rvps4><span class=rvts15>This help file has been generated by the freeware version of </span><a class=rvts16 href="http://www.ibe-software.com/products/software/helpndoc/" target="_blank">HelpNDoc</a></p>
+
+</body></html>

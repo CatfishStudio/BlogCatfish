@@ -1,0 +1,167 @@
+﻿@import url("body.css");
+
+#wrapper{ /*ОСНОВНОЙ БЛОК*/
+	position: relative;
+ 	margin: 0 auto; /*выравнивание по центру*/
+ 	min-height: 100%;
+ 	min-width: 1000px;
+ 	max-width: 1300px;
+}
+
+/*ШАПКА-------------------------------------*/
+#header{
+	height:108px; /*высота*/
+	margin-bottom:10px; /*отступ снизу*/
+	position: relative; /*относительно*/
+}
+
+#StudioName{
+	width: 290px;
+	height: 26px;
+	position:absolute;
+	left: 50px;
+	top: 90px;
+	background-image:url("../images/CatfishStudio.png");
+}
+
+#logo{
+	width: 229px;
+	height: 154px;
+	position:absolute;
+	left: 77%;
+	top: 20px;
+	background-image:url("../images/logo.png");
+}
+/*-----------------------------------------*/
+
+/*ГЛАВНОЕ МЕНЮ------------------------------*/
+#menu{
+	height:131px; /*высота*/
+	background-image:url("../images/panelMenu.jpg");
+	background-repeat:repeat-x;
+	border:1px solid #FFFFFF;
+	border-top-left-radius:50px;
+	border-top-right-radius:50px;
+	margin-bottom:10px; /*отступ снизу*/
+}
+
+#menu ul{
+	padding:60px 10px; /*отступы: сверху слева*/
+	margin-left:0;
+	font:normal 9pt Verdana, sans-serif;
+}
+
+#menu ul li{
+	list-style:none; /*отключение стиля списка*/
+	margin:0; /**/
+	display:inline; /*СПИСОК ГОРИЗОНТАЛЬНЫМ СТАНОВИТСЯ*/
+}
+
+#menu ul li a{
+	padding:10px 20px; /*высота и ширина кнопок меню*/
+	margin-left:3px;
+	text-decoration:none;
+	color:#FFFFFF;
+}
+
+#menu ul li a:hover{ /*при наведении курсора мыши*/
+	background-image:url("../images/buttonMenu.jpg");
+	background-repeat:repeat-x;
+	border:0px solid #FFFFFF;
+	border-top-right-radius:10px;
+	border-top-left-radius:10px;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px; 
+	color:#FF8000;
+}
+
+#menu ul li a:current{
+	background-color:#fff;
+	border-bottom:1px solid #fff;
+}
+
+/*ЛЕВАЯ СТОРОНА----------------------------*/
+#sidebarL{
+	border-left: 1px solid #FF8000;
+	margin-bottom:0px; /*отступ снизу*/
+	padding-left:5px;
+	width:200px; /*ширина*/
+	float: left; /*прижат влево и оптикает справо*/
+	min-height: 100%; /*минимальная ширина 100%*/
+ 	
+}
+/*-----------------------------------------*/
+
+/*ПРАВАЯ СТОРОНА---------------------------*/
+#sidebarR{
+	border-right: 1px solid #FF8000;
+	margin-bottom:0px; /*отступ снизу*/
+	width:200px; /*ширина*/
+	float: right; /*прижат в право и оптикает слува*/
+	min-height: 100%; /*минимальная ширина 100%*/
+ 	
+}
+/*-----------------------------------------*/
+
+/*КОНТЕНТ----------------------------------*/
+#content{
+	margin:0 205px 0px 205px; /*выравнивание и отступы*/
+	min-height: 100%; /*минимальная ширина 100%*/
+	border:2px solid #F9C46A;
+	border-radius: 10px;
+	padding:5px;
+}
+
+/*-----------------------------------------*/
+
+/*ПОДВАЛ-----------------------------------*/
+.clear {
+	clear: both; /*отменяем выравнивания*/
+}
+
+#footer{
+	height:131px; /*высота*/
+	background-image:url("../images/panelMenu.jpg");
+	background-repeat:repeat-x;
+	border-bottom-left-radius:50px;
+	border-bottom-right-radius:50px;
+
+	position: relative;
+	margin: 0 auto;	
+	min-width: 1000px;
+ 	max-width: 1300px;
+}
+
+#author{
+	position:absolute;
+	top: 55px;
+	left: 30%;
+	color:#FFFFFF;
+}
+/*-----------------------------------------*/
+
+/*ВСТРОЕННЫЕ КЛАССЫ*/
+
+.title{
+	color:#CF3822;
+	text-align:center;
+}
+
+.linkPanel a{
+	color:#000000;
+	text-decoration:none;
+}
+
+.linkPanel:hover a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.linkPanel:hover{
+	background-color:#F9C46A;
+	text-decoration:none;
+	color:#FFFFFF;
+	border:1px solid #F9C46A;
+	border-radius: 10px;
+	cursor:pointer;
+}

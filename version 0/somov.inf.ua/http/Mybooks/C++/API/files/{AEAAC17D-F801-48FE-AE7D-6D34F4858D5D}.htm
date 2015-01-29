@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>GDI Изображение</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+ ;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #9d9da1;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #716f64;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #9d9da1;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #9d9da1;
+}
+span.rvts10
+{
+ color: #008000;
+}
+span.rvts11
+{
+ font-weight: bold;
+}
+span.rvts12
+{
+ color: #ff0000;
+}
+span.rvts13 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts14 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts15 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts16, span.rvts16 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps3 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps4 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<script type="text/javascript">if(top.frames.length == 0) { top.location.href="../BookAPIC++.htm?{AEAAC17D-F801-48FE-AE7D-6D34F4858D5D}.htm"; }</script>
+<meta name="generator" content="HelpNDoc Free"></head>
+<body>
+
+<p class=rvps2><span class=rvts13>GDI Изображение</span></p>
+<p><img border=0 alt="" hspace=1 vspace=1 src="img_147.jpg"></p>
+<p><br></p>
+<p><span class=rvts10>#include &lt;windows.h&gt;</span></p>
+<p><br></p>
+<p>BOOL RegClass(WNDPROC, LPCTSTR, UINT);</p>
+<p>LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);</p>
+<p><br></p>
+<p>HINSTANCE hInstance;</p>
+<p><span class=rvts11>char</span> szClassName[ ] = "GraphClass";</p>
+<p><br></p>
+<p><span class=rvts11>int</span> WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpszCmdLine, int nCmdShow)</p>
+<p>{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;MSG msg;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;HWND hwnd;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;hInstance = hInst;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;if(!RegClass(WndProc, szClassName, COLOR_WINDOW))</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return FALSE;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;hwnd = CreateWindow(szClassName,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts12>"Изображение"</span>,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WS_OVERLAPPEDWINDOW | WS_VISIBLE,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CW_USEDEFAULT, &nbsp; &nbsp; &nbsp; &nbsp;CW_USEDEFAULT,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CW_USEDEFAULT, &nbsp; &nbsp; &nbsp; &nbsp;CW_USEDEFAULT,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0, 0, hInstance, NULL);</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>if</span>(!hwnd) <span class=rvts11>return</span> FALSE;</p>
+<p><br></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>while</span>(GetMessage(&amp;msg, 0, 0, 0)) DispatchMessage(&amp;msg);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>return</span> msg.wParam;</p>
+<p>}</p>
+<p><span class=rvts10>//-----------------------------------------------------------------</span></p>
+<p>BOOL RegClass(WNDPROC Proc, LPCTSTR szName, UINT brBackground)</p>
+<p>{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;WNDCLASS wc;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.style = CS_HREDRAW | CS_VREDRAW;</p>
+<p>&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;wc.cbClsExtra = 0;</p>
+<p>&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;wc.cbWndExtra = 0;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.lpfnWndProc = Proc;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.hInstance = hInstance;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.hCursor = LoadCursor(NULL, IDC_ARROW);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.hbrBackground = (HBRUSH)(brBackground + 1);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.lpszMenuName = (LPCTSTR) NULL;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;wc.lpszClassName = szName;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>return</span> (RegisterClass(&amp;wc)!= 0);</p>
+<p>}</p>
+<p><span class=rvts10>//------------------------------------------------------------------------</span></p>
+<p>LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)</p>
+<p>{</p>
+<p>&nbsp;&nbsp;&nbsp; <span class=rvts11>switch</span>(msg)</p>
+<p>&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>case</span> WM_CREATE:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>case</span> WM_PAINT:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PAINTSTRUCT ps;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HDC hdc = BeginPaint(hwnd, &amp;ps);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10> //Рисуем текст</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextOut(hdc,0,0,(LPSTR)"Изображение:",12);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Нарисовать точку</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetPixel(hdc,40,40, RGB(0xff,0,0));</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Рисуем прямоугольник</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rectangle(hdc,50,50,250,250);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Рисуем прямую линию</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MoveToEx(hdc,60,60,NULL);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LineTo(hdc,200,200);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Изменить цвет и ширины пера</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HPEN hPen1;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hPen1 = CreatePen(PS_SOLID,5,RGB(255,0,0));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SelectObject(hdc, hPen1);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10> //Рисуем прямоугольник с закругленными углами</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RoundRect(hdc,300,40,500,200,15,15);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10> //Удаляем перо</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DeleteObject(hPen1);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Изменить цвет ширины и стиль пера</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HPEN hPen2;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hPen2 = CreatePen(PS_DOT,1,RGB(0,0,0));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SelectObject(hdc, hPen2);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Рисуем треугольник</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; POINT pt[4] = {{100,400},{150,450},{50,450},{100,400}};</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Polyline(hdc,pt,4);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Удаляем перо</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DeleteObject(hPen1);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Изменить цвет ширины и стиль пера</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HPEN hPen3;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hPen3 = CreatePen(PS_SOLID,1,RGB(0,0,0));</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SelectObject(hdc, hPen3);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Рисование эллипса</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ellipse(hdc, 250, 300, 400,400);</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts10>//Закрашивание прямоугольной области окна.</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RECT lprc;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lprc.left = 500;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FillRect(hdc, &amp;lprc, (HBRUSH)(COLOR_DESKTOP+1));</p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EndPaint(hwnd, &amp;ps);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=rvts11>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p><span class=rvts11>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case</span> WM_DESTROY:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PostQuitMessage(0);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=rvts11>return</span> 0;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p><span class=rvts11>&nbsp;&nbsp;&nbsp; return</span> DefWindowProc(hwnd, msg, wParam, lParam);</p>
+<p>}</p>
+<p><br></p>
+<p class=rvps3><span class=rvts14>Сомов Е.П. © 2012, Примеры программирования API функция на DevC++</span></p>
+<p class=rvps4><span class=rvts15>This help file has been generated by the freeware version of </span><a class=rvts16 href="http://www.ibe-software.com/products/software/helpndoc/" target="_blank">HelpNDoc</a></p>
+
+</body></html>

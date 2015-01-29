@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Массивы.</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+ ;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #9d9da1;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #716f64;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #9d9da1;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #9d9da1;
+}
+span.rvts10
+{
+ font-size: 8pt;
+}
+span.rvts11
+{
+ font-size: 12pt;
+}
+span.rvts12
+{
+ font-weight: bold;
+}
+span.rvts13
+{
+}
+span.rvts14
+{
+ font-weight: bold;
+ text-decoration: underline;
+}
+span.rvts15
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts16
+{
+ color: #0000ff;
+}
+span.rvts17
+{
+ font-size: 14pt;
+ font-weight: bold;
+}
+span.rvts18 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts19 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts20 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts21, span.rvts21 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2
+{
+ text-align: center;
+ line-height: 1.15;
+}
+.rvps3
+{
+ text-indent: 47px;
+ line-height: 1.15;
+}
+.rvps4
+{
+ line-height: 1.15;
+}
+.rvps5 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps6 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps7 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<script type="text/javascript">if(top.frames.length == 0) { top.location.href="../BookC++.htm?{E31DFF0E-9303-4AAD-989E-4360D4388816}.htm"; }</script>
+<meta name="generator" content="HelpNDoc Free"></head>
+<body>
+
+<p class=rvps5><span class=rvts18>Массивы.</span></p>
+<p class=rvps2><span class=rvts17>Массивы.</span></p>
+<p class=rvps3><span class=rvts11>Массив представляет собой структуру данных, позволяющую хранить под одним именем совокупность данных любого, но только одного какого-то типа.</span></p>
+<p class=rvps4><span class=rvts10><br></span></p>
+<p class=rvps4><span class=rvts14>Одномерный массив</span></p>
+<p class=rvps4><span class=rvts13>Объявление переменной как одномерный массив имеет вид:</span></p>
+<p class=rvps4><span class=rvts12> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>&lt;тип&gt;&nbsp; &lt;имя_переменной&gt;&nbsp; [контрольное_ выражение]</span></p>
+<p class=rvps4><span class=rvts13>Например:</span></p>
+<p class=rvps4><span class=rvts13> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>int</span><span class=rvts16>&nbsp; A[10];</span></p>
+<p class=rvps4><span class=rvts16> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>int</span><span class=rvts16>&nbsp; B[10] = {1,2,3,4,5,6,7,8,9,10};</span></p>
+<p class=rvps4><span class=rvts16> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>char</span><span class=rvts16>&nbsp; text[256];</span></p>
+<p class=rvps4><span class=rvts16> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>char</span><span class=rvts16>&nbsp; S[10] = {“abcdefghi\0”};</span></p>
+<p class=rvps4><span class=rvts13>При объявлении переменной как массив её размер можно не указывать, в этом случае размер массива будет равен количеству элементов в списке начальных значений.</span></p>
+<p class=rvps4><span class=rvts13>Например:</span></p>
+<p class=rvps4><span class=rvts13> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>int</span><span class=rvts16> A[ ] = {1,2,3,4,5};</span></p>
+<p class=rvps4><span class=rvts16> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>char</span><span class=rvts16> S[ ] = {“abc”};</span></p>
+<p class=rvps4><span class=rvts13><br></span></p>
+<p class=rvps4><span class=rvts14>Многомерный массив</span></p>
+<p class=rvps4><span class=rvts13>Имеет все те же свойства что и одномерный но объявляется иначе:</span></p>
+<p class=rvps4><span class=rvts12> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>&lt; тип &gt;&nbsp; &lt; имя_переменной &gt; [размер] [размер] [размер];</span></p>
+<p class=rvps4><span class=rvts16>Например:</span></p>
+<p class=rvps4><span class=rvts13> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>int</span><span class=rvts16> A2[10] [3];</span></p>
+<p class=rvps4><span class=rvts16> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts15>int</span><span class=rvts16> A3[4] [3] [2];</span></p>
+<p class=rvps4><span class=rvts13><br></span></p>
+<p class=rvps4><span class=rvts13>Определить число элементов массива можно функцией&nbsp; </span><span class=rvts15>sizeof(&lt; имя_массива &gt;);</span></p>
+<p class=rvps6><span class=rvts19>Сомов Е.П. © 2012, Краткий справочник по C++</span></p>
+<p class=rvps7><span class=rvts20>This help file has been generated by the freeware version of </span><a class=rvts21 href="http://www.ibe-software.com/products/software/helpndoc/" target="_blank">HelpNDoc</a></p>
+
+</body></html>

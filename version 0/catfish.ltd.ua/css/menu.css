@@ -1,0 +1,166 @@
+﻿#sidebarLTitle{
+	width:187px;
+	height:30px;
+	background-color:#F9C46A;
+	border:2px solid #F9C46A;
+	border-radius:0px 0px 0px 10px;
+	text-align:center;
+	color:#FFFFFF;
+}
+/*------------------------------------------------------*/
+#Block01{
+	width:190px;
+	height:30px;
+	background-color:#FFFFFF;
+	border-style:solid;
+	border-color:#F9C46A;
+	border-right-width:1px;
+	border-radius:0px 0px 0px 0px;
+	text-align:right;
+	color:#000000;
+}
+
+#Block01:hover{	/*при навидении на блок*/
+	cursor:pointer;
+	text-align:center;
+}
+
+#Block01:hover div{	/*при наведении на блок отображается внутренний блок*/
+	position:absolute;
+	height:550px;
+	width:500px;
+	cursor:default;
+	background-color:#FDE6B9;
+	border:2px solid #F9C46A;
+	border-radius:10px;
+	visibility:visible;
+	margin-left:150px;
+	padding:5px;
+	z-index:500;
+}
+
+#Block01 div{		/*исходные настройки внутреннего блока*/
+	height:500px;
+	width:500px;
+	background-color:#FDE6B9;
+	visibility:hidden;
+}
+/*------------------------------------------------------*/
+#Block02{
+	width:190px;
+	height:30px;
+	background-color:#FFFFFF;
+	border-style:solid;
+	border-color:#F9C46A;
+	border-right-width:1px;
+	
+	border-radius:0px 0px 0px 0px;
+	text-align:right;
+	color:#000000;
+}
+
+#Block02:hover{	/*при навидении на блок*/
+	cursor:pointer;
+	text-align:center;
+}
+
+#Block02:hover div{	/*при наведении на блок отображается внутренний блок*/
+	position:absolute;
+	height:600px;
+	width:500px;
+	cursor:default;
+	background-color:#FDE6B9;
+	border:2px solid #F9C46A;
+	border-radius:10px;
+	visibility:visible;
+	margin-left:150px;
+	padding:5px;
+	z-index:500;
+}
+
+#Block02 div{		/*исходные настройки внутреннего блока*/
+	height:500px;
+	width:500px;
+	background-color:#FDE6B9;
+	visibility:hidden;
+}
+/*----------------------------------------------------*/
+#Block03{
+	width:190px;
+	height:30px;
+	background-color:#FFFFFF;
+	border-style:solid;
+	border-color:#F9C46A;
+	border-right-width:1px;
+	
+	border-radius:0px 0px 0px 0px;
+	text-align:right;
+	color:#000000;
+}
+
+#Block03:hover{	/*при навидении на блок*/
+	cursor:pointer;
+	text-align:center;
+}
+
+#Block03:hover div{	/*при наведении на блок отображается внутренний блок*/
+	position:absolute;
+	height:500px;
+	width:500px;
+	cursor:default;
+	background-color:#FDE6B9;
+	border:2px solid #F9C46A;
+	border-radius:10px;
+	visibility:visible;
+	margin-left:150px;
+	padding:5px;
+	z-index:500;
+}
+
+#Block03 div{		/*исходные настройки внутреннего блока*/
+	height:500px;
+	width:500px;
+	background-color:#FDE6B9;
+	visibility:hidden;
+}
+/*----------------------------------------------------------*/
+#Block04{
+	width:190px;
+	height:30px;
+	background-color:#FFFFFF;
+	border-style:solid;
+	border-color:#F9C46A;
+	border-right-width:1px;
+	border-bottom:1px dashed #F9C46A;
+	
+	border-radius:0px 0px 0px 0px;
+	text-align:right;
+	color:#000000;
+}
+
+#Block04:hover{	/*при навидении на блок*/
+	cursor:pointer;
+	text-align:center;
+}
+
+#Block04:hover div{	/*при наведении на блок отображается внутренний блок*/
+	position:absolute;
+	height:500px;
+	width:500px;
+	cursor:default;
+	background-color:#FDE6B9;
+	border:2px solid #F9C46A;
+	border-radius:10px;
+	visibility:visible;
+	margin-left:150px;
+	padding:5px;
+	z-index:500;
+}
+
+#Block04 div{		/*исходные настройки внутреннего блока*/
+	height:500px;
+	width:500px;
+	background-color:#FDE6B9;
+	visibility:hidden;
+}
+/*-----------------------------------------------------------------------*/

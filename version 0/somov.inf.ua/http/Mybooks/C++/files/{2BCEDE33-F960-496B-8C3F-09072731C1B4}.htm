@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Операции и Указатели.</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffff;
+}
+/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+ ;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6 /* Font Hint */
+{
+ color: #9d9da1;
+}
+span.rvts7 /* Font Hint Title */
+{
+ font-size: 15pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #716f64;
+}
+span.rvts8 /* Font Hint Bold */
+{
+ font-weight: bold;
+ color: #9d9da1;
+}
+span.rvts9 /* Font Hint Italic */
+{
+ font-style: italic;
+ color: #9d9da1;
+}
+span.rvts10
+{
+ font-size: 8pt;
+}
+span.rvts11
+{
+ font-size: 8pt;
+ font-weight: bold;
+}
+span.rvts12
+{
+ font-size: 8pt;
+ font-style: italic;
+}
+span.rvts13
+{
+ font-size: 8pt;
+}
+span.rvts14
+{
+ font-size: 12pt;
+}
+span.rvts15
+{
+ font-weight: bold;
+}
+span.rvts16
+{
+}
+span.rvts17
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts18
+{
+ color: #0000ff;
+}
+span.rvts19
+{
+ font-weight: bold;
+ color: #008000;
+}
+span.rvts20
+{
+ color: #008000;
+}
+span.rvts21
+{
+ font-size: 14pt;
+ font-weight: bold;
+}
+span.rvts22 /* Font Style */
+{
+ font-size: 16pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #ffffff;
+}
+span.rvts23 /* Font Style */
+{
+ font-family: 'MS Sans Serif', 'Geneva', sans-serif;
+ color: #808080;
+}
+span.rvts24 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts25, span.rvts25 /* Font Style */
+{
+ font-family: 'Verdana', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2
+{
+ text-align: center;
+ line-height: 1.15;
+}
+.rvps3
+{
+ line-height: 1.15;
+}
+.rvps4
+{
+ text-align: right;
+ line-height: 1.15;
+}
+.rvps5 /* Paragraph Style */
+{
+ background: #9fbed0;
+ margin: 0px 0px 20px 0px;
+}
+.rvps6 /* Paragraph Style */
+{
+ text-align: center;
+ background: #e4e4e4;
+ margin: 20px 0px 0px 0px;
+}
+.rvps7 /* Paragraph Style */
+{
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-bottom: none;
+ border-left: none;
+ background: #ffffff;
+ padding: 3px 0px 0px 0px;
+ margin: 27px 0px 0px 0px;
+}
+--></style>
+<script type="text/javascript">if(top.frames.length == 0) { top.location.href="../BookC++.htm?{2BCEDE33-F960-496B-8C3F-09072731C1B4}.htm"; }</script>
+<meta name="generator" content="HelpNDoc Free"></head>
+<body>
+
+<p class=rvps5><span class=rvts22>Операции и Указатели.</span></p>
+<p class=rvps2><span class=rvts21>Операции и Указатели.</span></p>
+<p class=rvps3><span class=rvts14> &nbsp; &nbsp; &nbsp; &nbsp;Указатель * - это переменная, значение которой равно значению адреса памяти, по которому лежит значение некоторой другой переменной.</span></p>
+<p class=rvps3><span class=rvts14>Объявление указателя имеет вид:</span></p>
+<p class=rvps3><span class=rvts10> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts17>&lt; тип &gt;&nbsp; </span><span class=rvts18>*</span><span class=rvts17>&lt; имя_переменной &gt;;</span></p>
+<p class=rvps3><span class=rvts16>Например:</span></p>
+<p class=rvps3><span class=rvts16> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts17>int</span><span class=rvts18>&nbsp; *sum;</span></p>
+<p class=rvps3><span class=rvts18> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts17>char</span><span class=rvts18>&nbsp; *text[256];</span></p>
+<p class=rvps3><span class=rvts16><br></span></p>
+<p class=rvps3><span class=rvts16>Для присвоения указателю адреса некоторой переменной используется оператор адресации&nbsp; </span><span class=rvts15>&amp;</span><span class=rvts16>&nbsp; который возвращает адрес своего операнда.</span></p>
+<p class=rvps3><span class=rvts16>Например:</span></p>
+<p class=rvps3><span class=rvts16> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts17>int</span><span class=rvts18> y = 5;</span></p>
+<p class=rvps3><span class=rvts18> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class=rvts17>int</span><span class=rvts18>&nbsp; *yPtr, x;</span></p>
+<p class=rvps3><span class=rvts18> &nbsp; &nbsp; &nbsp; &nbsp;в таком случае</span></p>
+<p class=rvps3><span class=rvts18> &nbsp; &nbsp; &nbsp; &nbsp;yPtr = &amp;y;</span><span class=rvts20> // присваивает адрес переменной </span><span class=rvts19>y</span><span class=rvts20> указателю </span><span class=rvts19>yPtr</span></p>
+<p class=rvps3><span class=rvts18> &nbsp; &nbsp; &nbsp; &nbsp;x = *yPtr; </span><span class=rvts20> // присвоит переменной </span><span class=rvts19>y</span><span class=rvts20> значение на которую указывает </span><span class=rvts19>yPtr</span></p>
+<p class=rvps4><span class=rvts10>Таблица операций.</span></p>
+<div><table border=1 cellpadding=0 cellspacing=-1 style="border-width: 0px; border-collapse: collapse;">
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts12>Операция</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts12>Описание</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts12>Пример</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=624 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>АРИФМЕТИЧЕСКИЕ ОПЕРАЦИИ.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>+</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Сложение</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X + Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>-</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Вычитание</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X </span><span class=rvts13>&#8211;</span><span class=rvts10> Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>*</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Умножение</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X * Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>/</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Деление</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X / Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>%</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Остаток целочисленного деления</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>1 % 6</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=624 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>УНАРНЫЕ АРИФМЕТИЧЕСКИЕ ОПЕРАЦИИ.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>+</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Унарный плюс</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>+7</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>-</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Унарный минус</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>- Х </span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>++</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Инкремент (увеличивает значение переменной на 1-цу)</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>i++&nbsp; или&nbsp; ++i</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>--</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Декремент (уменьшает значение переменной на 1-цу)</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>i--&nbsp; или&nbsp; --i</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=624 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>ОПЕРАЦИИ ПРИСВАИВАНИЯ.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присвоить значение</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X = Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>+=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присвоение со сложением</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X += Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>-=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присвоение с вычитанием</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X -= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>*=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присвоение с умножением</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X *= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>/=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присвоение с делением</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X /= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>%=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присваивание остатка целочисленного деления</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X %= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>&lt;&lt;=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присваивание со сдвигом влево</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &lt;&lt;= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>&gt;&gt;=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присваивание со сдвигом вправо</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &gt;&gt;= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>&amp;=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присваивание с поразрядной операцией И</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &amp;= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>^=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присваивание с поразрядной операцией исключения.</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X ^= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>|=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Присваивание с поразрядной операции ИЛИ</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X |= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>assign</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Метод копирования</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>A -&gt; Assign(B);</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=624 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>ОПЕРАЦИИ ОТНОШЕНИЯ И ЭКВИВАЛЕНТНОСТИ.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>==</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Равно</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>I == Max</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>!=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Не равно</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X != Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>&lt;</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Меньше чем</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &lt; Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>&gt;</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Больше чем</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &gt; Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>&lt;=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Меньше или равно</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &lt;= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts11>&gt;=</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Больше или равно</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &gt;= Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=624 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>ЛОГИЧЕСКИЕ ОПЕРАЦИИ.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>!</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Отрицание</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>!A</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>&amp;&amp;</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Логическое И</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>A &amp;&amp; B</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>||</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Логическое ИЛИ</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>A || B</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td colspan=3 width=624 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>ПОРАЗРЯДНЫЕ ЛОГИЧЕСКИЕ ОПЕРАЦИИ.</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>~</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Поразрядное отрицание</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>~X</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>&amp;</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Поразрядное И</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &amp; Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>|</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Поразрядное ИЛИ</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X | Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>^</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Поразрядное исключающее ИЛИ</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X ^ Y</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>&lt;&lt;</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Поразрядный сдвиг влево</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>X &lt;&lt; 2</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>&gt;&gt;</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Поразрядный сдвиг вправо</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Y &gt;&gt; 1</span></p>
+</td>
+</tr>
+<tr valign=top>
+<td width=78 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps2><span class=rvts10>?:</span></p>
+</td>
+<td width=319 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>Условная операция</span></p>
+</td>
+<td width=199 valign=top style="border-width : 1px; border-color: #000000; border-style: solid;">
+<p class=rvps3><span class=rvts10>&lt;условие&gt; </span><span class=rvts11>?</span><span class=rvts10> &lt;выражение_1&gt; </span><span class=rvts11>:</span><span class=rvts10>&nbsp; &lt; выражение_2 &gt;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class=rvps2><span class=rvts11><br></span></p>
+<p class=rvps6><span class=rvts23>Сомов Е.П. © 2012, Краткий справочник по C++</span></p>
+<p class=rvps7><span class=rvts24>This help file has been generated by the freeware version of </span><a class=rvts25 href="http://www.ibe-software.com/products/software/helpndoc/" target="_blank">HelpNDoc</a></p>
+
+</body></html>
