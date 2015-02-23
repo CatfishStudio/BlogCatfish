@@ -22,10 +22,9 @@ textarea { overflow:hidden; }
 .left, .alignleft { float: left; display: inline; }
 .right, .alignright { float: right; display: inline; }
 
-#header { height: 119px; border-bottom: 1px solid #c8c8c8; position: relative; }
+#header { height: 119px; position: relative; }
 #logo { float: left; padding: 10px 0 0 20px; }
 #navigation { 
-	border-bottom: 1px solid #c8c8c8;
 	background-color: #ffffff;
     height: 90px;
     padding: 0 0 0 20px;
@@ -43,13 +42,10 @@ textarea { overflow:hidden; }
 #navigation ul li a.active { font-weight: bold; }
 
 .slider-holder { 
-	/* width: 1500px; */
-	/* width: 980px; */
 	height: 311px; 
 	position: relative; 
 	border-bottom: 1px solid #c8c8c8; 
-	margin: 95px 0 24px 0; 
-	/* left: -300px; */
+	margin: 90px 0 24px 0; 
 }
 
 #main { padding: 0 0 48px 0; }
