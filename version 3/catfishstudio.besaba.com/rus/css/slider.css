@@ -17,10 +17,13 @@
 }
 
 .bgCrystal2{ background-image: url("../images/game_background_crystal2.jpg");} 
-
+.bgBattleship2d{ background-image: url("../images/game_background_battleship.jpg");} 
+.bgTickTackToe{ background-image: url("../images/game_background_Tick_Tack_Toe.jpg");} 
+.bgCrystal{ background-image: url("../images/game_background_crystal.jpg");} 
+.bgBattleship3d{ background-image: url("../images/game_background_battleship3d.jpg");} 
+.bgPiratesOfTheCaribbean{ background-image: url("../images/game_background_PiratesOfTheCaribbean.jpg");}
 
 /* СЛАЙДЫ */
-
 #info{
 	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1);
     margin: 0;
