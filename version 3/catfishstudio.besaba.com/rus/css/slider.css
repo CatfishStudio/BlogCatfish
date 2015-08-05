@@ -16,6 +16,7 @@
     background-size: auto auto, auto auto, auto auto, cover;
 }
 
+.bgMKQuest{ background-image: url("../images/game_background_mkquest.jpg");} 
 .bgCrystal2{ background-image: url("../images/game_background_crystal2.jpg");} 
 .bgBattleship2d{ background-image: url("../images/game_background_battleship.jpg");} 
 .bgTickTackToe{ background-image: url("../images/game_background_Tick_Tack_Toe.jpg");} 
