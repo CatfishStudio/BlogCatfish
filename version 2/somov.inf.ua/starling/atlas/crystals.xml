@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="crystals.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="crystal_1_50_50.png"	x="100"	y="0"	width="49"	height="49" frameX="-0" frameY="-0" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="crystal_2_50_50.png"	x="150"	y="0"	width="49"	height="49" frameX="-0" frameY="-0" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="crystal_3_50_50.png"	x="200"	y="0"	width="49"	height="49" frameX="-0" frameY="-0" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="crystal_4_50_50.png"	x="50"	y="0"	width="49"	height="49" frameX="-0" frameY="-0" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="crystal_5_50_50.png"	x="0"	y="0"	width="49"	height="49" frameX="-0" frameY="-0" frameWidth="50" frameHeight="50"/>
+</TextureAtlas>
